@@ -1,6 +1,6 @@
 
 document.addEventListener('DOMContentLoaded', () => {
-  fetch('noticias.json')
+  fetch('http://localhost:3000/noticias')
     .then(response => response.json())
     .then(noticias => {
       const container = document.getElementById('noticias-grid');
