@@ -1,0 +1,208 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #e7f5e9;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #0a1a37;
+    width: 100%;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 8px solid #42e619;
+    position: relative;
+
+}
+
+.logo img {
+    width: 250px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.pages {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex: 1;
+    margin: 0;
+    padding: 0;
+}
+
+.pages li a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1.8rem;
+    padding: 10px 10px;
+    transition: all 0.3s ease;
+}
+
+.pages li a:hover {
+    background-color: #42e619;
+    border-radius: 5px;
+}
+/*Fim da navbar*/
+
+/*Icone de menu aparecendo em versão mobile*/
+.fas.fa-bars {
+    display: none;
+    font-size: 2.3rem;
+    color: white;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .pages {
+        display: none;
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        left: 0;
+        background-color: #0a1a37;
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 0;
+        z-index: 999;
+    }
+
+
+    .pages.show {
+        display: flex;
+    }
+
+    .fas.fa-bars {
+        display: block;
+    }
+
+    .espaco {
+        display: none;
+    }
+}
+
+/*Espaço na direita pra deixar os links no centro, não sei fazer isso sem bootstrap ou gambiarra*/
+.espaco {
+    width: 250px;
+}
+
+/* Container principal de notícias */
+.noticias-container {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.noticias-container h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.8rem;
+    color: #0a1a37;
+}
+
+/* Grid de cards */
+.grid-noticias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+/* Estilo dos cards */
+.card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card h2 {
+    padding: 16px;
+    font-size: 1.4rem;
+    color: #0a1a37;
+    border-top: 4px solid #42e619;
+}
+/* Estilos do Modal */
+.modal {
+    display: none;
+    position: fixed; /* Fixa o modal na tela */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro para destacar o modal */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Garante que o modal fique acima de outros elementos */
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    max-width: 800px;
+    width: 80%;
+    border-radius: 8px;
+    position: relative;
+}
+
+.modal img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #333;
+}
+
+.close:hover {
+    color: #ff0000;
+}
+
+
+.like-button {
+  background-color: #ff3366;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+}
+
+.like-button:hover {
+  background-color: #e62e5c;
+}
+
+.like-button .like-count {
+  margin-left: 5px;
+}
