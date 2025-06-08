@@ -92,7 +92,6 @@ function adicionarSubtitulo() {
   grupo.appendChild(inputImg);
   divBtn.appendChild(novoBtn);
   grupo.appendChild(divBtn);
-
   bloco.appendChild(grupo);
 }
 
@@ -270,13 +269,4 @@ function EnviarComentario() {
     });
 }
 
-/* Função de troca de imagem */
-function trocarImagem() {
-  const imagem = document.getElementById("imgFavoritar");
-  if (imagem.src.includes("/img/img-educacao/coracao-png.png")) {
-    imagem.src = "/img/img-educacao/coracao-vermelho.png"
-  } else {
-    imagem.src = "/img/img-educacao/coracao-png.png"
-  }
-}
 
