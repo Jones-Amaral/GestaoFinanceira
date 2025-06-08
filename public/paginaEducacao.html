@@ -12,21 +12,30 @@
 
 <body>
     <header>
-        <a href="paginaEducacao.html"><img src="/img/header/logo.png" id="logo-header" class="logo-img"
-                alt="Logo +Grana"></a>
-        <a href="#" id="hamburguerMenu"><img src="/img/header/hamburguer.png" alt="Icone Menu"
-                class="icone-hamburguer"></a>
-        <nav id="menuHeader">
-            <ul>
-                <li><a href="/public/homepage.html">Página Inicial</a></li>
-                <li><a href="#">Noticias</a></li>
-                <li><a href="paginaEducacao.html">Educação</a></li>
-                <li><a href="investimentos.html">Investimento</a></li>
-            </ul>
-        </nav>
-        <a href="#"><img src="img/header/user.png" id="user-header" class="user-img" alt="Icone User"></a>
         <a href="adicao-dados.html"><img src="/img/header/adicionar.png" class="icone-Adicionar"
                 alt="Icone Adicionar Noticia"></a>
+        <a href="#" id="hamburguerMenu"><img src="/img/header/hamburguer.png" alt="Icone Menu"
+                class="icone-hamburguer"></a>
+        <div class="navbar" id="navbar">
+            <div class="logo">
+                <a href="homepage.html">
+                    <img src="/img/imgs-bernardo/logomelhorada.png" alt="logo" id="logo">
+                </a>
+            </div>
+
+            <div class="links" id="links">
+                <ul class="pages">
+                    <li class="home"><a href="homepage.html">Home</a></li>
+                    <li class="noticias"><a href="notícias.html">Notícias</a></li>
+                    <li class="educacao"><a href="paginaEducacao.html">Educação</a></li>
+                    <li class="investimentos"><a href="investimentos.html">Investimentos</a></li>
+                </ul>
+            </div>
+
+            <i class="fas fa-bars" onclick="toggleMenu()"></i>
+
+            <div class="espaco"></div>
+        </div>
     </header>
 
     <main>
@@ -45,7 +54,7 @@
                             alt="Planilha">Planilha</a></li>
                 <li class="borda"><a href="#"><img class="imgHamburguer" src="/img/hamburguer/chat.png"
                             alt="Converse Conosco">Converse Conosco</a></li>
-                <li><a href="#"><img class="imgHamburguer" src="/img/hamburguer/like.png" alt="Favoritos">Favoritos</a>
+                <li><a href="curtidas.html"><img class="imgHamburguer" src="/img/hamburguer/like.png" alt="Favoritos">Favoritos</a>
                 </li>
             </ul>
         </div>

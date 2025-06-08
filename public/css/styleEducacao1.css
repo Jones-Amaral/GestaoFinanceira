@@ -8,20 +8,48 @@ body {
 }
 
 /* Header */
-header {
-    background-color: #0a1a37;
-    border-bottom: 3px solid #3df00c;
-    height: 80px;
+.navbar {
+    background-color: #e7f5e9;
     width: 100%;
+    padding: 10px 15px;
+    box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: fixed;
+    border-bottom: 8px solid #42e619;
+    position: relative;
+
 }
 
-.logo-img {
-    height: 80px;
-    margin-left: 20px;
+.logo img {
+    width: 250px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.pages {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex: 1;
+    margin: 0;
+    padding: 0;
+}
+
+.pages li a {
+    display: block;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 1.8rem;
+    padding: 10px 10px;
+    transition: all 0.3s ease;
+}
+
+.pages li a:hover {
+    background-color: #42e619;
+    border-radius: 5px;
 }
 
 .icone-Adicionar {
@@ -29,23 +57,6 @@ header {
     position: fixed;
     top: 23px;
     left: 220px;
-}
-
-.user-img {
-    height: 50px;
-    margin-right: 20px;
-}
-
-header ul li {
-    font-size: 25px;
-    display: inline;
-    padding-left: 40px;
-    text-decoration-style: none;
-}
-
-header ul li a {
-    color: #e7f5e9;
-    text-decoration: none;
 }
 
 /* Fim - Header */

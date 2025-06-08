@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Notícias</title>
+    <link href="style.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+    <script crossorigin="anonymous" src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header>
+        <div class="navbar" id="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <img alt="logo" id="logo" src="/imagens/logo.png" />
+                </a>
+            </div>
+            <div class="links" id="links">
+                <ul class="pages">
+                    <li class="home"><a href="index.html">Home</a></li>
+                    <li class="noticias"><a href="#">Notícias</a></li>
+                    <li class="educacao"><a href="#">Educação</a></li>
+                    <li class="investimentos"><a href="#">Investimentos</a></li>
+                    <li class="curtidas"><a href="curtidas.html">Mais Curtidas</a></li>
+                </ul>
+            </div>
+            <i class="fas fa-bars" onclick="toggleMenu()"></i>
+            <div class="espaco"></div>
+        </div>
+    </header>
+    <!-- Conteúdo de notícias -->
+    <main class="noticias-container">
+        <h1>Últimas Notícias</h1>
+        <section class="grid-noticias" id="noticias-grid">
+            <!-- Os cards serão carregados via JS -->
+        </section>
+    </main>
+    <!-- Modal para mostrar notícia completa -->
+    <div class="modal" id="modal" style="display: none;">
+        <div class="modal-content">
+            <span id="closeModal">×</span>
+            <h2 id="modalTitulo"></h2>
+            <img alt="" id="modalImagem" src="" />
+            <p id="modalConteudo"></p>
+        </div>
+    </div>
+    <!-- Script para carregar JSON -->
+    <script src="script.js"></script>
+</body>
+
+</html>

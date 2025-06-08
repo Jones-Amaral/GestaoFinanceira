@@ -1,0 +1,44 @@
+[
+  {
+    "titulo": "Economia cresce no primeiro trimestre",
+    "imagem": "noticia.png",
+    "resumo": "PIB sobe 2,5% puxado por serviços.",
+    "conteudo": "O PIB brasileiro teve um crescimento de 2,5% no primeiro trimestre, impulsionado pelo setor de serviços...",
+    "id": 1
+  },
+  {
+    "titulo": "Novo programa educacional é lançado",
+    "imagem": "noticia.png",
+    "resumo": "Programa para capacitar professores em tecnologia.",
+    "conteudo": "O governo lançou um programa para capacitação de professores em tecnologia e inovação...",
+    "id": 2
+  },
+  {
+    "titulo": "Investimentos em startups batem recorde",
+    "imagem": "noticia.png",
+    "resumo": "Startups recebem R$ 1,2 bi em abril.",
+    "conteudo": "Startups brasileiras receberam R$ 1,2 bilhão em investimentos no mês de abril, maior valor desde 2022...",
+    "id": 3
+  },
+  {
+    "titulo": "Campanha de vacinação atinge 90% do público-alvo",
+    "imagem": "noticia.png",
+    "resumo": "Vacinação contra gripe supera expectativas.",
+    "conteudo": "A campanha nacional de vacinação contra a gripe alcançou 90% da meta em menos de um mês...",
+    "id": 4
+  },
+  {
+    "titulo": "Feira de Ciências movimenta escolas públicas",
+    "imagem": "noticia.png",
+    "resumo": "Estudantes apresentam projetos inovadores.",
+    "conteudo": "Alunos do ensino médio apresentaram projetos científicos inovadores em evento regional...",
+    "id": 5
+  },
+  {
+    "titulo": "Mercado financeiro reage a mudanças fiscais",
+    "imagem": "noticia.png",
+    "resumo": "Volatilidade nos mercados, mas há otimismo.",
+    "conteudo": "As recentes mudanças na política fiscal causaram volatilidade no mercado, mas especialistas veem melhora no médio prazo...",
+    "id": 6
+  }
+]
