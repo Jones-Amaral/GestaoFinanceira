@@ -53,10 +53,11 @@ body {
 }
 
 .icone-Adicionar {
-    width: 35px;
+    width: 80px;
     position: fixed;
-    top: 23px;
-    left: 220px;
+    top: 25px;
+right: 50px;
+    z-index: 999;
 }
 
 /* Fim - Header */
