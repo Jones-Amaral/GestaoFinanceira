@@ -1,0 +1,423 @@
+/* Body */
+html,
+body {
+    background-color: #e7f5e9;
+    margin: 0;
+    margin-bottom: 20px;
+    padding: 0;
+}
+
+/* Header */
+header {
+    background-color: #0a1a37;
+    border-bottom: 3px solid #3df00c;
+    height: 80px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+}
+
+.logo-img {
+    height: 80px;
+    margin-left: 20px;
+}
+
+.icone-Adicionar {
+    width: 35px;
+    position: fixed;
+    top: 23px;
+    left: 220px;
+}
+
+.user-img {
+    height: 50px;
+    margin-right: 20px;
+}
+
+header ul li {
+    font-size: 25px;
+    display: inline;
+    padding-left: 40px;
+    text-decoration-style: none;
+}
+
+header ul li a {
+    color: #e7f5e9;
+    text-decoration: none;
+}
+
+/* Fim - Header */
+
+/* Main */
+
+main {
+    height: 100%;
+    padding-top: 80px;
+}
+
+#noticiaEducativa {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    width: 100%;
+    margin-top: 30px;
+    padding: auto;
+    gap: 20px;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.noticia {
+    background-color: #b3e69e;
+    grid-column: 2/5;
+    display: flex;
+    gap: 20px;
+    border-top: #034C1C solid 2px;
+    border-bottom: #034C1C solid 2px;
+    border-radius: 8px;
+    vertical-align: center;
+    width: 100%;
+}
+
+#comentariosCampos {
+    grid-column: 2/3;
+}
+
+.noticia .imagem {
+    width: 400px;
+    margin: 15px;
+    height: 250px;
+    align-items: center;
+}
+
+.vejaMais a {
+    text-decoration: none;
+    color: #0a1a37;
+}
+
+.vejaMais {
+    width: 200px;
+    height: 75px;
+    border: solid 4px #022b10;
+    border-radius: 5px;
+    background-color: #b3e69e;
+    font-size: 25px;
+    font-weight: 500;
+    margin: 40px auto;
+    cursor: pointer;
+}
+
+.imagemNoticia {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Menu Hamburguer */
+.icone-hamburguer {
+    width: 40px;
+    position: fixed;
+    top: 20px;
+    left: 150px;
+}
+
+.menu-lateral ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.borda {
+    border-bottom: 2px solid #e7f5e9;
+    padding-bottom: 30px;
+}
+
+.menu-lateral ul {
+    padding-left: 0;
+    margin: 0;
+}
+
+.menu-lateral ul li {
+    list-style-type: none;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.imgHamburguer {
+    width: 50px;
+}
+
+.menu-lateral {
+    display: none;
+    position: fixed;
+    top: 100px;
+    left: 20px;
+    bottom: 50px;
+    width: 300px;
+    height: 700px;
+    background-color: #0a1a37;
+    color: #e7f5e9;
+    padding-top: 60px;
+    z-index: 999;
+    padding: 20px;
+    border-radius: 5px;
+
+    text-align: center;
+}
+
+.menu-lateral.show {
+    display: block;
+}
+
+/* Botão de fechar */
+.fechar-menu {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    color: #e7f5e9;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Fim menu Hamburguer */
+
+.autor,
+.data {
+    color: #022b10;
+}
+
+.favoritar {
+    width: 60px;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+
+}
+
+/* Formatação de Texto das Notícias */
+h1 {
+    text-align: center;
+    font-size: 40px;
+    color: #034C1C;
+}
+
+h2 {
+    font-weight: 500;
+    text-decoration: underline;
+    font-size: xx-large;
+}
+
+p {
+    color: black;
+    font-size: 22px;
+}
+
+.noticia .texto {
+    flex: 1;
+    text-align: left;
+}
+
+.textoNoticia p {
+    text-align: justify;
+}
+
+.textoNoticia li {
+    font-size: 20px;
+}
+
+.noticia .tipo {
+    color: #021d0b9a;
+    text-align: end;
+    margin-right: 25px;
+}
+
+.noticia a {
+    text-decoration: none;
+}
+
+/* Comentários */
+.comentarios h1 {
+    text-align: start;
+}
+
+.comentarios {
+    display: grid;
+
+    background-color: #b3e69e;
+}
+
+.containerComentários {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+.insiraComentario {
+    height: 100px;
+    margin: 0 40px;
+    border: solid 3px #021d0b;
+    border-radius: 5px;
+    color: #7e807f;
+    font-size: 20px;
+    padding-left: 20px;
+}
+
+
+.botaoEnviar {
+    display: flex;
+    margin-top: 10px;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.btnEnviar {
+    justify-content: flex-end;
+    color: #021d0b;
+    font-weight: 700;
+    height: 30px;
+    width: 100px;
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+}
+
+
+.iconeUsuario {
+    width: 50px;
+}
+
+.comentariosUsuarios {
+    margin: 0 30px;
+}
+
+.comentariosUsuarios p {
+    margin: 0;
+    margin-left: 80px;
+}
+
+.comentarioUsuario {
+    height: 100px;
+    margin: 0 20px;
+    border: solid 3px #021d0b;
+    border-radius: 5px;
+    width: 80%;
+    padding-left: 20px;
+    font-size: 20px;
+}
+
+
+/* Fim Comentários */
+/* Fim Texto */
+/* Fim - Main */
+/* Body - Fim */
+
+/* Detalhes Inicio */
+#detalhes {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#noticia {
+    grid-column: 2/3;
+}
+
+.imgBanner {
+    height: 500px;
+}
+
+.bannerDetalhe {
+    align-items: center;
+}
+
+.videoIframe {
+    text-align: center;
+}
+
+#comentarioInserido {
+    margin-top: 20px;
+}
+
+/* Detalhes Fim */
+
+/* Media */
+@media (max-width: 1000px) {
+
+    #noticiaEducativa {
+        grid-template-columns: 1fr;
+    }
+
+    .noticia {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .noticia .imagem {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    #menuHeader {
+        display: none;
+    }
+
+}
+
+@media (max-width: 600px) {
+    body {
+        width: 600px;
+    }
+
+    .corpoNoticia {
+        width: 600px;
+    }
+
+    header {
+        width: 600px;
+    }
+
+    .iframeVideo {
+        width: 500px !important;
+        height: 300px;
+    }
+
+    #noticiaEducativa {
+        width: 90%;
+        margin-top: 30px;
+        padding: auto;
+        text-align: center;
+        margin-bottom: 20px;
+        margin: 0 auto;
+    }
+
+    .imgBanner {
+        width: 100%;
+    }
+
+    .noticia {
+        background-color: #b3e69e;
+        text-align: center;
+        border-top: #034C1C solid 2px;
+        border-bottom: #034C1C solid 2px;
+        border-radius: 8px;
+        width: 100%;
+        padding: 15px;
+    }
+
+    .noticia .imagem {
+        width: 90%;
+        height: 250px;
+    }
+
+}

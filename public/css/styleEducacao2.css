@@ -1,0 +1,381 @@
+html,
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Inicio */
+header {
+    background-color: #0a1a37;
+    border-bottom: 3px solid #3df00c;
+    height: 80px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+}
+
+.logo-img {
+    height: 80px;
+    margin-left: 20px;
+}
+
+header ul {
+    border: none;
+}
+
+.icone-Adicionar {
+    width: 35px;
+    position: fixed;
+    top: 23px;
+    left: 220px;
+}
+
+.user-img {
+    height: 50px;
+    margin-right: 20px;
+}
+
+header ul li {
+    font-size: 25px;
+    display: inline;
+    padding-left: 40px;
+    text-decoration-style: none;
+}
+
+header ul li a {
+    color: #e7f5e9;
+    text-decoration: none;
+}
+
+/* Header Fim */
+
+/* Main */
+main {
+    padding-top: 80px;
+}
+
+
+/* Menu Hamburguer */
+.icone-hamburguer {
+    width: 40px;
+    position: fixed;
+    top: 20px;
+    left: 150px;
+}
+
+.menu-lateral ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.borda {
+    border-bottom: 2px solid #e7f5e9;
+    padding-bottom: 30px;
+}
+
+.menu-lateral ul {
+    padding-left: 0;
+    margin: 0;
+    border: none;
+}
+
+.menu-lateral ul li {
+    list-style-type: none;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.imgHamburguer {
+    width: 50px;
+}
+
+.menu-lateral {
+    display: none;
+    position: fixed;
+    top: 100px;
+    left: 20px;
+    bottom: 50px;
+    width: 300px;
+    height: 700px;
+    background-color: #0a1a37;
+    color: #e7f5e9;
+    padding-top: 60px;
+    z-index: 999;
+    padding: 20px;
+    border-radius: 5px;
+
+    text-align: center;
+}
+
+.menu-lateral.show {
+    display: block;
+}
+
+/* Botão de fechar */
+.fechar-menu {
+    position: absolute;
+    font-size: 30px;
+    color: #e7f5e9;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.corpoAdicao {
+    background-color: white;
+    width: 100%;
+    border-radius: 10px;
+    padding-bottom: 50px;
+    padding: 60px;
+}
+
+#inputInfo,
+#inputSubNovo,
+#inputCorpoSub,
+#inputTitulo,
+#inputSub,
+#inputAutor,
+#inputData,
+#inputCorpo,
+#inputIframe,
+#inputResumo {
+    width: 100%;
+    height: 30px;
+    border-radius: 18px;
+    font-size: 20px;
+    color: #0a1a36;
+    background-color: #e7f5e9;
+    padding-left: 10px;
+}
+
+#imagemBanner {
+    font-size: 20px;
+    color: #0a1a36;
+}
+
+.botao-upload {
+    margin-top: 20px;
+    width: 100%;
+    color: #0a1a36;
+    background-color: #e6f4e8;
+    border: #0a1a36 2px solid;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 15px;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+}
+
+
+#inputInfo::placeholder {
+    vertical-align: center;
+    color: #0a1a36;
+    font-size: 20px;
+    background-color: #e7f5e9;
+    width: 100%;
+    height: 100%;
+    margin-left: 10px;
+}
+
+#inputCat {
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    color: #0a1a36;
+    background-color: #e7f5e9;
+    border: 1px solid #0a1a36;
+}
+
+.dropDown {
+    position: relative;
+    display: inline-block;
+    width: 250px;
+    margin: auto;
+}
+
+.dropBtn {
+    width: 250px;
+    padding: 10px;
+    font-size: 20px;
+    background-color: #ccc;
+    color: #0a1a36;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    border: 1px solid #999;
+    cursor: pointer;
+}
+
+.conteudoDropDown {
+    display: none;
+    position: absolute;
+    width: 100%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    border: 1px solid #0a1a36;
+    text-align: center;
+}
+
+
+.conteudoDropDown button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    text-align: center;
+    background-color: #e7f5e9;
+    cursor: pointer;
+    border-bottom: 1px solid #0a1a36;
+}
+
+.conteudoDropDown button:hover {
+    background-color: #ffffff;
+    color: #0a1a36;
+}
+
+
+.container-info {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.adicionarSub {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    height: 100%;
+    width: 20%;
+    color: #0a1a36;
+    background-color: #e6f4e8;
+    border: #0a1a36 2px solid;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.container-flex {
+    display: flex;
+    justify-content: flex-end;
+}
+#btnEnviarCont{
+    width: 100%;
+    padding: auto;
+    text-align: center;
+}
+.enviarNoticia {
+    margin-top: 20px;
+    height: 100%;
+    width: 90px;
+    padding: 10px;
+    color: #0a1a36;
+    background-color: #e6f4e8;
+    border: #0a1a36 2px solid;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+
+}
+
+
+button:hover {
+    color: #e6f4e8;
+    background-color: #0a1a36;
+
+}
+
+#dropDownCategoria {
+    width: 250px;
+    margin: auto;
+    font-family: sans-serif;
+}
+
+
+ul {
+    margin: 0;
+    padding: 0;
+    border: 1px solid #999;
+    border-top: none;
+}
+
+li {
+    list-style: none;
+}
+
+li button {
+    width: 100%;
+    background: white;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+}
+
+li button:hover {
+    background-color: #eee;
+}
+
+#opcoes li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+#opcoes li:hover {
+    background-color: #eee;
+}
+
+.opcoesLista {
+    display: none;
+}
+
+/* Edição de texto */
+.titulo {
+    color: #035a19;
+    font-size: 50px;
+}
+
+.subtitulo {
+    color: #035a19;
+    font-size: 30px;
+    text-align: start;
+    font-weight: 400;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+/* Fim Edição */
+/* Main Fim */
+
+@media (max-width: 600px) {
+
+    #esquerda,
+    #direita {
+        background: red;
+        display: none !important;
+    }
+
+    .adicionarSub {
+        width: 80%;
+    }
+    
+
+    .container-info {
+        width: 100%;
+        display: block;
+
+    }
+}
+
+@media (max-width: 1000px) {
+
+    #esquerda,
+    #direita {
+        display: none !important;
+    }
+}
