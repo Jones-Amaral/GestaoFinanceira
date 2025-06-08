@@ -1,0 +1,428 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #e7f5e9;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #e7f5e9;
+  width: 100%;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 8px solid #42e619;
+  position: relative;
+
+}
+
+.logo img {
+  width: 250px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.pages {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+}
+
+.pages li a {
+  display: block;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 1.8rem;
+  padding: 10px 10px;
+  transition: all 0.3s ease;
+}
+
+.pages li a:hover {
+  background-color: #42e619;
+  border-radius: 5px;
+}
+
+/*Fim da navbar*/
+
+/*Icone de menu aparecendo em versão mobile*/
+.fas.fa-bars {
+  display: none;
+  font-size: 2.3rem;
+  color: black;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .pages {
+    display: none;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    left: 0;
+    background-color: #e7f5e9;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 0;
+    z-index: 999;
+  }
+
+
+  .pages.show {
+    display: flex;
+  }
+
+  .fas.fa-bars {
+    display: block;
+  }
+
+  .espaco {
+    display: none;
+  }
+}
+
+/*Espaço na direita pra deixar os links no centro, não sei fazer isso sem bootstrap ou gambiarra*/
+.espaco {
+  width: 250px;
+}
+
+/*containers*/
+.pagina {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+  margin-right: 30px;
+  margin-left: 30px;
+  gap: 5px;
+}
+
+.containerleft,
+.containerright {
+  background-color: #e7f5e9;
+  padding: 20px;
+  border-radius: 15px;
+  border: 3px solid #42e619;
+}
+
+.containerleft {
+  width: 730px;
+}
+
+.containerright {
+  width: 530px;
+}
+
+.containerleft h2 {
+  padding-bottom: 10px;
+  padding-top: 20px;
+  color: black;
+}
+
+.containerleft h3 {
+  padding-bottom: 10px;
+  font-size: 1.5rem;
+  color: black;
+}
+
+.containerright h2 {
+  padding-bottom: 10px;
+  text-align: center;
+  color: black;
+}
+
+.containerright h3 {
+  color: black;
+  padding-top: 25px;
+  font-size: 1.2rem;
+}
+
+.containerright h4 {
+  color: black;
+  padding-top: 15px;
+  font-size: 1.2rem;
+}
+
+.containerleft p,
+.containerright p {
+  text-align: justify;
+  margin-top: 5px;
+  color: black;
+}
+
+
+/*Start of Carousel*/
+.carrossel-container {
+  position: relative;
+  width: 450px;
+  height: 300px;
+  overflow: hidden;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.carrossel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f0f0;
+}
+
+.slide img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+
+.slide {
+  min-width: 100%;
+  height: 300px;
+  background: lightgray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1;
+  border-radius: 5px;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+/*botão de favorito*/
+.favorito-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 1.8rem;
+  color: #565454;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.favorito-btn i.fa-solid {
+  color: #2db10f; 
+}
+/*End of Carousel*/
+
+
+/*Footer*/
+.rodape {
+  background-color: #e7f5e9;
+  margin-top: 40px;
+  border-top: 8px solid #42e619;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logotipo img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.containerborder {
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+}
+
+.containerborder p {
+  font-size: 1.1em;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.redes-sociais {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.redes-sociais a {
+  color: #333;
+  font-size: 1.5em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.redes-sociais a:hover {
+  color: #42e619;
+}
+
+.info-investimento {
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  padding: 20px 25px;
+  margin-top: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Montserrat', sans-serif;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.info-investimento h3 {
+  font-size: 1.6rem;
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.info-investimento p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+
+/* Responsividade geral */
+@media (max-width: 1024px) {
+  .containerleft,
+  .containerright {
+    width: 100%;
+  }
+
+  .pagina {
+    flex-direction: column;
+    margin: 20px;
+    gap: 20px;
+  }
+
+  .carrossel-container {
+    width: 100%;
+    height: auto;
+  }
+
+  .slide {
+    height: auto;
+  }
+
+  .slide img {
+    width: 100%;
+    height: auto;
+  }
+
+  .prev,
+  .next {
+    display: none; /* Esconde botões laterais no mobile para evitar sobreposição */
+  }
+
+  .info-investimento {
+    padding: 15px;
+  }
+
+  .info-investimento h3 {
+    font-size: 1.4rem;
+  }
+
+  .info-investimento p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo img {
+    width: 180px;
+    height: auto;
+  }
+
+  .pages li a {
+    font-size: 1.5rem;
+  }
+
+  .rodape {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .logotipo img {
+    width: 220px;
+    height: auto;
+    margin-bottom: 15px;
+  }
+
+  .redes-sociais {
+    gap: 15px;
+  }
+
+  .containerborder p {
+    font-size: 1rem;
+  }
+
+  .info-investimento {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pages li a {
+    font-size: 1.2rem;
+    padding: 8px 5px;
+  }
+
+  .containerleft h3,
+  .containerright h3,
+  .containerright h4 {
+    font-size: 1rem;
+  }
+
+  .containerleft p,
+  .containerright p {
+    font-size: 0.95rem;
+  }
+
+  .carrossel-container {
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .redes-sociais a {
+    font-size: 1.3em;
+  }
+}
