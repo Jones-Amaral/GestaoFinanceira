@@ -8,25 +8,35 @@
         integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styleEducacao2.css">
     <title>Adição de Notícias</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
     <header>
-        <a href="paginaEducacao.html"><img src="/img/header/logo.png" id="logo-header" class="logo-img"
-                alt="Logo +Grana" /></a>
-        <a href="#" id="hamburguerMenu"><img src="/img/header/hamburguer.png" alt="Icone Menu"
-                class="icone-hamburguer" /></a>
-        <nav id="menuHeader">
-            <ul>
-                <li><a href="#">Página Inicial</a></li>
-                <li><a href="#">Noticias</a></li>
-                <li><a href="paginaEducacao.html">Educação</a></li>
-                <li><a href="#">Investimento</a></li>
-            </ul>
-        </nav>
-        <a href="#"><img src="img/header/user.png" id="user-header" class="user-img" alt="Icone User" /></a>
         <a href="adicao-dados.html"><img src="/img/header/adicionar.png" class="icone-Adicionar"
-                alt="Icone Adicionar Noticia" /></a>
+                alt="Icone Adicionar Noticia"></a>
+        <a href="#" id="hamburguerMenu"><img src="/img/header/hamburguer.png" alt="Icone Menu"
+                class="icone-hamburguer"></a>
+        <div class="navbar" id="navbar">
+            <div class="logo">
+                <a href="homepage.html">
+                    <img src="/img/imgs-bernardo/logomelhorada.png" alt="logo" id="logo">
+                </a>
+            </div>
+
+            <div class="links" id="links">
+                <ul class="pages">
+                    <li class="home"><a href="homepage.html">Home</a></li>
+                    <li class="noticias"><a href="notícias.html">Notícias</a></li>
+                    <li class="educacao"><a href="paginaEducacao.html">Educação</a></li>
+                    <li class="investimentos"><a href="investimentos.html">Investimentos</a></li>
+                </ul>
+            </div>
+
+<!--             <i class="fas fa-bars" onclick="toggleMenu()"></i> -->
+
+            <div class="espaco"></div>
+        </div>
     </header>
 
     <main>
@@ -73,7 +83,7 @@
                                         categoria</button>
                                     <div id="conteudoDropDown" class="conteudoDropDown">
                                         <button type="button" onclick="selecionarCategoria(this)">educacao</button>
-                                        <button type="button" onclick="selecionarCategoria(this)">economia</button>
+                                        <button type="button" onclick="selecionarCategoria(this)">noticias</button>
                                         <button type="button" onclick="selecionarCategoria(this)">investimento</button>
                                     </div>
                                 </div>
@@ -113,6 +123,27 @@
                 <div class="col-lg-2 d-none d-lg-block" id="direita"></div>
             </div>
         </div>
+
+        <footer>
+            <div class="rodape" id="rodape">
+                <div class="logotipo">
+                    <a href="homepage.html">
+                        <img src="/img/imgs-bernardo/logomelhorada.png" alt="Logotipo">
+                    </a>
+                </div>
+
+                <div class="containerborder">
+                    <p><strong>A +Grana te ajuda a cuidar melhor do seu patrimônio, vem aprender com a gente!</strong>
+                    </p>
+                    <div class="redes-sociais">
+                        <a href="https://instagram.com" target="_blank" aria-label="Instagram da +Grana"><i
+                                class="fab fa-instagram"></i>+Grana</a>
+                        <a href="https://linkedin.com" target="_blank" aria-label="linkedin da +Grana"><i
+                                class="fab fa-linkedin-in"></i>+Grana</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </main>
     <script>
         window.onload = () => {

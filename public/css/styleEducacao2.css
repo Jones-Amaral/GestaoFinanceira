@@ -6,66 +6,75 @@ body {
 }
 
 /* Header Inicio */
-header {
-    background-color: #0a1a37;
-    border-bottom: 3px solid #3df00c;
-    height: 80px;
+.navbar {
+    background-color: #e7f5e9;
     width: 100%;
+    padding: 10px 15px;
+    box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-bottom: 8px solid #42e619;
     position: fixed;
+
 }
 
-.logo-img {
-    height: 80px;
-    margin-left: 20px;
+.logo img {
+    width: 250px;
+    height: 100px;
+    object-fit: cover;
 }
 
-header ul {
-    border: none;
+.pages {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex: 1;
+    margin: 0;
+    padding: 0;
+}
+
+.pages li a {
+    display: block;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 1.8rem;
+    padding: 10px 10px;
+    transition: all 0.3s ease;
+}
+
+.pages li a:hover {
+    background-color: #42e619;
+    border-radius: 5px;
 }
 
 .icone-Adicionar {
-    width: 35px;
+    width: 80px;
     position: fixed;
-    top: 23px;
-    left: 220px;
+    top: 25px;
+    right: 50px;
+    z-index: 999;
 }
 
-.user-img {
-    height: 50px;
-    margin-right: 20px;
-}
-
-header ul li {
-    font-size: 25px;
-    display: inline;
-    padding-left: 40px;
-    text-decoration-style: none;
-}
-
-header ul li a {
-    color: #e7f5e9;
-    text-decoration: none;
+.icone-hamburguer {
+    width: 70px;
+    position: fixed;
+    top: 25px;
+    right: 150px;
+    z-index: 999;
 }
 
 /* Header Fim */
 
 /* Main */
 main {
-    padding-top: 80px;
+    padding-top: 130px;
 }
 
 
 /* Menu Hamburguer */
-.icone-hamburguer {
-    width: 40px;
-    position: fixed;
-    top: 20px;
-    left: 150px;
-}
-
 .menu-lateral ul li a {
     text-decoration: none;
     color: white;
@@ -73,11 +82,6 @@ main {
     display: flex;
     align-items: center;
     gap: 10px;
-}
-
-.borda {
-    border-bottom: 2px solid #e7f5e9;
-    padding-bottom: 30px;
 }
 
 .menu-lateral ul {
@@ -90,6 +94,7 @@ main {
     list-style-type: none;
     margin-top: 30px;
     margin-bottom: 30px;
+    border: none;
 }
 
 .imgHamburguer {
@@ -99,8 +104,8 @@ main {
 .menu-lateral {
     display: none;
     position: fixed;
-    top: 100px;
-    left: 20px;
+    top: 130px;
+    right: 60px;
     bottom: 50px;
     width: 300px;
     height: 700px;
@@ -110,7 +115,6 @@ main {
     z-index: 999;
     padding: 20px;
     border-radius: 5px;
-
     text-align: center;
 }
 
@@ -133,7 +137,6 @@ main {
     width: 100%;
     border-radius: 10px;
     padding-bottom: 50px;
-    padding: 60px;
 }
 
 #inputInfo,
@@ -264,11 +267,13 @@ main {
     display: flex;
     justify-content: flex-end;
 }
-#btnEnviarCont{
+
+#btnEnviarCont {
     width: 100%;
     padding: auto;
     text-align: center;
 }
+
 .enviarNoticia {
     margin-top: 20px;
     height: 100%;
@@ -350,6 +355,60 @@ li button:hover {
 }
 
 /* Fim Edição */
+
+/* Footer Inicio */
+.rodape {
+    background-color: #e7f5e9;
+    margin-top: 40px;
+    border-top: 8px solid #42e619;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logotipo img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.containerborder {
+    max-width: 900px;
+    width: 100%;
+    text-align: center;
+}
+
+.containerborder p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.redes-sociais {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.redes-sociais a {
+    color: #333;
+    font-size: 1.5em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+.redes-sociais a:hover {
+    color: #42e619;
+}
+
+/* Footer Fim */
 /* Main Fim */
 
 @media (max-width: 600px) {
@@ -363,7 +422,7 @@ li button:hover {
     .adicionarSub {
         width: 80%;
     }
-    
+
 
     .container-info {
         width: 100%;
