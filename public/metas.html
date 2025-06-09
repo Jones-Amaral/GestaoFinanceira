@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Minhas Metas Financeiras</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Grana ✅</h1>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">Educação</a>
+        <a href="#">Notícias</a>
+        <a href="#">Investimento</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="intro">
+  <h2>Planeje suas Metas Financeiras</h2>
+  <p>Estabelecer metas é essencial para conquistar seus sonhos e manter o controle do seu dinheiro.</p>
+  <p>Com essa ferramenta, você poderá <strong>criar, editar e acompanhar</strong> seus objetivos, visualizando o progresso financeiro em tempo real.</p>
+  <p>Assim, fica mais fácil se organizar e alcançar aquilo que realmente importa.</p>
+</section>
+<section class="bloco-conteudo exemplo-meta">
+  <h3>Exemplo de meta preenchida</h3>
+  <p><strong>Meta:</strong> Comprar uma moto</p>
+  <p><strong>Valor a alcançar:</strong> R$ 10.000,00</p>
+  <p><strong>Valor guardado:</strong> R$ 5.000,00</p>
+  <p><strong>Data final:</strong> 30/06/2025</p>
+  <p><strong>Status:</strong> Em andamento</p>
+  <p><strong>Progresso:</strong> 50% — Faltam R$ 5.000,00 para atingir o objetivo.</p>
+</section>
+
+
+  <!-- Bloco da tabela -->
+  <section class="bloco-conteudo">
+    <button id="btnNovaMeta">+ Nova Meta</button>
+
+    <section id="listaMetas">
+      <table>
+        <thead>
+          <tr class="sera">
+            <th>Meta</th>
+            <th>Valor a alcançar (R$)</th>
+            <th>Valor guardado (R$)</th>
+            <th>Data final</th>
+            <th>Progresso</th>
+            <th>Status</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="corpoTabelaMetas">
+          <!-- Metas dinâmicas -->
+        </tbody>
+      </table>
+    </section>
+  </section>
+
+  <!-- Bloco do formulário -->
+  <section class="bloco-conteudo" id="formularioMeta" style="display: none;">
+    <h3>Cadastrar Nova Meta</h3>
+    <form id="formMeta">
+      <label>Qual o nome da sua Meta? 
+        <input type="text" id="nomeMeta" required>
+      </label>
+
+      <label>Quanto você quer guardar? (R$)
+        <input type="number" id="valorObjetivo" required>
+      </label>
+
+      <label>Quanto você já tem? (R$)
+        <input type="number" id="valorAtual" required>
+      </label>
+
+      <label>Em quanto tempo deseja alcançar o objetivo?
+        <input type="date" id="dataLimite" required>
+      </label>
+
+      <button type="submit">Salvar Meta</button>
+      <button type="button" id="cancelarMeta">Cancelar</button>
+    </form>
+  </section>
+</main>
+
+<div id="notificacao" class="toast"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
