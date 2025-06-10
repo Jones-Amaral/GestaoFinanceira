@@ -43,10 +43,15 @@
         <main>
 
             <h1>Últimas Notícias</h1>
-            <div id="noticias"></div>
+            <div class="container">
+                <div class="row" id="noticias"></div>
+            </div>
 
             <h1>Entenda Mais de Investimentos</h1>
-            <div id="investimentos"></div>
+            <div class="container">
+                <div id="investimentos" class="row">
+                </div>
+            </div>
 
             <h1>Aprenda Gestão Financeira</h1>
             <div class="container">
@@ -87,7 +92,7 @@
                         for (let i = 0; i < 4; i++) {
                             let educ = data[i];
                             strEducacao += `
-                            <div class="card mb-3 col-6 m-3" style="max-width: 600px;">
+                            <div class="card mb-3 col-6 m-3 mx-auto" style="max-width: 600px;">
                               <div class="row g-0">
                                 <div class="col-md-4">
                                   <img src="${educ.banner}" class="img-fluid rounded-start h-100" style="heigth:200px;" alt="...">
@@ -106,31 +111,61 @@
                     }).catch(err => console.error(err));
 
 
-                /*                 fetch("http://localhost:3000/noticias")
-                                    .then(res => res.json())
-                                    .then(data => {
-                                        const noticia = document.getElementById("noticias")
-                                        let strNoticia = "";
-                                        for (let i = 0; i < 4; i++) {
-                                            strNoticia += ``
-                                        }
-                                        educacao.innerHTML = strNoticia;
-                                    }).catch(err => console.error(err)); */
+                fetch("http://localhost:3000/noticias")
+                    .then(res => res.json())
+                    .then(data => {
+                        const noticia = document.getElementById("noticias");
+                        let strNoticia = "";
+                        for (let i = 0; i < 4; i++) {
+                            let not = data[i];
+                            strNoticia += `
+                                <div class="card mb-3 mx-auto" style="width: 70%">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img src="${not.imagem}" class="img-fluid rounded-start" alt="...">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title">${not.titulo}</h5>
+                                                <p class="card-text">${not.resumo}</p>
+                                                <p class="card-text"><small class="text-body-secondary">${not.data}</small></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>`
+                        }
+                        noticias.innerHTML = strNoticia;
+                    }).catch(err => console.error(err));
 
-                /*                 fetch("http://localhost:3000/investimento")
-                                    .then(res => res.json())
-                                    .then(data => {
-                                        const investimento = document.getElementById("investimento")
-                                        let strInvestimento = "";
-                                        for (let i = 0; i < 4; i++) {
-                                            strInvestimento += ``
-                                        }
-                                        investimento.innerHTML = strInvestimento;
-                                    }).catch(err => console.error(err)); */
+                fetch("http://localhost:3000/educacao")
+                    .then(res => res.json())
+                    .then(data => {
+                        const investimento = document.getElementById("investimentos")
+                        let strInvestimento = "";
+                        for (let i = 0; i < 4; i++) {
+                            let invest = data[i];
+                            strInvestimento += `
+                                <div class="card mx-auto" style="width: 18rem;">
+                                    <img src="${invest.imagem}" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">${invest.titulo}</p>
+                                        </div>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">${invest.resumo}</li>
+                                            <li class="list-group-item">${invest.data}</li>
+                                            <li class="list-group-item">A third item</li>
+                                        </ul>
+                                </div>`
+                        }
+                        investimento.innerHTML = strInvestimento;
+                    }).catch(err => console.error(err));
             }
 
         </script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+            crossorigin="anonymous"></script>
     </body>
 
 </html>
