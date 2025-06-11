@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Grana - Conteúdos Financeiros</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="css/categorias.css">
+  <!-- meu css-->
+  <style>
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.navbar {
+  background: #2c3e50;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .pages {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar .pages a {
+  color: white;
+  text-decoration: none;
+}
+
+.app-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 20px auto;
+  gap: 30px;
+  padding: 0 20px;
+}
+
+.categorias-coluna {
+  width: 250px;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.categorias-coluna h2 {
+  font-size: 1.3rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  margin-top: 0;
+}
+
+.lista-categorias {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.categoria-link {
+  display: block;
+  padding: 10px 8px;
+  color: #555;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.categoria-link:hover {
+  background-color: #f0f0f0;
+  color: #2c3e50;
+}
+
+.conteudos-coluna {
+  flex: 1;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.search-container {
+  display: flex;
+  margin-bottom: 25px;
+}
+
+#searchInput {
+  flex: 1;
+  height: 40px;
+  padding: 0 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px 0 0 6px;
+  font-size: 1rem;
+}
+
+#searchBtn {
+  width: 50px;
+  background: #2c3e50;
+  color: white;
+  border: none;
+  border-radius: 0 6px 6px 0;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.card-conteudo {
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.card-conteudo h3 {
+  margin-top: 0;
+  color: #2c3e50;
+}
+
+.card-conteudo small {
+  display: block;
+  color: #777;
+  margin: 5px 0;
+}
+
+.card-conteudo button {
+  background: #2c3e50;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.detalhes-conteudo {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.detalhes-conteudo button {
+  background: #f0f0f0;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 1024px) {
+  .app-container {
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 15px;
+  }
+  
+  .categorias-coluna {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .conteudos-coluna {
+    width: 100%;
+  }
+}
+
+/*(576px - 767px) */
+@media (max-width: 767px) {
+  .app-container {
+    margin: 10px auto;
+    gap: 15px;
+  }
+  
+  .search-container {
+    flex-direction: column;
+  }
+  
+  #searchInput {
+    border-radius: 6px;
+    margin-bottom: 10px;
+  }
+  
+  #searchBtn {
+    width: 100%;
+    border-radius: 6px;
+    height: 40px;
+  }
+  
+  .categoria-link {
+    padding: 12px 8px;
+  }
+  
+  .card-conteudo {
+    padding: 12px;
+  }
+}
+
+/* (575px)*/
+@media (max-width: 575px) {
+  body {
+    font-size: 14px;
+  }
+  
+  .app-container {
+    margin: 5px auto;
+  }
+  
+  .categorias-coluna, 
+  .conteudos-coluna {
+    padding: 15px;
+  }
+  
+  .categorias-coluna h2 {
+    font-size: 1.1rem;
+  }
+  
+  .card-conteudo h3 {
+    font-size: 1rem;
+  }
+  
+  .card-conteudo button,
+  .detalhes-conteudo button {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+}
+
+/* (400px) */
+@media (max-width: 400px) {
+  .navbar {
+    padding: 10px 0;
+  }
+  
+  .categoria-link {
+    font-size: 0.9rem;
+  }
+  
+  .card-conteudo {
+    margin-bottom: 10px
+  }
+  
+}
+
+  </style>
+</head>
+<body>
+  <!-- NavBar -->
+  <header>
+    <div class="navbar" id="navbar">
+      <div class="logo">
+        <a href="index.html">
+          <img src="logomelhorada.png" alt="logo" id="logo" />
+        </a>
+      </div>
+      <div class="links" id="links">
+        <ul class="pages">
+          <li class="home"><a href="categorias.html">Home</a></li>
+          <li class="noticias"><a href="#">Notícias</a></li>
+          <li class="educacao"><a href="#">Educação</a></li>
+          <li class="investimentos"><a href="#">Investimentos</a></li>
+        </ul>
+      </div>
+      <i class="fas fa-bars" onclick="toggleMenu()"></i>
+    </div>
+  </header>
+  <!-- categorias -->
+  <div class="app-container">
+    <div class="categorias-coluna">
+      <h2>Categorias</h2>
+      <ul class="lista-categorias">
+        <li><a href="#" class="categoria-link" data-categoria="educacao-financeira">Educação Financeira</a></li>
+        <li><a href="#" class="categoria-link" data-categoria="investimentos">Investimentos</a></li>
+        <li><a href="#" class="categoria-link" data-categoria="economia-domestica">Economia Doméstica</a></li>
+      </ul>
+    </div>
+    <div class="conteudos-coluna">
+      <h1>Pesquisar</h1>
+      <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Digite o nome do conteúdo">
+        <button id="searchBtn">🔍</button>
+      </div>
+      
+      <h2 id="titulo-categoria-selecionada">Todos os Conteúdos</h2>
+      <div id="resultados-conteudo">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const conteudos = [
+      {
+        id: 1,
+        titulo: "Como criar um orçamento pessoal",
+        categoria: "educacao-financeira",
+        descricao: "Aprenda a controlar seus gastos em 5 passos simples.",
+        conteudoCompleto: "Conteúdo detalhado sobre orçamento pessoal..."
+      },
+      {
+        id: 2,
+        titulo: "Guia completo sobre educação financeira",
+        categoria: "educacao-financeira",
+        descricao: "Tudo que você precisa saber para organizar suas finanças.",
+        conteudoCompleto: "Conteúdo detalhado sobre educação financeira..."
+      },
+      {
+        id: 3,
+        titulo: "Melhores investimentos para iniciantes",
+        categoria: "investimentos",
+        descricao: "Conheça as opções de baixo risco para começar.",
+        conteudoCompleto: "Conteúdo detalhado sobre investimentos..."
+      },
+      {
+        id: 4,
+        titulo: "Como investir na bolsa de valores",
+        categoria: "investimentos",
+        descricao: "Passo a passo para começar a investir em ações.",
+        conteudoCompleto: "Conteúdo detalhado sobre bolsa de valores..."
+      },
+      {
+        id: 5,
+        titulo: "10 dicas para economizar em casa",
+        categoria: "economia-domestica",
+        descricao: "Reduza seus gastos domésticos com essas estratégias.",
+        conteudoCompleto: "Conteúdo detalhado sobre economia doméstica..."
+      },
+      {
+        id: 6,
+        titulo: "Como planejar suas compras do mês",
+        categoria: "economia-domestica",
+        descricao: "Evite desperdícios e gastos desnecessários.",
+        conteudoCompleto: "Conteúdo detalhado sobre planejamento de compras..."
+        },
+    ];
+    // funções js 
+
+    function formatarNomeCategoria(categoria) {
+      return categoria.split('-')
+        .map(palavra => palavra.charAt(0).toUpperCase() + palavra.slice(1))
+        .join(' ');
+    }
+
+    //carregar conteúdos
+    function carregarConteudos(categoria = null) {
+      const resultadosDiv = document.getElementById("resultados-conteudo");
+      const tituloCategoria = document.getElementById("titulo-categoria-selecionada");
+      
+      const conteudosFiltrados = categoria 
+        ? conteudos.filter(item => item.categoria === categoria)
+        : conteudos;
+
+      tituloCategoria.textContent = categoria 
+        ? `Conteúdos: ${formatarNomeCategoria(categoria)}` 
+        : "Todos os Conteúdos";
+
+      resultadosDiv.innerHTML = "";
+      
+      if (conteudosFiltrados.length === 0) {
+        resultadosDiv.innerHTML = "<p>Nenhum conteúdo encontrado nesta categoria.</p>";
+        return;
+      }
+
+      conteudosFiltrados.forEach(item => {
+        const card = document.createElement("div");
+        card.className = "card-conteudo";
+        card.innerHTML = `
+          <h3>${item.titulo}</h3>
+          <p>${item.descricao}</p>
+          <button onclick="mostrarDetalhes(${item.id})">Ler mais</button>
+        `;
+        resultadosDiv.appendChild(card);
+      });
+    }
+
+    // mostrar detalhes
+    function mostrarDetalhes(id) {
+      const conteudo = conteudos.find(c => c.id === id);
+      const resultadosDiv = document.getElementById("resultados-conteudo");
+      
+      resultadosDiv.innerHTML = `
+        <div class="detalhes-conteudo">
+          <button onclick="carregarConteudos('${conteudo.categoria}')">← Voltar</button>
+          <h2>${conteudo.titulo}</h2>
+          <div class="conteudo-texto">${conteudo.conteudoCompleto}</div>
+        </div>
+      `;
+    }
+
+
+    document.querySelectorAll('.categoria-link').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const categoria = e.target.dataset.categoria;
+        carregarConteudos(categoria);
+      });
+    });
+
+    document.getElementById("searchBtn").addEventListener("click", function() {
+      const termo = document.getElementById("searchInput").value.toLowerCase();
+      if (!termo) return carregarConteudos();
+      
+      const resultados = conteudos.filter(item => 
+        item.titulo.toLowerCase().includes(termo) || 
+        item.descricao.toLowerCase().includes(termo)
+      );
+      
+      const resultadosDiv = document.getElementById("resultados-conteudo");
+      resultadosDiv.innerHTML = "";
+      
+      if (resultados.length === 0) {
+        resultadosDiv.innerHTML = "<p>Nenhum resultado encontrado.</p>";
+        return;
+      }
+      
+      resultados.forEach(item => {
+        const card = document.createElement("div");
+        card.className = "card-conteudo";
+        card.innerHTML = `
+          <h3>${item.titulo}</h3>
+          <p>${item.descricao}</p>
+          <small>Categoria: ${formatarNomeCategoria(item.categoria)}</small>
+          <button onclick="mostrarDetalhes(${item.id})">Ler mais</button>
+        `;
+        resultadosDiv.appendChild(card);
+      });
+    });
+
+    carregarConteudos();
+  </script>
+</body>
+</html>
