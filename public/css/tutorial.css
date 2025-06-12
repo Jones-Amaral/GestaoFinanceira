@@ -1,0 +1,276 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5; /* Um cinza claro para o fundo */
+    display: flex;
+    flex-direction: column; /* Alterado para coluna para o FAQ ficar abaixo */
+    justify-content: flex-start; /* Alinha o conteúdo ao topo */
+    align-items: center;
+    min-height: 100vh; /* Garante que o body ocupe a altura total da viewport */
+    margin: 0;
+    padding-bottom: 50px; /* Espaço para o final da página */
+    box-sizing: border-box; /* Inclui padding e border no cálculo da largura/altura */
+}
+
+/* Seção de Cabeçalho e Navegação (do seu site 'Grana') - Adicionado/Ajustado */
+.main-header {
+    width: 100%;
+    background-color: #000; /* Fundo preto do cabeçalho */
+    color: #fff;
+    padding: 15px 0;
+    text-align: center;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px; /* Largura máxima do conteúdo do cabeçalho */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-family: 'Georgia', serif; /* Exemplo de fonte */
+    font-size: 2.2em;
+    font-weight: bold;
+    /* A COR ESPECÍFICA DO LOGO SERÁ GARANTIDA ABAIXO */
+}
+
+/* GARANTIA DA COR DO LOGO */
+.main-header .logo {
+    color: #4CAF50; /* Garante que a cor do logo seja sempre verde */
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 30px;
+}
+
+.main-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+    color: #4CAF50; /* Verde ao passar o mouse */
+}
+
+.header-line {
+    width: 100%;
+    height: 5px;
+    background-color: #4CAF50; /* Linha verde abaixo do cabeçalho */
+    margin-bottom: 30px; /* Espaçamento entre a linha e o conteúdo principal */
+}
+
+.container {
+    display: flex;
+    gap: 30px; /* Espaço entre os cards */
+    flex-wrap: wrap; /* Permite que os cards quebrem a linha em telas menores */
+    justify-content: center;
+    width: 100%; /* Garante que o container se ajuste à largura */
+    max-width: 900px; /* Limita a largura dos cards para não ficarem muito largos */
+    margin-bottom: 40px; /* Espaçamento antes do FAQ */
+}
+
+.card {
+    background-color: #fff; /* Fundo branco para os cards */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    padding: 30px;
+    width: 300px; /* Largura fixa para os cards */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.card-title {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+/* Estilos para o card de tutorial */
+.video-placeholder {
+    width: 100%;
+    height: 150px; /* Altura do espaço do vídeo */
+    background-color: #e0e0e0; /* Fundo cinza claro para o placeholder do vídeo */
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.video-placeholder img {
+    width: 60px; /* Tamanho do ícone da câmera */
+    height: auto;
+    opacity: 0.6; /* Transparência para o ícone */
+}
+
+.text-placeholder {
+    width: 100%;
+    height: 40px; /* Altura do placeholder de texto */
+    background-color: #e0e0e0; /* Fundo cinza claro */
+    border-radius: 8px;
+}
+
+/* Estilos para o card de contato */
+.form-group {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+    resize: vertical; /* Permite redimensionar verticalmente a textarea */
+    min-height: 100px; /* Altura mínima para a textarea */
+    box-sizing: border-box; /* Inclui padding e border no cálculo da largura/altura */
+}
+
+.btn-send {
+    background-color: #007bff; /* Azul vibrante */
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    width: 100%; /* Ocupa a largura total */
+}
+
+.btn-send:hover {
+    background-color: #0056b3; /* Azul mais escuro ao passar o mouse */
+}
+
+
+/* Estilos para a seção FAQ */
+.faq-section {
+    width: 100%;
+    max-width: 800px; /* Largura máxima para o FAQ */
+    margin-top: 40px; /* Espaço acima do FAQ */
+    padding: 0 20px; /* Padding nas laterais */
+    box-sizing: border-box;
+    text-align: center; /* Centraliza o título */
+}
+
+.faq-section h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.faq-container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Garante que os cantos arredondados funcionem */
+}
+
+.faq-item {
+    border-bottom: 1px solid #eee; /* Linha divisória entre os itens */
+}
+
+.faq-item:last-child {
+    border-bottom: none; /* Remove a linha do último item */
+}
+
+.faq-question {
+    background-color: #f8f8f8; /* Fundo levemente cinza para a pergunta */
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+    background-color: #eef; /* Um azul bem claro ao passar o mouse */
+}
+
+.faq-question h3 {
+    margin: 0;
+    font-size: 1.15em;
+    color: #333;
+    flex-grow: 1; /* Permite que o título ocupe o espaço disponível */
+    text-align: left; /* Alinha o texto da pergunta à esquerda */
+}
+
+.faq-question .arrow {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #555;
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-question .arrow {
+    transform: rotate(180deg); /* Gira a seta para cima quando ativo */
+}
+
+.faq-answer {
+    padding: 0 20px;
+    max-height: 0; /* Começa escondido */
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out; /* Transição suave */
+    background-color: #fff; /* Fundo branco para a resposta */
+    text-align: left; /* Alinha o texto da resposta à esquerda */
+}
+
+.faq-answer p {
+    margin: 20px 0; /* Espaçamento interno da resposta */
+    line-height: 1.6;
+    color: #555;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 200px; /* Altura máxima para mostrar a resposta (ajuste conforme necessário) */
+    padding: 20px; /* Adiciona padding quando a resposta é mostrada */
+}
+
+
+/* Responsividade básica */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .header-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .faq-section {
+        padding: 0 10px; /* Reduz padding em telas menores */
+    }
+
+    .faq-question h3 {
+        font-size: 1em; /* Ajusta tamanho da fonte da pergunta */
+    }
+}

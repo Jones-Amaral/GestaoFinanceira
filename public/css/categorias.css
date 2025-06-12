@@ -1,0 +1,241 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #e7f5e9;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #0a1a37;
+    width: 100%;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 8px solid #42e619;
+    position: relative;
+
+}
+
+.logo img {
+    width: 250px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.pages {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex: 1;
+    margin: 0;
+    padding: 0;
+}
+
+.pages li a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1.8rem;
+    padding: 10px 10px;
+    transition: all 0.3s ease;
+}
+
+.pages li a:hover {
+    background-color: #42e619;
+    border-radius: 5px;
+}
+/* Fim da navbar * /
+
+/* Icone de menu aparecendo em versão mobile */
+.fas.fa-bars {
+    display: none;
+    font-size: 2.3rem;
+    color: white;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .pages {
+        display: none;
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        left: 0;
+        background-color: #0a1a37;
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 0;
+        z-index: 999;
+    }
+
+
+    .pages.show {
+        display: flex;
+    }
+
+    .fas.fa-bars {
+        display: block;
+    }
+
+    .espaco {
+        display: none;
+    }
+}
+
+/* Espaço na direita pra deixar os links no centro, não sei fazer isso sem bootstrap ou gambiarra */
+.espaco {
+    width: 250px;
+}
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+  }
+  
+  .card {
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .card p {
+    font-size: 0.95rem;
+    text-align: justify;
+    margin-bottom: 1rem;
+  }
+  
+  .card img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 1rem;
+    border-radius: 8px;
+  }
+  .container {
+    display: flex;
+    gap: 30px;
+    margin: 20px;
+  }
+  
+  .categorias-coluna {
+    width: 250px;
+    background: #f8f8f8;
+    padding: 15px;
+    border-radius: 8px;
+  }
+  
+  .lista-categorias {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .categoria-link {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.3s;
+  }
+  
+  .categoria-link:hover {
+    background: #e0e0e0;
+  }
+  
+  .conteudos-coluna {
+    flex: 1;
+  }
+  
+  /* Estilo dos cards de conteúdo */
+  .card-conteudo {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+  .container {
+    display: flex;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 20px auto;
+  }
+  
+  .categorias-coluna {
+    width: 250px;
+    background: #f8f8f8;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .lista-categorias {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .lista-categorias li {
+    margin-bottom: 10px;
+  }
+  
+  .categoria-link {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.3s;
+  }
+  
+  .categoria-link:hover {
+    background: #e0e0e0;
+  }
+  
+  .conteudos-coluna {
+    flex: 1;
+  }
+  
+  .card-conteudo {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .ler-mais {
+    background: #2c3e50;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .conteudo-detalhado {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+  }
+  
