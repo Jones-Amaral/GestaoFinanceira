@@ -109,19 +109,27 @@
                     let strNoticia = "";
                     strNoticia += `
                         <div class="corpoNoticia p-4 fs-2">
-                        <img src="/img/img-educacao/coracao-png.png" alt="Favoritar Noticia" class="favoritar" id="imgFavoritar" onclick="favorito(this, ${educacao.id})">
-                            <h1>${educacao.titulo}</h1>
-                            <p class="resumo">${educacao.resumo}</p>
-                            <p class="autor">${educacao.autor}</p>
-                            <p class="data">${educacao.data}</p>
-                            <div class="bannerDetalhe">
-                                <img src="${educacao.banner}" alt="${educacao.descricao}" class="imgBanner">
-                            </div>
-                            <div class="textoNoticia"><p class="texto">${educacao.texto}</p></div>
-                            <h1>Entenda Mais no Vídeo Abaixo</h1>
-                            <div class="videoIframe">
-                                <iframe width="789" height="444" class="iframeVideo" src="${educacao.iframe}" title="${educacao.titulo}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <img src="/img/img-educacao/coracao-png.png" alt="Favoritar Noticia" class="favoritar" id="imgFavoritar" onclick="favorito(this, ${educacao.id})">
+                                <h1>${educacao.titulo}</h1>
+                                <p class="resumo">${educacao.resumo}</p>
+                                <p class="autor">${educacao.autor}</p>
+                                <p class="data">${educacao.data}</p>
+                                <div class="bannerDetalhe">
+                                    <img src="${educacao.banner}" alt="${educacao.descricao}" class="imgBanner">
+                                </div>
+                                <div class="textoNoticia"><p class="texto">${educacao.texto}</p></div>
                         </div>`;
+
+                    if (educacao.extras && educacao.extras.length > 0) {
+                        educacao.extras.forEach(extra => {
+                            strNoticia += `
+                                <div class="extraNoticia">
+                                    ${extra.corpo}
+                                    ${extra.imagem ? `<img src="${extra.imagem}" alt="${extra.subtitulo}" class="imagemComplementar">` : ""}
+                                </div>
+                                `;
+                        });
+                    }
 
                     /* Fetch para carregar o comentário com base no ID */
                     let campoComentario = "";

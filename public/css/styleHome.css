@@ -5,6 +5,10 @@ body {
     padding: 0;
 }
 
+a {
+    text-decoration: none;
+}
+
 /* Header */
 .navbar {
     background-color: #e7f5e9;
@@ -73,7 +77,24 @@ main {
     margin-top: 130px;
 }
 
+.cardEducacao{
+    border: 2px solid #42e619;
+}
 
+.cardEducacao p{
+      font-family:'Times New Roman', Times, serif;  
+}
+
+.cardTitulo{
+    font-size: 25px;
+    font-weight: 600;
+    font-family:'Times New Roman', Times, serif;
+    color: #034C1C;
+}
+
+.cardTitulo:hover{
+color: #42e619;
+}
 
 /* Texto */
 h1 {

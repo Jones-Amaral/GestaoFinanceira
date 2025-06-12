@@ -53,7 +53,7 @@ function adicionarSubtitulo() {
   const inputSub = document.createElement("input");
   inputSub.type = "text";
   inputSub.placeholder = "Insira aqui o subtítulo...";
-  inputSub.id = "inputSubNovo";
+  inputSub.className = "inputSubNovo";
 
   const h2Corpo = document.createElement("h2");
   h2Corpo.textContent = "Insira o Corpo da Notícia";
@@ -62,7 +62,7 @@ function adicionarSubtitulo() {
   const inputCorpo = document.createElement("input");
   inputCorpo.type = "text";
   inputCorpo.placeholder = "Insira o corpo da notícia...";
-  inputCorpo.id = "inputCorpoSub";
+  inputCorpo.className = "inputCorpoSub";
 
   const h2Img = document.createElement("h2");
   h2Img.textContent = "Insira uma imagem complementar"
@@ -72,7 +72,7 @@ function adicionarSubtitulo() {
   inputImg.type = "file";
   inputImg.accept = "image/*";
   inputImg.name = "Imagem Complementar";
-  inputImg.id = "imagemInput";
+  inputImg.className = "imagemInput";
 
 
 
@@ -98,8 +98,6 @@ function adicionarSubtitulo() {
 /* Criar Noticia JSON Server */
 function criarNoticia() {
   const btnEnviar = document.getElementById("btnEnviar");
-  const inputImagem = document.getElementById("imagemBanner");
-  const arquivo = inputImagem.files[0];
 
   btnEnviar.addEventListener("click", async () => {
     const titulo = document.getElementById("inputTitulo").value;
@@ -110,54 +108,56 @@ function criarNoticia() {
     const categoria = document.getElementById("inputCat").textContent;
     const banner = document.getElementById("imagemBanner");
     const bannerFile = banner.files[0];
-    const iframe = document.getElementById("inputIframe").value;
+
+    if (!titulo || !subtitulo || !autor || !data || !categoria || !banner || !bannerFile) {
+      alert("Preencha todos os campos");
+      return;
+    }
 
     const resposta = await fetch(`http://localhost:3000/${categoria}`);
     const dados = await resposta.json();
 
     const novoId = dados.length > 0
       ? (Math.max(...dados.map(item => item.id)) + 1).toString()
-      : 1;
+      : "1";
 
-    if (!titulo || !subtitulo || !autor || !data || !categoria || !banner || !bannerFile || !iframe) {
-      alert("Preencha todos os campos");
-      return;
-    }
     const bannerBase64 = await lerImagemComoBase64(bannerFile);
 
     const grupos = document.querySelectorAll(".grupoSubtitulo");
+    
     const blocosExtras = [];
-    for (let grupo of grupos) {
-      const sub = grupo.querySelector("#inputSubNovo")?.value || "";
-      const corpo = grupo.querySelector("#inputCorpoSub")?.value || "";
-      const imgFile = grupo.querySelector("#imagemInput")?.files[0];
-      let imagem = "";
 
+    for (let grupo of grupos) {
+      const sub = grupo.querySelector(".inputSubNovo")?.value || "";
+      const corpoExtra = grupo.querySelector(".inputCorpoSub")?.value || "";
+      const imgFile = grupo.querySelector(".imagemInput")?.files[0];
+      let imagem = "";
 
       if (imgFile) {
         imagem = await lerImagemComoBase64(imgFile);
       }
 
-      if (sub && corpo) {
+      if (sub && corpoExtra) {
         blocosExtras.push({
           subtitulo: sub,
-          corpo: corpo,
+          corpo: `<h2>${sub}</h2><p>${corpoExtra}</p>`,
           imagem: imagem
         });
       }
     }
+
+
     const noticia = {
       id: novoId,
       titulo,
-      subtitulo,
-      texto: corpo,
+      resumo: subtitulo,
+      texto: `<h1>${titulo}</h1><p>${corpo}</p>`,
       favoritado: false,
       autor,
       data,
       categoria,
       banner: bannerBase64,
       descricao: titulo,
-      iframe,
       extras: blocosExtras,
       comentario: []
     };
@@ -179,7 +179,6 @@ function criarNoticia() {
         alert("Erro ao cadastrar o item.");
       });
   });
-
 }
 
 /* Carregar imagem */

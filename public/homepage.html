@@ -41,19 +41,22 @@
             </div>
         </header>
         <main>
-
+            <br>
             <h1>Últimas Notícias</h1>
+            <br>
             <div class="container">
                 <div class="row" id="noticias"></div>
             </div>
-
+            <br>
             <h1>Entenda Mais de Investimentos</h1>
+            <br>
             <div class="container">
                 <div id="investimentos" class="row">
                 </div>
             </div>
-
+            <br>
             <h1>Aprenda Gestão Financeira</h1>
+            <br>
             <div class="container">
                 <div class="row" id="educacao"></div>
             </div>
@@ -91,21 +94,29 @@
                         let strEducacao = "";
                         for (let i = 0; i < 4; i++) {
                             let educ = data[i];
-                            strEducacao += `
-                            <div class="card mb-3 col-6 m-3 mx-auto" style="max-width: 600px;">
-                              <div class="row g-0">
-                                <div class="col-md-4">
-                                  <img src="${educ.banner}" class="img-fluid rounded-start h-100" style="heigth:200px;" alt="...">
-                                </div>
-                                <div class="col-md-8">
-                                  <div class="card-body">
-                                    <h5 class="card-title">${educ.titulo}</h5>
-                                    <p class="card-text text-truncate">${educ.resumo}</p>
-                                    <p class="card-text"><small class="text-body-secondary">${educ.autor}</small></p>
+                            strEducacao +=
+                                `<div class="cardEducacao card mb-3 col-6 m-3 mx-auto p-0" style="max-width: 600px; height: 200px;">
+                                  <div class="row g-0 h-100">
+                                    <div class="col-md-4">
+                                      <a href="detalhesEducacao.html?id=${educ.id}">
+                                        <img src="${educ.banner}" 
+                                             class="img-fluid rounded-start h-100 w-100" 
+                                             alt="${educ.titulo}" 
+                                             style="object-fit: cover;" />
+                                      </a>
+                                    </div>
+                                    <div class="col-md-8">
+                                      <div class="card-body py-2">
+                                        <a href="detalhesEducacao.html?id=${educ.id}" class="text-decoration-none text-dark">
+                                          <h5 class="cardTitulo card-title">${educ.titulo}</h5>
+                                        </a>
+                                        <p class="card-text text-truncate">${educ.resumo}</p>
+                                        <p class="card-text"><small class="text-body-secondary">${educ.autor}</small></p>
+                                      </div>
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
-                            </div>`
+                                `
                         }
                         educacao.innerHTML = strEducacao;
                     }).catch(err => console.error(err));
@@ -119,42 +130,46 @@
                         for (let i = 0; i < 4; i++) {
                             let not = data[i];
                             strNoticia += `
-                                <div class="card mb-3 mx-auto" style="width: 70%">
+                                <div class="cardEducacao card mb-3 mx-auto" style="width: 70%">
                                     <div class="row g-0">
                                         <div class="col-md-4">
-                                            <img src="${not.imagem}" class="img-fluid rounded-start" alt="...">
+                                            <a href="colocarAquiLink.html?id=${not.id}">
+                                            <img src="${not.imagem}" class="img-fluid rounded-start" alt="..."></a>
                                         </div>
                                         <div class="col-md-8">
                                             <div class="card-body">
-                                                <h5 class="card-title">${not.titulo}</h5>
+                                                <a href="colocarAquiLink.html?id=${not.id}">
+                                                <h5 class="cardTitulo card-title">${not.titulo}</h5>                                        
+                                                </a>
                                                 <p class="card-text">${not.resumo}</p>
                                                 <p class="card-text"><small class="text-body-secondary">${not.data}</small></p>
                                             </div>
                                         </div>
+
                                     </div>
                                 </div>`
                         }
                         noticias.innerHTML = strNoticia;
                     }).catch(err => console.error(err));
 
-                fetch("http://localhost:3000/educacao")
+                fetch("http://localhost:3000/investimento")
                     .then(res => res.json())
                     .then(data => {
                         const investimento = document.getElementById("investimentos")
                         let strInvestimento = "";
-                        for (let i = 0; i < 4; i++) {
+                        for (let i = 0; i < 3; i++) {
                             let invest = data[i];
                             strInvestimento += `
-                                <div class="card mx-auto" style="width: 18rem;">
-                                    <img src="${invest.imagem}" class="card-img-top" alt="...">
+                                <div class="cardEducacao card mx-auto" style="width: 18rem;">
+                                    <a href="detalhesinvestimentos.html?id=${invest.id}">
+                                    <img src="${invest.imagem}" class="card-img-top" alt="${invest.titulo}"></a>
                                         <div class="card-body">
-                                            <h5 class="card-title">Card title</h5>
-                                            <p class="card-text">${invest.titulo}</p>
+                                            <a href="detalhesinvestimentos.html?id=${invest.id}">
+                                            <h5 class="cardTitulo card-title">${invest.titulo}</h5></a>
                                         </div>
+                                        </a>
                                         <ul class="list-group list-group-flush">
-                                            <li class="list-group-item">${invest.resumo}</li>
-                                            <li class="list-group-item">${invest.data}</li>
-                                            <li class="list-group-item">A third item</li>
+                                            <li class="list-group-item"><p>${invest.resumo}</p></li>
                                         </ul>
                                 </div>`
                         }
