@@ -23,10 +23,10 @@
 
             <div class="links" id="links">
                 <ul class="pages">
-                    <li class="home"><a href="homepage.html">Home</a></li>
-                    <li class="noticias"><a href="#">Notícias</a></li>
-                    <li class="educacao"><a href="paginaEducacao.html">Educação</a></li>
-                    <li class="investimentos"><a href="#">Investimentos</a></li>
+                    <li class="home"><a href="/homepage.html">Home</a></li>
+                    <li class="noticias"><a href="/notícias.html">Notícias</a></li>
+                    <li class="educacao"><a href="/paginaEducacao.html">Educação</a></li>
+                    <li class="investimentos"><a href="/investimentos.html">Investimentos</a></li>
                 </ul>
             </div>
 
@@ -36,21 +36,19 @@
         </div>
     </header>
     <!-- Conteúdo de notícias -->
-    <main class="noticias-container">
-        <h1>Últimas Notícias</h1>
-        <section class="grid-noticias" id="noticias-grid">
-            <!-- Os cards serão carregados via JS -->
-        </section>
-    </main>
-    <!-- Modal para mostrar notícia completa -->
-    <div class="modal" id="modal" style="display: none;">
-        <div class="modal-content">
-            <span id="closeModal">×</span>
-            <h2 id="modalTitulo"></h2>
-            <img alt="" id="modalImagem" src="" />
-            <p id="modalConteudo"></p>
-        </div>
+     <h1>Últimas Notícias</h1>
+  <div id="noticias-container" class="grid-noticias"></div>
+
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span id="close-modal" class="close">&times;</span>
+      <h2 id="modal-titulo"></h2>
+      <img id="modal-imagem" />
+      <p id="modal-conteudo"></p>
     </div>
+  </div>
     <footer>
         <div class="rodape" id="rodape">
             <div class="logotipo">
@@ -70,8 +68,9 @@
             </div>
         </div>
     </footer>
-    <!-- Script para carregar JSON -->
-    <script src="/db/db.json"></script>
+    <!-- Script para carregar JS -->
+    
+    <script src="js/scriptnoticias.js"></script>
 </body>
 
 </html>

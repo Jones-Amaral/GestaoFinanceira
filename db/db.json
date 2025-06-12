@@ -105,14 +105,14 @@
   "noticias": [
     {
       "titulo": "Economia cresce no primeiro trimestre",
-      "imagem": "noticia.png",
+      "imagem": " /img/img-noticia/Pib.png",
       "resumo": "PIB sobe 2,5% puxado por serviços.",
       "conteudo": "O PIB brasileiro teve um crescimento de 2,5% no primeiro trimestre, impulsionado pelo setor de serviços...",
       "id": 1
     },
     {
       "titulo": "Novo programa educacional é lançado",
-      "imagem": "noticia.png",
+      "imagem": "/img/img-noticia/programa-educacional.png",
       "resumo": "Programa para capacitar professores em tecnologia.",
       "conteudo": "O governo lançou um programa para capacitação de professores em tecnologia e inovação...",
       "id": 2
