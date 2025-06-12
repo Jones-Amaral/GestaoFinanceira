@@ -75,14 +75,18 @@ a {
 /* Header Fim */
 main {
     margin-top: 130px;
+    padding: 10px;
 }
 
 .cardEducacao{
-    border: 2px solid #42e619;
+    border-top: 2px solid #42e619;
+    border-bottom: 2px solid #42e619;
+
 }
 
 .cardEducacao p{
       font-family:'Times New Roman', Times, serif;  
+      font-size: 20px
 }
 
 .cardTitulo{
