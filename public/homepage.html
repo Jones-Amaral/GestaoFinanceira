@@ -100,7 +100,7 @@
                                     <div class="col-md-4">
                                       <a href="detalhesEducacao.html?id=${educ.id}">
                                         <img src="${educ.banner}" 
-                                             class="img-fluid rounded-start h-100 w-100" 
+                                             class="imagemCard img-fluid rounded-start h-100 w-100" 
                                              alt="${educ.titulo}" 
                                              style="object-fit: cover;" />
                                       </a>
@@ -134,7 +134,7 @@
                                     <div class="row g-0">
                                         <div class="col-md-4">
                                             <a href="colocarAquiLink.html?id=${not.id}">
-                                            <img src="${not.imagem}" class="img-fluid rounded-start" alt="..."></a>
+                                            <img src="${not.imagem}" class="imagemCard img-fluid rounded-start" alt="..."></a>
                                         </div>
                                         <div class="col-md-8">
                                             <div class="card-body">
@@ -160,17 +160,22 @@
                         for (let i = 0; i < 3; i++) {
                             let invest = data[i];
                             strInvestimento += `
-                                <div class="cardEducacao card mx-auto" style="width: 18rem;">
-                                    <a href="detalhesinvestimentos.html?id=${invest.id}">
-                                    <img src="${invest.imagem}" class="card-img-top" alt="${invest.titulo}"></a>
-                                        <div class="card-body">
-                                            <a href="detalhesinvestimentos.html?id=${invest.id}">
-                                            <h5 class="cardTitulo card-title">${invest.titulo}</h5></a>
-                                        </div>
-                                        </a>
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item"><p>${invest.resumo}</p></li>
-                                        </ul>
+                                <div class="cardEducacao card mx-auto d-flex flex-column" style="width: 18rem; height: 100%;">
+                                  <a href="detalhesinvestimentos.html?id=${invest.id}">
+                                    <img src="${invest.imagem}" class="imagemCard card-img-top" alt="${invest.titulo}" style="height: 180px; object-fit: cover;">
+                                  </a>
+                              
+                                  <div class="card-body d-flex align-items-center justify-content-center" style="height: 60px;">
+                                    <a href="detalhesinvestimentos.html?id=${invest.id}" class="text-decoration-none text-dark w-100 text-center">
+                                      <h5 class="cardTitulo card-title m-0">${invest.titulo}</h5>
+                                    </a>
+                                  </div>
+                              
+                                  <ul class="list-group list-group-flush flex-grow-1">
+                                    <li class="list-group-item text-center" style="min-height: 90px;">
+                                      <p class="m-0">${invest.resumo}</p>
+                                    </li>
+                                  </ul>
                                 </div>`
                         }
                         investimento.innerHTML = strInvestimento;

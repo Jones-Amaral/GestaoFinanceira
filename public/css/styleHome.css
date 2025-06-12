@@ -96,6 +96,13 @@ main {
 color: #42e619;
 }
 
+.imagemCard {
+  transition: transform 0.3s ease;
+}
+
+.imagemCard:hover {
+  transform: scale(1.10);
+}
 /* Texto */
 h1 {
     text-align: center;
