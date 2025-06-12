@@ -11,48 +11,49 @@ body {
 
 /* Navbar */
 .navbar {
-    background-color: #0a1a37;
-    width: 100%;
-    padding: 10px 15px;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 8px solid #42e619;
-    position: relative;
+  background-color: #e7f5e9;
+  width: 100%;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 8px solid #42e619;
+  position: relative;
 
 }
 
 .logo img {
-    width: 250px;
-    height: 100px;
-    object-fit: cover;
+  width: 250px;
+  height: 100px;
+  object-fit: cover;
 }
 
 .pages {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex: 1;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex: 1;
+  margin: 0;
+  padding: 0;
 }
 
 .pages li a {
-    display: block;
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    font-size: 1.8rem;
-    padding: 10px 10px;
-    transition: all 0.3s ease;
+  display: block;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 1.8rem;
+  padding: 10px 10px;
+  transition: all 0.3s ease;
 }
 
 .pages li a:hover {
-    background-color: #42e619;
-    border-radius: 5px;
+  background-color: #42e619;
+  border-radius: 5px;
 }
+
 /*Fim da navbar*/
 
 /*Icone de menu aparecendo em versão mobile*/
@@ -205,4 +206,56 @@ body {
 
 .like-button .like-count {
   margin-left: 5px;
+}
+
+/*Footer*/
+.rodape {
+  background-color: #e7f5e9;
+  margin-top: 40px;
+  border-top: 8px solid #42e619;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logotipo img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.containerborder {
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+}
+
+.containerborder p {
+  font-size: 1.1em;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.redes-sociais {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.redes-sociais a {
+  color: #333;
+  font-size: 1.5em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.redes-sociais a:hover {
+  color: #42e619;
 }
