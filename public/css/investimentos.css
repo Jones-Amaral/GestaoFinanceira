@@ -111,12 +111,11 @@ body {
 .containerright {
   background-color: #e7f5e9;
   padding: 20px;
-  border-radius: 15px;
-  border: 3px solid #42e619;
 }
 
 .containerleft {
   width: 730px;
+  border-right: 5px solid #42e619
 }
 
 .containerright {

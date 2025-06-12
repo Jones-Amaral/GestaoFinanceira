@@ -16,7 +16,7 @@
         <div class="navbar" id="navbar">
             <div class="logo">
                 <a href="homepage.html">
-                    <img src="/img/imgs-bernardo/logomelhorada.png" alt="logo" id="logo">
+                    <img src="img/imgs-bernardo/logomelhorada.png" alt="logo" id="logo">
                 </a>
             </div>
 
@@ -77,29 +77,11 @@
                 <h2>Melhores investimentos</h2>
                 <!--Carrossel-->
                 <div class="carrossel-container">
-                    <div class="carrossel">
-                        <div class="slide" data-id="bitcoin">
-                            <img src="/img/imgs-bernardo/bitcoin.jpg" alt="Imagem 1">
-                            <button class="favorito-btn" data-id="bitcoin">♡</button>
-                        </div>
-                        <div class="slide" data-id="bolsa">
-                            <img src="/img/imgs-bernardo/bolsa.jpg" alt="Imagem 2">
-                            <button class="favorito-btn" data-id="bolsa">♡</button>
-                        </div>
-                        <div class="slide" data-id="ouro">
-                            <img src="/img/imgs-bernardo/ouro3.jpg" alt="Imagem 3">
-                            <button class="favorito-btn" data-id="ouro">♡</button>
-                        </div>
+                    <div class="carrossel" id="carrossel-dinamico">
+                        <!-- Slides vão ser gerados aqui via JS -->
                     </div>
-
-                    <button class="prev">&#10094;</button>
-                    <button class="next">&#10095;</button>
-                </div>
-
-                <!-- Área para exibir as informações -->
-                <div id="info-investimento" class="info-investimento">
-                    <h3>Selecione um investimento</h3>
-                    <p>Clique em uma imagem acima para ver mais detalhes.</p>
+                    <button class="prev" >&#10094;</button>
+                    <button class="next" >&#10095;</button>
                 </div>
 
                 <!--Fim do Carrossel-->
