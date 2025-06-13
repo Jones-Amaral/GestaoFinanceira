@@ -100,7 +100,7 @@
                                   <div class="row g-0">
                                     <div class="col-12 col-md-4" style="height: 200px;">
                                       <a href="detalhesEducacao.html?id=${educ.id}">
-                                        <img src="${educ.banner}" class="imagemCard img-fluid rounded-start w-100 h-100" alt="${educ.titulo}" style="object-fit: cover;" />
+                                        <img src="${educ.banner}" class="imagemCardEduc img-fluid rounded-start w-100 h-100" alt="${educ.titulo}" style="object-fit: cover;" />
                                       </a>
                                     </div>
                                 
@@ -134,7 +134,7 @@
                                     <div class="row g-0">
                                         <div class="col-md-4">
                                             <a href="colocarAquiLink.html?id=${not.id}">
-                                            <img src="${not.imagem}" class="imagemCard img-fluid rounded-start" alt="..."></a>
+                                            <img src="${not.imagem}" class="imagemCardNoticia img-fluid rounded-start" alt="..."></a>
                                         </div>
                                         <div class="col-md-8">
                                             <div class="card-body">
@@ -162,7 +162,7 @@
                             strInvestimento += `
                                 <div class="cardEducacao card mx-auto d-flex flex-column m-3" style="width: 18rem; height: 100%;">
                                   <a href="detalhesinvestimentos.html?id=${invest.id}">
-                                    <img src="${invest.imagem}" class="imagemCard card-img-top" alt="${invest.titulo}" style="height: 180px; object-fit: cover;">
+                                    <img src="${invest.imagem}" class="imagemCardInvest card-img-top" alt="${invest.titulo}" style="object-fit: cover;">
                                   </a>
                               
                                   <div class="card-body d-flex align-items-center justify-content-center" style="height: 60px;">
@@ -172,7 +172,7 @@
                                   </div>
                               
                                   <ul class="list-group list-group-flush flex-grow-1">
-                                    <li class="list-group-item text-center" style="min-height: 90px;">
+                                    <li class="textoParagrafo list-group-item text-center" style="min-height: 90px;">
                                       <p class="m-0">${invest.resumo}</p>
                                     </li>
                                   </ul>

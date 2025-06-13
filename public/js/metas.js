@@ -48,15 +48,15 @@ function carregarMetas() {
 
     const progresso = calcularProgresso(meta.valorAtual, meta.valorObjetivo);
     const status = definirStatus(meta.valorAtual, meta.valorObjetivo, meta.dataLimite);
-const restante = meta.valorObjetivo - meta.valorAtual;
-const textoRestante = restante <= 0 
-  ? "Meta alcançada!" 
-  : `Faltam ${restante.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} para alcançar sua meta.`;
+    const restante = meta.valorObjetivo - meta.valorAtual;
+    const textoRestante = restante <= 0
+      ? "Meta alcançada!"
+      : `Faltam ${restante.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} para alcançar sua meta.`;
 
 
     const corStatus =
       status === "Concluída" ? "concluida" :
-      status === "Vencida" ? "vencida" : "andamento";
+        status === "Vencida" ? "vencida" : "andamento";
 
     let corBarra = "#ccc";
     if (progresso >= 100) corBarra = "green";

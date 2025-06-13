@@ -9,7 +9,7 @@
       "autor": "Isabella Marzolla",
       "data": "07/07/2024",
       "categoria": "educacao",
-      "banner": "/img/img-educacao/dolar.png",
+      "banner": "img/img-educacao/dolar.jpg",
       "descricao": "Imagem dolar",
       "comentario": [
         {
@@ -33,7 +33,7 @@
       "autor": "PagBank",
       "data": "01/11/2024",
       "categoria": "educacao",
-      "banner": "/img/img-educacao/organizacao.jpg",
+      "banner": "img/img-educacao/economia.jpg",
       "descricao": "Organização Financeira",
       "comentario": [
         {
@@ -62,7 +62,7 @@
       "autor": "InfoMoney",
       "data": "6/11/2022",
       "categoria": "educacao",
-      "banner": "/img/img-educacao/dinheiro-inflacao.png",
+      "banner": "img/img-educacao/inflacao.jpg",
       "descricao": "Inflação e dinheiro",
       "comentario": [
         {

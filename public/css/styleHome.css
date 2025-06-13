@@ -78,35 +78,45 @@ main {
     padding: 10px;
 }
 
-.cardEducacao{
-    border-top: 2px solid #42e619;
-    border-bottom: 2px solid #42e619;
+.cardEducacao {
+    border-top: 3px solid #42e619;
+    border-bottom: 3px solid #42e619;
 
 }
 
-.cardEducacao p{
-      font-family:'Times New Roman', Times, serif;  
-      font-size: 20px
+.cardEducacao p {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px
 }
 
-.cardTitulo{
+.cardTitulo {
     font-size: 25px;
     font-weight: 600;
-    font-family:'Times New Roman', Times, serif;
+    font-family: 'Times New Roman', Times, serif;
     color: #034C1C;
 }
 
-.cardTitulo:hover{
-color: #42e619;
+.cardTitulo:hover {
+    color: #42e619;
 }
 
-.imagemCard {
-  transition: transform 0.3s ease;
+.imagemCardNoticia {
+    width: 250px;
+    height: 200px;
+    transition: transform 0.3s ease;
+}
+.imagemCardInvest{
+        transition: transform 0.3s ease;
+        height: 180px;
+}
+.imagemCardEduc{
+        transition: transform 0.3s ease;
 }
 
-.imagemCard:hover {
-  transform: scale(1.10);
+.imagemCardNoticia:hover, .imagemCardInvest:hover, .imagemCardEduc:hover {
+    transform: scale(1.10);
 }
+
 /* Texto */
 h1 {
     text-align: center;
