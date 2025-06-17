@@ -1,4 +1,4 @@
-/* Body */
+ /* Body */
 body {
     background-color: #e7f5e9;
     margin: 0;
@@ -22,7 +22,6 @@ a {
     position: fixed;
     top: 0;
     z-index: 998;
-
 }
 
 .logo img {
@@ -49,6 +48,7 @@ a {
     font-size: 1.8rem;
     padding: 10px 10px;
     transition: all 0.3s ease;
+        border: none;
 }
 
 .pages li a:hover {

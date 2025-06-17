@@ -7,6 +7,8 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Notícias</title>
     <link href="/css/stylenotícias.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/styleHome.css">
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
     <script crossorigin="anonymous" src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
@@ -14,31 +16,58 @@
 <body>
     <!-- Navbar -->
     <header>
-        <div class="navbar" id="navbar">
-            <div class="logo">
-                <a href="homepage.html">
-                    <img src="/img/imgs-bernardo/logomelhorada.png" alt="logo" id="logo">
-                </a>
-            </div>
+  <a href="adicao-dados.html">
+    <img src="/img/header/adicionar.png" class="icone-Adicionar" alt="Icone Adicionar Noticia">
+  </a>
+  <a href="#" id="hamburguerMenu">
+    <img src="/img/header/hamburguer.png" alt="Icone Menu" class="icone-hamburguer">
+  </a>
+  <div class="navbar" id="navbar">
+    <div class="logo">
+      <a href="homepage.html">
+        <img src="/img/imgs-bernardo/logomelhorada.png" alt="logo" id="logo">
+      </a>
+    </div>
+    <div class="links" id="links">
+      <ul class="pages">
+        <li class="home"><a href="homepage.html">Home</a></li>
+        <li class="noticias"><a href="notícias.html">Notícias</a></li>
+        <li class="educacao"><a href="paginaEducacao.html">Educação</a></li>
+        <li class="investimentos"><a href="investimentos.html">Investimentos</a></li>
+      </ul>
+    </div>
+    <div class="espaco"></div>
+  </div>
+</header>
 
-            <div class="links" id="links">
-                <ul class="pages">
-                    <li class="home"><a href="/homepage.html">Home</a></li>
-                    <li class="noticias"><a href="/notícias.html">Notícias</a></li>
-                    <li class="educacao"><a href="/paginaEducacao.html">Educação</a></li>
-                    <li class="investimentos"><a href="/investimentos.html">Investimentos</a></li>
-                </ul>
-            </div>
+<!-- Menu lateral (hamburguer) -->
+<div class="menu-lateral" id="menuLateral">
+  <button class="fechar-menu" id="fecharMenu">X</button>
+  <ul>
+    <li class="borda"><a href="#"><img class="imgHamburguer" src="/img/hamburguer/usuario.png" alt="Usuário">Minha Conta</a></li>
+    <li class="borda"><a href="#"><img class="imgHamburguer" src="/img/hamburguer/lupa.png" alt="Lupa">Pesquise Aqui</a></li>
+    <li class="borda"><a href="#"><img class="imgHamburguer" src="/img/hamburguer/interrogacao.png" alt="Tutorial">Tutoriais</a></li>
+    <li class="borda"><a href="#"><img class="imgHamburguer" src="/img/hamburguer/planilha.png" alt="Planilha">Planilha</a></li>
+    <li class="borda"><a href="#"><img class="imgHamburguer" src="/img/hamburguer/chat.png" alt="Converse Conosco">Converse Conosco</a></li>
+    <li><a href="#" id="abrirFavoritos"><img class="imgHamburguer" src="/img/hamburguer/like.png" alt="Favoritos">Favoritos</a></li>
 
-            <i class="fas fa-bars" onclick="toggleMenu()"></i>
+  </ul>
+</div>
 
-            <div class="espaco"></div>
-        </div>
-    </header>
+
+
     <!-- Conteúdo de notícias -->
      <h1>Últimas Notícias</h1>
   <div id="noticias-container" class="grid-noticias"></div>
 
+  <!-- Seção de Favoritos (inicialmente escondida) -->
+<section id="favoritos-section" style="display: none;">
+  <h2>Notícias Favoritas</h2>
+  <div id="favoritos-container" class="grid-noticias"></div>
+</section>
+
+ 
+ 
 
   <!-- Modal -->
   <div id="modal" class="modal">
@@ -69,8 +98,72 @@
         </div>
     </footer>
     <!-- Script para carregar JS -->
+   
     
     <script src="js/scriptnoticias.js"></script>
+   <script>
+  window.onload = () => {
+    const menuLateral = document.getElementById('menuLateral');
+    const hamburguerMenu = document.getElementById('hamburguerMenu');
+    const fecharMenu = document.getElementById('fecharMenu');
+
+    hamburguerMenu.addEventListener('click', function (e) {
+      e.preventDefault();
+      menuLateral.classList.add('show');
+    });
+
+    fecharMenu.addEventListener('click', function () {
+      menuLateral.classList.remove('show');
+    });
+  };
+
+  document.getElementById('abrirFavoritos').addEventListener('click', async (e) => {
+  e.preventDefault();
+
+  // Fecha o menu lateral
+  document.getElementById('menuLateral').classList.remove('show');
+
+  // Mostra a seção de favoritos
+  document.getElementById('favoritos-section').style.display = 'block';
+  document.getElementById('noticias-container').style.display = 'none';
+
+  const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+  const container = document.getElementById('favoritos-container');
+  container.innerHTML = '';
+
+  const response = await fetch('http://localhost:3000/noticias');
+  const noticias = await response.json();
+
+  const favoritas = noticias.filter(noticia => favoritos.includes(String(noticia.id)));
+
+  if (favoritas.length === 0) {
+    container.innerHTML = '<p>Você ainda não favoritou nenhuma notícia.</p>';
+    return;
+  }
+
+  favoritas.forEach(noticia => {
+    const card = document.createElement('div');
+    card.className = 'card-noticia';
+
+    card.innerHTML = `
+      <img src="${noticia.imagem}" alt="${noticia.titulo}">
+      <h3>${noticia.titulo}</h3>
+      <p>${noticia.resumo}</p>
+      <i class="fas fa-heart favorito ativo" style="color:red;"></i>
+    `;
+
+    card.querySelector('img').addEventListener('click', () => abrirModal(noticia));
+    card.querySelector('h3').addEventListener('click', () => abrirModal(noticia));
+    card.querySelector('p').addEventListener('click', () => abrirModal(noticia));
+
+    container.appendChild(card);
+  });
+});
+
+</script>
+
+
+
 </body>
 
 </html>
