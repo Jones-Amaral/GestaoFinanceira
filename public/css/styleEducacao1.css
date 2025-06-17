@@ -144,6 +144,11 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.imagemNoticia:hover {
+    transform: scale(1.10);
 }
 
 /* Menu Hamburguer */
@@ -221,7 +226,11 @@ main {
     position: fixed;
     right: 30px;
     bottom: 30px;
+    transition: transform 0.3s ease;
+}
 
+.favoritar:hover {
+    transform: scale(1.10);
 }
 
 /* Formatação de Texto das Notícias */

@@ -1,180 +1,184 @@
  /* Body */
-body {
-    background-color: #e7f5e9;
-    margin: 0;
-    padding: 0;
-}
+ body {
+     background-color: #e7f5e9;
+     margin: 0;
+     padding: 0;
+ }
 
-a {
-    text-decoration: none;
-}
+ a {
+     text-decoration: none;
+ }
 
-/* Header */
-.navbar {
-    background-color: #e7f5e9;
-    width: 100%;
-    padding: 10px 15px;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 8px solid #42e619;
-    position: fixed;
-    top: 0;
-    z-index: 998;
-}
+ /* Header */
+ .navbar {
+     background-color: #e7f5e9;
+     width: 100%;
+     padding: 10px 15px;
+     box-sizing: border-box;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     border-bottom: 8px solid #42e619;
+     position: fixed;
+     top: 0;
+     z-index: 998;
+ }
 
-.logo img {
-    width: 250px;
-    height: 100px;
-    object-fit: cover;
-}
+ .logo img {
+     width: 250px;
+     height: 100px;
+     object-fit: cover;
+ }
 
-.pages {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex: 1;
-    margin: 0;
-    padding: 0;
-}
+ .pages {
+     list-style: none;
+     display: flex;
+     gap: 20px;
+     justify-content: center;
+     flex: 1;
+     margin: 0;
+     padding: 0;
+ }
 
-.pages li a {
-    display: block;
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-    font-size: 1.8rem;
-    padding: 10px 10px;
-    transition: all 0.3s ease;
-        border: none;
-}
+ .pages li a {
+     display: block;
+     text-decoration: none;
+     color: black;
+     font-weight: bold;
+     font-size: 1.8rem;
+     padding: 10px 10px;
+     transition: all 0.3s ease;
+     border: none;
+ }
 
-.pages li a:hover {
-    background-color: #42e619;
-    border-radius: 5px;
-}
+ .pages li a:hover {
+     background-color: #42e619;
+     border-radius: 5px;
+ }
 
-.icone-Adicionar {
-    width: 80px;
-    position: fixed;
-    top: 35px;
-    right: 50px;
-    z-index: 999;
-}
+ .icone-Adicionar {
+     width: 80px;
+     position: fixed;
+     top: 35px;
+     right: 50px;
+     z-index: 999;
+ }
 
-.icone-hamburguer {
-    width: 70px;
-    position: fixed;
-    top: 35px;
-    right: 150px;
-    z-index: 999;
-}
+ .icone-hamburguer {
+     width: 70px;
+     position: fixed;
+     top: 35px;
+     right: 150px;
+     z-index: 999;
+ }
 
-/* Header Fim */
-main {
-    margin-top: 130px;
-    padding: 10px;
-}
+ /* Header Fim */
+ main {
+     margin-top: 130px;
+     padding: 10px;
+ }
 
-.cardEducacao {
-    border-top: 3px solid #42e619;
-    border-bottom: 3px solid #42e619;
+ .cardEducacao {
+     border-top: 3px solid #42e619;
+     border-bottom: 3px solid #42e619;
 
-}
+ }
 
-.cardEducacao p {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 20px
-}
+ .cardEducacao p {
+     font-family: 'Times New Roman', Times, serif;
+     font-size: 20px
+ }
 
-.cardTitulo {
-    font-size: 25px;
-    font-weight: 600;
-    font-family: 'Times New Roman', Times, serif;
-    color: #034C1C;
-}
+ .cardTitulo {
+     font-size: 25px;
+     font-weight: 600;
+     font-family: 'Times New Roman', Times, serif;
+     color: #034C1C;
+ }
 
-.cardTitulo:hover {
-    color: #42e619;
-}
+ .cardTitulo:hover {
+     color: #42e619;
+ }
 
-.imagemCardNoticia {
-    width: 250px;
-    height: 200px;
-    transition: transform 0.3s ease;
-}
-.imagemCardInvest{
-        transition: transform 0.3s ease;
-        height: 180px;
-}
-.imagemCardEduc{
-        transition: transform 0.3s ease;
-}
+ .imagemCardNoticia {
+     width: 250px;
+     height: 200px;
+     transition: transform 0.3s ease;
+ }
 
-.imagemCardNoticia:hover, .imagemCardInvest:hover, .imagemCardEduc:hover {
-    transform: scale(1.10);
-}
+ .imagemCardInvest {
+     transition: transform 0.3s ease;
+     height: 180px;
+ }
 
-/* Texto */
-h1 {
-    text-align: center;
-    font-size: 40px;
-    color: #034C1C;
-}
+ .imagemCardEduc {
+     transition: transform 0.3s ease;
+ }
 
-/* Texto Fim */
-/* Footer */
-.rodape {
-    background-color: #e7f5e9;
-    margin-top: 40px;
-    border-top: 8px solid #42e619;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-}
+ .imagemCardNoticia:hover,
+ .imagemCardInvest:hover,
+ .imagemCardEduc:hover {
+     transform: scale(1.10);
+ }
 
-.logotipo img {
-    width: 300px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 15px;
-}
+ /* Texto */
+ h1 {
+     text-align: center;
+     font-size: 40px;
+     color: #034C1C;
+ }
 
-.containerborder {
-    max-width: 900px;
-    width: 100%;
-    text-align: center;
-}
+ /* Texto Fim */
+ /* Footer */
+ .rodape {
+     background-color: #e7f5e9;
+     margin-top: 40px;
+     border-top: 8px solid #42e619;
+     padding: 20px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     flex-wrap: wrap;
+ }
 
-.containerborder p {
-    font-size: 1.1em;
-    margin-bottom: 15px;
-    color: #333;
-}
+ .logotipo img {
+     width: 300px;
+     height: 200px;
+     object-fit: cover;
+     border-radius: 15px;
+ }
 
-.redes-sociais {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-}
+ .containerborder {
+     max-width: 900px;
+     width: 100%;
+     text-align: center;
+ }
 
-.redes-sociais a {
-    color: #333;
-    font-size: 1.5em;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: color 0.3s ease;
-    text-decoration: none;
-}
+ .containerborder p {
+     font-size: 1.1em;
+     margin-bottom: 15px;
+     color: #333;
+ }
 
-.redes-sociais a:hover {
-    color: #42e619;
-}
+ .redes-sociais {
+     display: flex;
+     justify-content: center;
+     gap: 30px;
+     flex-wrap: wrap;
+ }
 
-/* Footer Fim */
+ .redes-sociais a {
+     color: #333;
+     font-size: 1.5em;
+     display: flex;
+     align-items: center;
+     gap: 8px;
+     transition: color 0.3s ease;
+     text-decoration: none;
+ }
+
+ .redes-sociais a:hover {
+     color: #42e619;
+ }
+
+ /* Footer Fim */
