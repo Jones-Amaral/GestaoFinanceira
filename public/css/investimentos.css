@@ -9,18 +9,15 @@ body {
   background-color: #e7f5e9;
 }
 
-/* Navbar */
 .navbar {
   background-color: #e7f5e9;
   width: 100%;
   padding: 10px 15px;
-  box-sizing: border-box;
+  border-bottom: 8px solid #42e619;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 8px solid #42e619;
   position: relative;
-
 }
 
 .logo img {
@@ -35,8 +32,6 @@ body {
   gap: 20px;
   justify-content: center;
   flex: 1;
-  margin: 0;
-  padding: 0;
 }
 
 .pages li a {
@@ -54,14 +49,62 @@ body {
   border-radius: 5px;
 }
 
-/*Fim da navbar*/
+/* === Menu de usuário e ícone de menu alinhados à direita === */
+.right-icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
 
-/*Icone de menu aparecendo em versão mobile*/
+
+
+/* Ícone de menu (hambúrguer) */
 .fas.fa-bars {
-  display: none;
   font-size: 2.3rem;
   color: black;
   cursor: pointer;
+  display: block;
+}
+
+/* Menu de usuário */
+.usuario-menu {
+  position: relative;
+  cursor: pointer;
+}
+
+.usuario-menu .fa-user {
+  font-size: 1.5rem;
+  color: #4fe42a;
+  padding: 10px;
+}
+
+/* Dropdown do usuário */
+.user-dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 40px;
+  background-color: #fff;
+  list-style: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+  padding: 10px 0;
+  width: 150px;
+  z-index: 1000;
+}
+
+.user-dropdown li {
+  padding: 10px 20px;
+}
+
+.user-dropdown li a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+}
+
+.user-dropdown li a:hover {
+  background-color: #f0f0f0;
 }
 
 @media (max-width: 768px) {
@@ -69,32 +112,18 @@ body {
     display: none;
     position: absolute;
     top: 100%;
-    width: 100%;
     left: 0;
     background-color: #e7f5e9;
     flex-direction: column;
     text-align: center;
     padding: 20px 0;
+    width: 100%;
     z-index: 999;
   }
-
 
   .pages.show {
     display: flex;
   }
-
-  .fas.fa-bars {
-    display: block;
-  }
-
-  .espaco {
-    display: none;
-  }
-}
-
-/*Espaço na direita pra deixar os links no centro, não sei fazer isso sem bootstrap ou gambiarra*/
-.espaco {
-  width: 250px;
 }
 
 /*containers*/
@@ -115,7 +144,7 @@ body {
 
 .containerleft {
   width: 730px;
-  border-right: 5px solid #42e619
+  border-right: 5px solid #42e619;
 }
 
 .containerright {
