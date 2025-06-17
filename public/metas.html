@@ -8,15 +8,46 @@
 </head>
 
 <body>
-  <header>
-    <h1>Grana ✅</h1>
-    <nav>
-      <a href="homepage.html">Home</a>
-      <a href="paginaEducacao.html">Educação</a>
-      <a href="notícias.html">Notícias</a>
-      <a href="investimentos.html">Investimento</a>
-    </nav>
-  </header>
+<!-- Cabeçalho padrão -->
+<header>
+
+            <a href="#" id="hamburguerMenu"><img src="/img/header/hamburguer.png" alt="Icone Menu"
+                    class="icone-hamburguer"></a>
+                    <!-- Botão do menu hambúrguer -->
+
+<!-- Menu suspenso que será exibido ao clicar -->
+<div id="dropdownMenu" class="dropdown-menu-custom esconder">
+  <ul>
+    <li><a href="#">Perfil</a></li>
+    <li><a href="#">Sobre</a></li>
+    <li><a href="metas.html">Minhas Metas</a></li>
+    <li><a href="adicao-dados.html">Adicionar Notícia</a></li>
+    <li><a href="#">Sair</a></li>
+  </ul>
+</div>
+
+            <div class="navbar" id="navbar">
+                <div class="logo">
+                    <a href="homepage.html">
+                        <img src="/img/imgs-bernardo/logomelhorada.png" alt="logo" id="logo">
+                    </a>
+                </div>
+
+                <div class="links" id="links">
+                    <ul class="pages">
+                        <li class="home"><a href="homepage.html">Home</a></li>
+                        <li class="noticias"><a href="notícias.html">Notícias</a></li>
+                        <li class="educacao"><a href="paginaEducacao.html">Educação</a></li>
+                        <li class="investimentos"><a href="investimentos.html">Investimentos</a></li>
+                    </ul>
+                </div>
+
+                <!--             <i class="fas fa-bars" onclick="toggleMenu()"></i> -->
+
+                <div class="espaco"></div>
+            </div>
+        </header>
+
 
   <main>
     <section class="intro">
@@ -90,6 +121,23 @@
   <div id="notificacao" class="toast"></div>
 
   <script src="js/metas.js"></script>
+  <script>
+  const menuBtn = document.getElementById("hamburguerMenu");
+  const dropdown = document.getElementById("dropdownMenu");
+
+  menuBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    dropdown.classList.toggle("esconder");
+  });
+
+  // Fecha o dropdown ao clicar fora dele
+  window.addEventListener("click", function (e) {
+    if (!menuBtn.contains(e.target) && !dropdown.contains(e.target)) {
+      dropdown.classList.add("esconder");
+    }
+  });
+</script>
+
 </body>
 
 </html>
