@@ -295,3 +295,106 @@ progress {
 .esconder {
   display: none !important;
 }
+@media (max-width: 768px) {
+
+  /* Oculta menu de navegação tradicional */
+  .links {
+    display: none;
+  }
+
+  /* Reposiciona logo e ícones */
+  .logo img {
+    width: 180px;
+    height: auto;
+  }
+
+  .icone-Adicionar,
+  .icone-hamburguer {
+    width: 50px;
+    top: 20px;
+  }
+
+  /* Corrige layout do dropdown */
+  .dropdown-menu-custom {
+    top: 90px;
+    right: 10px;
+    width: 85%;
+    font-size: 1rem;
+  }
+
+  /* Reduz tamanho e padding dos blocos */
+  .bloco-conteudo {
+    margin: 15px 10px;
+    padding: 15px;
+  }
+
+  /* Fonte dos títulos */
+  h1, h2, h3 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  /* Texto geral */
+  p, label, .faltam-texto {
+    font-size: 1rem;
+  }
+
+  /* Formulário empilhado */
+  #formularioMeta form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="date"],
+  button {
+    font-size: 1rem;
+    padding: 10px;
+    width: 100%;
+  }
+
+  .acoes {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  /* Tabela responsiva por blocos */
+  table, thead, tbody, th, td, tr {
+    display: block;
+    width: 100%;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tr {
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: white;
+  }
+
+  td {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.6rem 0;
+    border: none;
+    border-bottom: 1px solid #eee;
+    font-size: 1rem;
+  }
+
+  td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: #034C1C;
+  }
+
+  td:last-child {
+    border-bottom: none;
+  }
+
+}
