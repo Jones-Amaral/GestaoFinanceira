@@ -1,30 +1,84 @@
+function getIdFromURL() {
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get('id');
+  console.log("ID encontrado na URL:", id);
+  return id;
+}
 
-// 1. Pegar o ID da URL
-const params = new URLSearchParams(window.location.search);
-const id = params.get('id');
+async function carregarDetalhes() {
+  const id = getIdFromURL();
+  if (!id) {
+    document.getElementById('titulo').textContent = 'ID não informado.';
+    return;
+  }
 
-// 2. Carregar os dados do JSON (simulação local)
-fetch('http://localhost:3000/investimento')
-  .then(res => res.json())
-  .then(dados => {
-    const investimento = dados.find(inv => inv.id == id);
+  try {
+    const url = `http://localhost:3000/investimento/${id}`;
+    console.log("Buscando dados em:", url);
 
-    if (!investimento) {
-      document.getElementById('conteudo-detalhes').innerHTML = '<p>Investimento não encontrado.</p>';
-      return;
+    const resposta = await fetch(url);
+
+    console.log("Status da resposta:", resposta.status);
+
+    if (!resposta.ok) {
+      throw new Error("Investimento não encontrado");
     }
 
-    // 3. Montar HTML com os dados
-    document.getElementById('conteudo-detalhes').innerHTML = `
-      <h2>${investimento.nome}</h2>
-      <img src="${investimento.imagem}" alt="${investimento.nome}" style="max-width: 300px;">
-      <p><strong>Categoria:</strong> ${investimento.categoria}</p>
-      <p><strong>Rentabilidade:</strong> ${investimento.rentabilidade}</p>
-      <p><strong>Risco:</strong> ${investimento.risco}</p>
-      <p><strong>Descrição:</strong> ${investimento.descricao}</p>
-    `;
-  })
-  .catch(error => {
-    console.error(error);
-    document.getElementById('conteudo-detalhes').innerHTML = '<p>Erro ao carregar os dados.</p>';
+    const investimento = await resposta.json();
+    console.log("Dados recebidos:", investimento);
+
+    document.getElementById('titulo').textContent = investimento.titulo;
+    document.getElementById('imagem').src = investimento.imagem;
+    document.getElementById('imagem').alt = investimento.titulo;
+    document.getElementById('resumo').textContent = investimento.resumo;
+    document.getElementById('conteudo').textContent = investimento.conteudo;
+
+  } catch (erro) {
+    console.error("Erro ao carregar os dados:", erro.message);
+    document.querySelector('.container').innerHTML = `<p style="color:red;">Erro ao carregar os dados: ${erro.message}</p>`;
+  }
+}
+
+document.addEventListener('DOMContentLoaded', carregarDetalhes);
+
+function salvarComentario(id, texto) {
+  const comentarios = JSON.parse(localStorage.getItem('comentarios')) || {};
+  if (!comentarios[id]) {
+    comentarios[id] = [];
+  }
+  comentarios[id].push(texto);
+  localStorage.setItem('comentarios', JSON.stringify(comentarios));
+}
+
+function carregarComentarios(id) {
+  const comentarios = JSON.parse(localStorage.getItem('comentarios')) || {};
+  const lista = document.getElementById('listaComentarios');
+  lista.innerHTML = '';
+
+  if (comentarios[id]) {
+    comentarios[id].forEach(comentario => {
+      const li = document.createElement('li');
+      li.textContent = comentario;
+      lista.appendChild(li);
+    });
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  carregarDetalhes(); // sua função original
+
+  const id = new URLSearchParams(window.location.search).get('id');
+  carregarComentarios(id);
+
+  const form = document.getElementById('formComentario');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const texto = document.getElementById('comentarioTexto').value.trim();
+    if (texto) {
+      salvarComentario(id, texto);
+      document.getElementById('comentarioTexto').value = '';
+      carregarComentarios(id);
+    }
   });
+});
+
