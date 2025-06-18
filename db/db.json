@@ -152,7 +152,14 @@
       "titulo": "Bitcoin",
       "imagem": "img/imgs-bernardo/bitcoin.jpg",
       "resumo": "A criptomoeda mais conhecida do mundo, volátil e descentralizada.",
-      "conteudo": "As criptomoedas, como o Bitcoin e o Ethereum, representam uma revolução no sistema financeiro. Elas são moedas digitais descentralizadas, operando por meio da tecnologia blockchain — uma estrutura segura e transparente que dispensa intermediários, como bancos. Investir em criptoativos pode trazer grandes retornos em curto espaço de tempo, mas também apresenta alta volatilidade e riscos consideráveis. É ideal para investidores com perfil mais arrojado, dispostos a acompanhar tendências tecnológicas e econômicas. A chave é estudar o mercado, acompanhar notícias e investir com cautela e estratégia."
+      "conteudo": "As criptomoedas, como o Bitcoin e o Ethereum, representam uma revolução no sistema financeiro. Elas são moedas digitais descentralizadas, operando por meio da tecnologia blockchain — uma estrutura segura e transparente que dispensa intermediários, como bancos. Investir em criptoativos pode trazer grandes retornos em curto espaço de tempo, mas também apresenta alta volatilidade e riscos consideráveis. É ideal para investidores com perfil mais arrojado, dispostos a acompanhar tendências tecnológicas e econômicas. A chave é estudar o mercado, acompanhar notícias e investir com cautela e estratégia.",
+      "comentario": [
+        {
+          "id": "1",
+          "usuario": "Bernardo",
+          "comentario": "Investimento fera demais!"
+        }
+      ]
     },
     {
       "id": 2,
