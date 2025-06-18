@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         slide.innerHTML = `
           <a href="detalhesinvestimentos.html?id=${investimento.id}">
-            <img src="${investimento.imagem}" alt="${investimento.nome}" />
+            <img src="${investimento.imagem}" alt="${investimento.titulo}" />
           </a>
         `;
 
@@ -62,3 +62,24 @@ function updateCarrossel() {
   const offset = -currentIndex * 100;
   carrossel.style.transform = `translateX(${offset}%)`;
 }
+
+
+  function toggleUserMenu() {
+    const menu = document.getElementById('userDropdown');
+    menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+  }
+
+  function logout() {
+    alert('Você saiu da conta.');
+    // Aqui você pode apagar tokens/sessão se estiver usando login real
+  }
+
+  // Fecha o menu se clicar fora
+  window.addEventListener('click', function (e) {
+    if (!e.target.matches('.fa-user')) {
+      const dropdown = document.getElementById('userDropdown');
+      if (dropdown && dropdown.style.display === 'block') {
+        dropdown.style.display = 'none';
+      }
+    }
+  });

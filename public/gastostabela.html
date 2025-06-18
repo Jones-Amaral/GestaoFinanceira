@@ -10,19 +10,46 @@
 
 <body>
 
-  <header class="cabecalho">
-    <div class="container">
-      <h1 class="logo"> Grana +</h1>
-      <nav class="menu">
-        <ul>
-          <li><a href="homepage.html">Home</a></li>
-          <li><a href="paginaEducacao.html">Educação</a></li>
-          <li><a href="notícias.html">Notícias</a></li>
-          <li><a href="investimentos.html">Investimento</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<header>
+
+            <a href="#" id="hamburguerMenu"><img src="/img/header/hamburguer.png" alt="Icone Menu"
+                    class="icone-hamburguer"></a>
+                    <!-- Botão do menu hambúrguer -->
+
+<!-- Menu suspenso que será exibido ao clicar -->
+<div id="dropdownMenu" class="dropdown-menu-custom esconder">
+  <ul>
+<li><a href="usuarios.html">Minha Conta</a></li>
+    <li><a href="#">Pesquise aqui</a></li>
+    <li><a href="#">Converse Conosco</a></li>
+    <li><a href="metas.html">Minhas Metas</a></li>
+    <li><a href="adicao-dados.html">Adicionar Notícia</a></li>
+    <li><a href="curtidas.html">Favoritos</a></li>
+    <li><a href="tutorial.conosco.html"></a>Tutoriais</li>
+  </ul>
+</div>
+
+            <div class="navbar" id="navbar">
+                <div class="logo">
+                    <a href="homepage.html">
+                        <img src="/img/imgs-bernardo/logomelhorada.png" alt="logo" id="logo">
+                    </a>
+                </div>
+
+                <div class="links" id="links">
+                    <ul class="pages">
+                        <li class="home"><a href="homepage.html">Home</a></li>
+                        <li class="noticias"><a href="notícias.html">Notícias</a></li>
+                        <li class="educacao"><a href="paginaEducacao.html">Educação</a></li>
+                        <li class="investimentos"><a href="investimentos.html">Investimentos</a></li>
+                    </ul>
+                </div>
+
+                <!--             <i class="fas fa-bars" onclick="toggleMenu()"></i> -->
+
+                <div class="espaco"></div>
+            </div>
+        </header>
 
   <main class="conteudo">
     <section class="intro">
@@ -97,18 +124,24 @@
       <canvas id="grafico-gastos"></canvas>
     </section>
   </main>
-
-  
- <div id="tdr">
-    <h4>
-      <footer> Todos Direitos Reservados® a Grana+</footer>
-    </h4>
-  </div>
-
   
   <script src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.umd.min.js"></script>
   <script src="js/gastostabela.js"></script>
-  
+  <script>
+  const menuBtn = document.getElementById("hamburguerMenu");
+  const dropdown = document.getElementById("dropdownMenu");
 
+  menuBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    dropdown.classList.toggle("esconder");
+  });
+
+  // Fecha o dropdown ao clicar fora dele
+  window.addEventListener("click", function (e) {
+    if (!menuBtn.contains(e.target) && !dropdown.contains(e.target)) {
+      dropdown.classList.add("esconder");
+    }
+  });
+</script>
 </body>
 </html>

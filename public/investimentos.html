@@ -20,18 +20,25 @@
                 </a>
             </div>
 
-            <div class="links" id="links">
-                <ul class="pages">
-                    <li class="home"><a href="homepage.html">Home</a></li>
-                    <li class="noticias"><a href="notícias.html">Notícias</a></li>
-                    <li class="educacao"><a href="paginaEducacao.html">Educação</a></li>
-                    <li class="investimentos"><a href="investimentos.html">Investimentos</a></li>
-                </ul>
+            <ul class="pages" id="navLinks">
+                <li><a href="homepage.html">Home</a></li>
+                <li><a href="notícias.html">Notícias</a></li>
+                <li><a href="paginaEducacao.html">Educação</a></li>
+                <li><a href="investimentos.html">Investimentos</a></li>
+            </ul>
+
+            <div class="right-icons">
+                <i class="fas fa-bars" onclick="toggleMenu()"></i>
+
+                <div class="usuario-menu" onclick="toggleUserMenu()">
+                    <i class="fas fa-user"></i>
+                    <ul class="user-dropdown" id="userDropdown">
+                        <li><a href="usuarios.html">Login</a></li>
+                        <li><a href="usuarios.html">Logout</a></li>
+                        <li><a href="#">Privacidade</a></li>
+                    </ul>
+                </div>
             </div>
-
-            <i class="fas fa-bars" onclick="toggleMenu()"></i>
-
-            <div class="espaco"></div>
         </div>
     </header>
     <!--Fim da Navbar-->
@@ -80,8 +87,8 @@
                     <div class="carrossel" id="carrossel-dinamico">
                         <!-- Slides vão ser gerados aqui via JS -->
                     </div>
-                    <button class="prev" >&#10094;</button>
-                    <button class="next" >&#10095;</button>
+                    <button class="prev">&#10094;</button>
+                    <button class="next">&#10095;</button>
                 </div>
 
                 <!--Fim do Carrossel-->
