@@ -15,6 +15,9 @@ const DB_PATH = path.join(__dirname, 'db', 'db.json'); // Procura o db.json DENT
 app.use(cors());           // Habilita o CORS para permitir que seu frontend acesse o servidor
 app.use(express.json());   // Faz com que o servidor entenda o formato JSON enviado nas requisições
 
+// Static deve vir AQUI, antes das rotas e do listen!
+app.use(express.static(path.join(__dirname, 'public')));
+
 // --- FUNÇÕES AUXILIARES PARA LER E ESCREVER NO DB ---
 const lerBancoDeDados = async () => {
     const dados = await fs.readFile(DB_PATH, 'utf-8');
@@ -27,6 +30,11 @@ const escreverNoBancoDeDados = async (dados) => {
 };
 
 // --- ROTAS DA API (ENDPOINTS) ---
+
+// Garante que o campo 'gastos' exista no banco de dados
+async function garantirGastos(db) {
+    if (!db.gastos) db.gastos = [];
+}
 
 // ROTA GET /metas: Retorna todas as metas
 app.get('/metas', async (req, res) => {
@@ -112,6 +120,73 @@ app.delete('/metas/:id', async (req, res) => {
     }
 });
 
+// ROTA GET /gastos: Retorna todos os gastos
+app.get('/gastos', async (req, res) => {
+    try {
+        const db = await lerBancoDeDados();
+        await garantirGastos(db);
+        res.json(db.gastos);
+    } catch (error) {
+        console.error('Erro ao ler o banco de dados:', error);
+        res.status(500).send('Erro interno no servidor.');
+    }
+});
+
+// ROTA POST /gastos: Cria um novo gasto
+app.post('/gastos', async (req, res) => {
+    try {
+        const db = await lerBancoDeDados();
+        await garantirGastos(db);
+        const novoGasto = {
+            id: Date.now().toString(),
+            ...req.body
+        };
+        db.gastos.push(novoGasto);
+        await escreverNoBancoDeDados(db);
+        res.status(201).json(novoGasto);
+    } catch (error) {
+        console.error('Erro ao escrever no banco de dados:', error);
+        res.status(500).send('Erro interno no servidor.');
+    }
+});
+
+// ROTA PUT /gastos/:id: Atualiza um gasto existente
+app.put('/gastos/:id', async (req, res) => {
+    try {
+        const db = await lerBancoDeDados();
+        await garantirGastos(db);
+        const index = db.gastos.findIndex(g => g.id === req.params.id);
+        if (index !== -1) {
+            db.gastos[index] = { id: req.params.id, ...req.body };
+            await escreverNoBancoDeDados(db);
+            res.json(db.gastos[index]);
+        } else {
+            res.status(404).send('Gasto não encontrado para atualizar.');
+        }
+    } catch (error) {
+        console.error('Erro ao atualizar o banco de dados:', error);
+        res.status(500).send('Erro interno no servidor.');
+    }
+});
+
+// ROTA DELETE /gastos/:id: Deleta um gasto
+app.delete('/gastos/:id', async (req, res) => {
+    try {
+        const db = await lerBancoDeDados();
+        await garantirGastos(db);
+        const gastosAtualizados = db.gastos.filter(g => g.id !== req.params.id);
+        if (db.gastos.length !== gastosAtualizados.length) {
+            db.gastos = gastosAtualizados;
+            await escreverNoBancoDeDados(db);
+            res.status(204).send();
+        } else {
+            res.status(404).send('Gasto não encontrado para deletar.');
+        }
+    } catch (error) {
+        console.error('Erro ao deletar do banco de dados:', error);
+        res.status(500).send('Erro interno no servidor.');
+    }
+});
 
 // Passo 4: Iniciar o servidor
 app.listen(PORT, () => {
