@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
   <meta charset="UTF-8" />
   <title>Minhas Metas Financeiras</title>
@@ -65,25 +64,27 @@
     <section class="bloco-conteudo" id="formularioMeta" style="display: none;">
       <h3>Cadastrar Nova Meta</h3>
       <form id="formMeta">
-        <label>Qual o nome da sua Meta?
-          <input type="text" id="nomeMeta" required>
-        </label>
+      <input type="hidden" id="idMeta">
+      
+        <label>Qual o nome da sua Meta?
+          <input type="text" id="nomeMeta" required>
+        </label>
 
-        <label>Quanto você quer guardar? (R$)
-          <input type="number" id="valorObjetivo" required>
-        </label>
+        <label>Quanto você quer guardar? (R$)
+          <input type="number" id="valorObjetivo" min="0" step="any" required>
+        </label>
 
-        <label>Quanto você já tem? (R$)
-          <input type="number" id="valorAtual" required>
-        </label>
+        <label>Quanto você já tem? (R$)
+          <input type="number" id="valorAtual" min="0" step="any" required>
+        </label>
 
-        <label>Em quanto tempo deseja alcançar o objetivo?
-          <input type="date" id="dataLimite" required>
-        </label>
+        <label>Em quanto tempo deseja alcançar o objetivo?
+          <input type="date" id="dataLimite" required>
+        </label>
 
-        <button type="submit">Salvar Meta</button>
-        <button type="button" id="cancelarMeta">Cancelar</button>
-      </form>
+        <button type="submit">Salvar Meta</button>
+        <button type="button" id="cancelarMeta">Cancelar</button>
+      </form>
     </section>
   </main>
 

@@ -57,7 +57,7 @@
       "id": "3",
       "titulo": "O que é inflação e por que ela impacta no seu bolso?",
       "resumo": "Inflação é um conceito que traduz o aumento generalizado de preços de bens e serviços. Entenda tudo sobre o índice e como ele afeta os seus investimentos",
-      "texto": "<br><h1>O que é inflação?</h1><p>Inflação é um termo da economia usado para designar o aumento generalizado de preços de bens e serviços. Com isso, a inflação representa o aumento do custo e vida e a consequente redução no poder de compra da moeda.</p><br><p>Uma forma simples de perceber a inflação é indo ao supermercado. O preço dos produtos nas prateleiras não são os mesmos praticados 10, 15 ou 20 anos atrás: estão mais caros. A inflação também impacta nos valores de itens maiores, como aluguel e automóveis, ou itens de longo prazo, como a mensalidade de uma faculdade ou pós-graduação.</p><br><p>Esse aumento de preços não é necessariamente ruim ou prejudicial ao consumidor, principalmente quando é controlado, espaçado ao longo do tempo e vem acompanhado de reajustes nos salários-mínimos. Mas pode causar transtornos para consumidores – e para a economia de um país – quando aumenta em uma velocidade maior do que pode ser absorvida.</p><br><h1>Quais são as causas da inflação?</h1><p>Um aumento nos índices de inflação pode ser influenciado por diferentes causas, que podem ser agrupadas em quatro grandes grupos:</p><br><ol><li> Aumento na demanda;</li><li> Aumento, ou pressões, nos custos de produção;</li><li> Inércia inflacionária e expectativas de inflação;</li><li> Aumento de emissão de moeda.</li></ol><br><p>As causas também podem ser divididas em de curto prazo ou um prazo maior, que aumentam de forma contínua durante meses ou até anos.  Dificilmente, no entanto, a causa da inflação será única.</p>",
+      "texto": "<br><h1>O que é inflação?</h1><p>Inflação é um termo da economia usado para designar o aumento generalizado de preços de bens e serviços. Com isso, a inflação representa o aumento do custo e vida e a consequente redução no poder de compra da moeda.</p><br><p>Uma forma simples de perceber a inflação é indo ao supermercado. O preço dos produtos nas prateleiras não são os mesmos praticados 10, 15 ou 20 anos atrás: estão mais caros. A inflação também impacta nos valores de itens maiores, como aluguel e automóveis, ou itens de longo prazo, como a mensalidade de uma faculdade ou pós-graduação.</p><br><p>Esse aumento de preços não é necessariamente ruim ou prejudicial ao consumidor, principalmente quando é controlado, espaçado ao longo do tempo e vem acompanhado de reajustes nos salários-mínimos. Mas pode causar transtornos para consumidores – e para a economia de um país – quando aumenta em uma velocidade maior do que pode ser absorvida.</p><br><h1>Quais são as causas da inflação?</h1><p>Um aumento nos índices de inflação pode ser influenciado por diferentes causas, que podem ser agrupadas em quatro grandes grupos:</p><br><ol><li> Aumento na demanda;</li><li> Aumento, ou pressões, nos custos de produção;</li><li> Inércia inflacionária e expectativas de inflação;</li><li> Aumento de emissão de moeda.</li></ol><br><p>As causas também podem ser divididas em de curto prazo ou um prazo maior, que aumentam de forma contínua durante meses ou até anos.  Dificilmente, no entanto, a causa da inflação será única.</p>",
       "favoritado": false,
       "autor": "InfoMoney",
       "data": "6/11/2022",
@@ -105,42 +105,42 @@
   "noticias": [
     {
       "titulo": "Economia cresce no primeiro trimestre",
-      "imagem": " /img/img-noticia/Pib.png",
+      "imagem": "img/img-noticia/Pib.png",
       "resumo": "PIB sobe 2,5% puxado por serviços.",
       "conteudo": "O PIB brasileiro teve um crescimento de 2,5% no primeiro trimestre, impulsionado pelo setor de serviços...",
       "id": 1
     },
     {
       "titulo": "Novo programa educacional é lançado",
-      "imagem": "/img/img-noticia/programa-educacional.png",
+      "imagem": "img/img-noticia/programa-educacional.png",
       "resumo": "Programa para capacitar professores em tecnologia.",
       "conteudo": "O governo lançou um programa para capacitação de professores em tecnologia e inovação...",
       "id": 2
     },
     {
       "titulo": "Investimentos em startups batem recorde",
-      "imagem": "noticia.png",
+      "imagem": "img/img-noticia/noticia.png",
       "resumo": "Startups recebem R$ 1,2 bi em abril.",
       "conteudo": "Startups brasileiras receberam R$ 1,2 bilhão em investimentos no mês de abril, maior valor desde 2022...",
       "id": 3
     },
     {
       "titulo": "Campanha de vacinação atinge 90% do público-alvo",
-      "imagem": "noticia.png",
+      "imagem": "img/img-noticia/noticia.png",
       "resumo": "Vacinação contra gripe supera expectativas.",
       "conteudo": "A campanha nacional de vacinação contra a gripe alcançou 90% da meta em menos de um mês...",
       "id": 4
     },
     {
       "titulo": "Feira de Ciências movimenta escolas públicas",
-      "imagem": "noticia.png",
+      "imagem": "img/img-noticia/noticia.png",
       "resumo": "Estudantes apresentam projetos inovadores.",
       "conteudo": "Alunos do ensino médio apresentaram projetos científicos inovadores em evento regional...",
       "id": 5
     },
     {
       "titulo": "Mercado financeiro reage a mudanças fiscais",
-      "imagem": "noticia.png",
+      "imagem": "img/img-noticia/noticia.png",
       "resumo": "Volatilidade nos mercados, mas há otimismo.",
       "conteudo": "As recentes mudanças na política fiscal causaram volatilidade no mercado, mas especialistas veem melhora no médio prazo...",
       "id": 6
@@ -167,6 +167,22 @@
       "imagem": "img/imgs-bernardo/ouro3.jpg",
       "resumo": "Ativo físico considerado proteção em tempos de crise econômica.",
       "conteudo": "O ouro é um dos ativos mais antigos e valorizados da história da humanidade. Ele é visto como um “porto seguro” nos investimentos, pois tende a se valorizar em momentos de crise econômica, instabilidade política ou alta inflação. Embora não gere renda como dividendos ou juros, o ouro preserva valor ao longo do tempo, sendo uma excelente opção para diversificação de portfólio. Também é utilizado como proteção contra a desvalorização de moedas locais. É indicado tanto para investidores conservadores quanto para aqueles que buscam equilíbrio em tempos incertos."
+    }
+  ],
+  "metas": [
+    {
+      "id": "1718653200000",
+      "nome": "Comprar uma Moto Nova",
+      "valorObjetivo": 15000,
+      "valorAtual": 7500,
+      "dataLimite": "2025-12-31"
+    },
+    {
+      "id": "1718653210000",
+      "nome": "Viagem de Férias",
+      "valorObjetivo": 5000,
+      "valorAtual": 1200,
+      "dataLimite": "2025-07-20"
     }
   ]
 }
