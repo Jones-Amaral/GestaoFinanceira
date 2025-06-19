@@ -201,5 +201,16 @@
       "valor": "300.00",
       "data": "2001-02-01"
     }
+  ],
+  "usuarios": [
+    {
+      "id": "1",
+      "nome": "Kleberson Jacinto Pinto",
+      "data": "25/01/2000",
+      "endereco": "Avenida Brasil, 2000, Barra da Tijuca, Rio de Janeiro",
+      "usuario": "Kleberson",
+      "senha": "12345678",
+      "salario": "R$3000,00"
+    }
   ]
 }
