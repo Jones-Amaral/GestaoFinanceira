@@ -1,216 +1,208 @@
-// Elementos principais
+'use strict';
+
+// --- CONFIGURAÇÃO ---
+const API_URL = "http://localhost:3000/metas";
+
+// --- SELETORES DO DOM ---
 const btnNovaMeta = document.getElementById("btnNovaMeta");
 const secaoFormulario = document.getElementById("formularioMeta");
-let formMeta = document.getElementById("formMeta");
+const formMeta = document.getElementById("formMeta");
 const btnCancelar = document.getElementById("cancelarMeta");
 const corpoTabela = document.getElementById("corpoTabelaMetas");
-
-// Mostrar formulário
-btnNovaMeta.addEventListener("click", () => {
-  secaoFormulario.style.display = "block";
-  secaoFormulario.scrollIntoView({
-    behavior: "smooth",
-    block: "start"
-  });
-});
+const idMetaInput = document.getElementById("idMeta");
+const tituloFormulario = document.querySelector("#formularioMeta h3");
 
 
-// Cancelar cadastro
-btnCancelar.addEventListener("click", () => {
-  secaoFormulario.style.display = "none";
-  formMeta.reset();
-});
+// --- FUNÇÕES DE LÓGICA DA APLICAÇÃO ---
 
-// Exibir notificação toast
-function mostrarNotificacao(mensagem) {
-  const div = document.getElementById("notificacao");
-  div.textContent = mensagem;
-  div.classList.add("mostrar");
-
-  setTimeout(() => {
-    div.classList.remove("mostrar");
-    div.classList.add("escondido");
-  }, 3000);
-
-  setTimeout(() => {
-    div.classList.remove("escondido");
-    div.textContent = "";
-  }, 3500);
+// Carrega todas as metas da API e renderiza na tabela
+async function carregarMetas() {
+    try {
+        const response = await fetch(API_URL);
+        if (!response.ok) throw new Error("Erro de rede ao buscar metas.");
+        const metas = await response.json();
+        
+        corpoTabela.innerHTML = "";
+        metas.forEach(renderizarLinhaMeta);
+    } catch (error) {
+        console.error("Erro em carregarMetas:", error);
+        mostrarNotificacao("❌ Falha ao carregar dados do servidor.");
+    }
 }
 
-// Carregar metas do localStorage
-function carregarMetas() {
-  const metas = JSON.parse(localStorage.getItem("metas")) || [];
-  corpoTabela.innerHTML = "";
+// Lida com o envio do formulário (CRIAR ou EDITAR)
+async function handleFormSubmit(event) {
+    event.preventDefault();
+    const id = idMetaInput.value;
+    const dadosMeta = {
+        nome: document.getElementById("nomeMeta").value,
+        valorObjetivo: parseFloat(document.getElementById("valorObjetivo").value),
+        valorAtual: parseFloat(document.getElementById("valorAtual").value),
+        dataLimite: document.getElementById("dataLimite").value
+    };
+    
+    const isEditing = !!id;
+    const url = isEditing ? `${API_URL}/${id}` : API_URL;
+    const method = isEditing ? 'PUT' : 'POST';
 
-  metas.forEach((meta, index) => {
+    try {
+        const response = await fetch(url, {
+            method,
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(dadosMeta)
+        });
+
+        if (!response.ok) throw new Error("Falha ao salvar a meta.");
+
+        mostrarNotificacao(isEditing ? "✏️ Meta atualizada!" : "✅ Meta criada!");
+        fecharFormulario();
+        carregarMetas();
+    } catch (error) {
+        console.error("Erro ao salvar:", error);
+        mostrarNotificacao("❌ Erro ao salvar a meta.");
+    }
+}
+
+// Deleta uma meta do servidor
+async function removerMeta(id) {
+    if (!confirm("Tem certeza que deseja remover esta meta?")) return;
+
+    try {
+        const response = await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
+        if (!response.ok) throw new Error("Falha ao remover a meta.");
+        
+        mostrarNotificacao("🗑️ Meta removida com sucesso!");
+        carregarMetas();
+    } catch (error) {
+        console.error("Erro em removerMeta:", error);
+        mostrarNotificacao("❌ Erro ao remover a meta.");
+    }
+}
+
+// Prepara o formulário para edição de uma meta
+async function editarMeta(id) {
+    try {
+        const response = await fetch(`${API_URL}/${id}`);
+        if (!response.ok) throw new Error("Meta não encontrada.");
+        const meta = await response.json();
+
+        idMetaInput.value = meta.id;
+        document.getElementById("nomeMeta").value = meta.nome;
+        document.getElementById("valorObjetivo").value = meta.valorObjetivo;
+        document.getElementById("valorAtual").value = meta.valorAtual;
+        document.getElementById("dataLimite").value = meta.dataLimite;
+        
+        abrirFormulario(true);
+    } catch(error) {
+        console.error("Erro em editarMeta:", error);
+        mostrarNotificacao("❌ Erro ao carregar meta para edição.");
+    }
+}
+
+// Adiciona ou remove valor de uma meta
+async function modificarValor(id, tipo) {
+    const textoPrompt = tipo === 'adicionar' ? "Digite o valor a adicionar:" : "Digite o valor a remover:";
+    const valorTexto = prompt(textoPrompt);
+    if (!valorTexto) return;
+
+    const valor = parseFloat(valorTexto);
+    if (isNaN(valor) || valor <= 0) {
+        mostrarNotificacao("❌ Valor inválido.");
+        return;
+    }
+
+    try {
+        const response = await fetch(`${API_URL}/${id}`);
+        if (!response.ok) throw new Error("Meta não encontrada.");
+        const meta = await response.json();
+
+        if (tipo === 'adicionar') {
+            meta.valorAtual += valor;
+        } else {
+            meta.valorAtual -= valor;
+            if (meta.valorAtual < 0) meta.valorAtual = 0;
+        }
+
+        const updateResponse = await fetch(`${API_URL}/${id}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(meta)
+        });
+
+        if (!updateResponse.ok) throw new Error("Falha ao atualizar a meta.");
+        
+        mostrarNotificacao(tipo === 'adicionar' ? "💰 Valor adicionado!" : "🧾 Valor removido!");
+        carregarMetas();
+    } catch(error) {
+        console.error(`Erro em ${tipo}Valor:`, error);
+        mostrarNotificacao("❌ Erro ao atualizar o valor.");
+    }
+}
+
+
+// --- FUNÇÕES DE UI E AUXILIARES ---
+
+function renderizarLinhaMeta(meta) {
     const tr = document.createElement("tr");
-
     const progresso = calcularProgresso(meta.valorAtual, meta.valorObjetivo);
     const status = definirStatus(meta.valorAtual, meta.valorObjetivo, meta.dataLimite);
     const restante = meta.valorObjetivo - meta.valorAtual;
-    const textoRestante = restante <= 0
-      ? "Meta alcançada!"
-      : `Faltam ${restante.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} para alcançar sua meta.`;
-
-
-    const corStatus =
-      status === "Concluída" ? "concluida" :
-        status === "Vencida" ? "vencida" : "andamento";
-
-    let corBarra = "#ccc";
-    if (progresso >= 100) corBarra = "green";
-    else if (progresso >= 30) corBarra = "#0c1c3b";
+    const textoRestante = restante <= 0 ? "Meta alcançada!" : `Faltam ${formatarMoeda(restante)} para alcançar.`;
 
     tr.innerHTML = `
-      <td>${meta.nome}</td>
-  <td>${meta.valorObjetivo.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
-<td>${meta.valorAtual.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
-
-      <td>${meta.dataLimite}</td>
-      <td><progress value="${progresso}" max="100" style="accent-color: ${corBarra};"></progress> ${progresso}%</td>
-<td>
-  <span class="status ${corStatus}">${status}</span><br>
-  <span class="faltam-texto">${textoRestante}</span>
-</td>
-      <td class="acoes">
-        <button onclick="adicionarValor(${index})">+ Valor</button>
-        <button onclick="removerValor(${index})">- Valor</button>
-        <button onclick="editarMeta(${index})">Editar</button>
-        <button onclick="removerMeta(${index})">Remover</button>
-      </td>
+        <td>${meta.nome}</td>
+        <td>${formatarMoeda(meta.valorObjetivo)}</td>
+        <td>${formatarMoeda(meta.valorAtual)}</td>
+        <td>${formatarData(meta.dataLimite)}</td>
+        <td><progress value="${progresso}" max="100"></progress> ${progresso}%</td>
+        <td><span class="status status-${status.toLowerCase()}">${status}</span></td>
+        <td class="acoes">
+            <button onclick="modificarValor('${meta.id}', 'adicionar')">+ Valor</button>
+            <button onclick="modificarValor('${meta.id}', 'remover')">- Valor</button>
+            <button onclick="editarMeta('${meta.id}')">Editar</button>
+            <button onclick="removerMeta('${meta.id}')">Remover</button>
+        </td>
     `;
-
     corpoTabela.appendChild(tr);
-  });
 }
 
-// Calcular progresso da meta
-function calcularProgresso(atual, objetivo) {
-  const porcentagem = (atual / objetivo) * 100;
-  return porcentagem > 100 ? 100 : porcentagem.toFixed(0);
-}
+const formatarMoeda = (valor) => valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+const formatarData = (data) => new Date(data).toLocaleDateString('pt-BR', { timeZone: 'UTC' });
+const calcularProgresso = (atual, objetivo) => objetivo > 0 ? Math.min(100, Math.round((atual / objetivo) * 100)) : 100;
 
-// Determinar status da meta
 function definirStatus(atual, objetivo, dataLimite) {
-  const hoje = new Date();
-  const limite = new Date(dataLimite);
-
-  if (atual >= objetivo) return "Concluída";
-  if (hoje > limite) return "Vencida";
-  return "Em andamento";
+    if (atual >= objetivo) return "Concluída";
+    const hoje = new Date();
+    hoje.setHours(0, 0, 0, 0);
+    if (new Date(dataLimite) < hoje) return "Vencida";
+    return "Em Andamento";
 }
 
-// Adicionar nova meta
-formMeta.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  const nome = document.getElementById("nomeMeta").value;
-  const valorObjetivo = parseFloat(document.getElementById("valorObjetivo").value);
-  const valorAtual = parseFloat(document.getElementById("valorAtual").value);
-  const dataLimite = document.getElementById("dataLimite").value;
-
-  const novaMeta = {
-    nome,
-    valorObjetivo,
-    valorAtual,
-    dataLimite
-  };
-
-  const metas = JSON.parse(localStorage.getItem("metas")) || [];
-  metas.push(novaMeta);
-  localStorage.setItem("metas", JSON.stringify(metas));
-
-  formMeta.reset();
-  secaoFormulario.style.display = "none";
-  carregarMetas();
-  mostrarNotificacao("✅ Meta criada com sucesso!");
-});
-
-// Remover meta
-function removerMeta(index) {
-  if (confirm("Tem certeza que deseja remover esta meta?")) {
-    const metas = JSON.parse(localStorage.getItem("metas")) || [];
-    metas.splice(index, 1);
-    localStorage.setItem("metas", JSON.stringify(metas));
-    carregarMetas();
-    mostrarNotificacao("🗑️ Meta removida com sucesso!");
-  }
+function abrirFormulario(isEditing = false) {
+    if (tituloFormulario) {
+        tituloFormulario.textContent = isEditing ? "Editar Meta" : "Cadastrar Nova Meta";
+    }
+    secaoFormulario.style.display = "block";
+    secaoFormulario.scrollIntoView({ behavior: "smooth" });
 }
 
-// Adicionar valor à meta
-function adicionarValor(index) {
-  const metas = JSON.parse(localStorage.getItem("metas")) || [];
-  const valor = parseFloat(prompt("Digite o valor a adicionar:"));
-
-  if (!isNaN(valor) && valor > 0) {
-    metas[index].valorAtual += valor;
-    localStorage.setItem("metas", JSON.stringify(metas));
-    carregarMetas();
-    mostrarNotificacao("💰 Valor adicionado com sucesso!");
-  } else {
-    mostrarNotificacao("❌ Valor inválido.");
-  }
-}
-
-// Remover valor da meta
-function removerValor(index) {
-  const metas = JSON.parse(localStorage.getItem("metas")) || [];
-  const valor = parseFloat(prompt("Digite o valor a remover:"));
-
-  if (!isNaN(valor) && valor > 0) {
-    metas[index].valorAtual -= valor;
-    if (metas[index].valorAtual < 0) metas[index].valorAtual = 0;
-    localStorage.setItem("metas", JSON.stringify(metas));
-    carregarMetas();
-    mostrarNotificacao("🧾 Valor removido com sucesso!");
-  } else {
-    mostrarNotificacao("❌ Valor inválido.");
-  }
-}
-
-// Editar meta existente
-function editarMeta(index) {
-  const metas = JSON.parse(localStorage.getItem("metas")) || [];
-  const meta = metas[index];
-
-  // Preenche o formulário
-  document.getElementById("nomeMeta").value = meta.nome;
-  document.getElementById("valorObjetivo").value = meta.valorObjetivo;
-  document.getElementById("valorAtual").value = meta.valorAtual;
-  document.getElementById("dataLimite").value = meta.dataLimite;
-
-  secaoFormulario.style.display = "block";
-
-  // Substitui o evento de submit
-  const novoForm = formMeta.cloneNode(true);
-  formMeta.parentNode.replaceChild(novoForm, formMeta);
-  formMeta = novoForm;
-
-  formMeta.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    meta.nome = document.getElementById("nomeMeta").value;
-    meta.valorObjetivo = parseFloat(document.getElementById("valorObjetivo").value);
-    meta.valorAtual = parseFloat(document.getElementById("valorAtual").value);
-    meta.dataLimite = document.getElementById("dataLimite").value;
-
-    metas[index] = meta;
-    localStorage.setItem("metas", JSON.stringify(metas));
-
+function fecharFormulario() {
     formMeta.reset();
+    idMetaInput.value = "";
     secaoFormulario.style.display = "none";
-    carregarMetas();
-    mostrarNotificacao("✏️ Meta editada com sucesso!");
-  });
-
-  // Botão de cancelar no novo form
-  const novoCancelar = document.getElementById("cancelarMeta");
-  novoCancelar.addEventListener("click", () => {
-    secaoFormulario.style.display = "none";
-    formMeta.reset();
-  });
 }
 
-// Inicializa ao carregar a página
-carregarMetas();
+function mostrarNotificacao(mensagem) {
+    const div = document.getElementById("notificacao");
+    if(!div) return;
+    div.textContent = mensagem;
+    div.className = "toast mostrar";
+    setTimeout(() => { div.className = "toast"; }, 3000);
+}
+
+// --- INICIALIZAÇÃO E EVENTOS ---
+
+btnNovaMeta.addEventListener("click", () => abrirFormulario(false));
+btnCancelar.addEventListener("click", fecharFormulario);
+formMeta.addEventListener("submit", handleFormSubmit);
+document.addEventListener("DOMContentLoaded", carregarMetas);

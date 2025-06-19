@@ -3,95 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Layout de Suporte</title>
+    <title>Suporte - Grana</title>
     <link rel="stylesheet" href="css/tutorial.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="main-header">
-        <div class="header-content">
-            <div class="logo">Grana</div>
-            <nav class="main-nav">
-                <ul>
-                   <li class="home"><a href="categorias.html">Home</a></li>
-                    <li><a href="notícias.html">Notícias</a></li>
-                    <li><a href="paginaEducacao.html">Educação</a></li>
-                    <li><a href="investimentos.html">Investimentos</a></li>
+    <header>
+        <div class="navbar" id="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/imgs-bernardo/logomelhorada.png" alt="Logo Grana" id="logo" />
+                    </a>
+            </div>
+            <div class="links" id="links">
+                <ul class="pages">
+                    <li class="home"><a href="index.html">Home</a></li> 
+                    <li><a href="public/categorias.html">Notícias</a></li>
+                    <li><a href="public/categorias.html" data-categoria="educacao">Educação</a></li>
+                    <li><a href="public/categorias.html" data-categoria="investimento">Investimentos</a></li>
                 </ul>
-            </nav>
+            </div>
+            <i class="fas fa-bars" onclick="toggleMenu()"></i> 
         </div>
     </header>
-    <div class="header-line"></div> <div class="container">
-        <div class="card">
-            <h2 class="card-title">Tutorial de utilização do site</h2>
-            <div class="video-placeholder">
-                <img src="img/img-danton/camera-icon.png" alt="Ícone de câmera">
+
+    <div class="header-line"></div> <main> <div class="container">
+            <div class="card">
+                <h2 class="card-title">Tutorial de utilização do site</h2>
+                <div class="video-placeholder">
+                    <img src="img/img-danton/camera-icon.png" alt="Ícone de câmera">
+                    </div>
+                <div class="text-placeholder"></div>
             </div>
-            <div class="text-placeholder"></div>
+
+            <div class="card">
+                <h2 class="card-title">Converse conosco</h2>
+                <div class="form-group">
+                    <textarea class="form-control" rows="3" placeholder="Sua mensagem" id="message-input"></textarea>
+                </div>
+                <button class="btn-send" id="send-message-btn">Enviar mensagem</button>
+            </div>
         </div>
 
-        <div class="card">
-            <h2 class="card-title">Converse conosco</h2>
-            <div class="form-group">
-                <textarea class="form-control" rows="3" placeholder="Sua mensagem" id="message-input"></textarea>
-            </div>
-            <button class="btn-send" id="send-message-btn">Enviar mensagem</button>
+        <div id="success-message" style="display: none; background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; padding: 15px; border-radius: 8px; margin-top: 20px; text-align: center; font-weight: bold; width: fit-content; margin-left: auto; margin-right: auto;">
+            Mensagem enviada com sucesso!
         </div>
-    </div>
 
-    <div id="success-message" style="display: none; background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; padding: 15px; border-radius: 8px; margin-top: 20px; text-align: center; font-weight: bold; width: fit-content; margin-left: auto; margin-right: auto;">
-        Mensagem enviada com sucesso!
-    </div>
-    <section class="faq-section">
-        <h2>Perguntas Frequentes Sobre o Uso do Site</h2>
-        <div class="faq-container">
-            <div class="faq-item">
-                <div class="faq-question">
-                    <h3>Como faço para me cadastrar no site? <span class="arrow">▼</span></h3>
+        <section class="faq-section">
+            <h2>Perguntas Frequentes Sobre o Uso do Site</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Como faço para me cadastrar no site? <span class="arrow">▼</span></h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Para se cadastrar, clique no botão "Cadastrar" no canto superior direito da página inicial. Preencha o formulário com seus dados e siga as instruções.</p>
+                    </div>
                 </div>
-                <div class="faq-answer">
-                    <p>Para se cadastrar, clique no botão "Cadastrar" no canto superior direito da página inicial. Preencha o formulário com seus dados e siga as instruções.</p>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Esqueci minha senha, como recupero? <span class="arrow">▼</span></h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Na página de login, clique em "Esqueci minha senha". Digite seu email e siga as instruções que enviaremos para você.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Como faço para adicionar uma nova despesa? <span class="arrow">▼</span></h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Na sua página inicial, clique no botão "+ Adicionar Despesa". Preencha os campos com os detalhes da despesa e salve.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Como posso visualizar meus relatórios financeiros? <span class="arrow">▼</span></h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No menu principal, clique em "Relatórios". Você poderá escolher o período e o tipo de relatório que deseja visualizar.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Como entro em contato com o suporte? <span class="arrow">▼</span></h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Nessa mesma pagina, tem um formulario escrito "Converse Conosco" preencha o formulario com sua duvida.</p>
+                    </div>
                 </div>
             </div>
+        </section>
+    </main>
 
-            <div class="faq-item">
-                <div class="faq-question">
-                    <h3>Esqueci minha senha, como recupero? <span class="arrow">▼</span></h3>
-                </div>
-                <div class="faq-answer">
-                    <p>Na página de login, clique em "Esqueci minha senha". Digite seu email e siga as instruções que enviaremos para você.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">
-                    <h3>Como faço para adicionar uma nova despesa? <span class="arrow">▼</span></h3>
-                </div>
-                <div class="faq-answer">
-                    <p>Na sua página inicial, clique no botão "+ Adicionar Despesa". Preencha os campos com os detalhes da despesa e salve.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">
-                    <h3>Como posso visualizar meus relatórios financeiros? <span class="arrow">▼</span></h3>
-                </div>
-                <div class="faq-answer">
-                    <p>No menu principal, clique em "Relatórios". Você poderá escolher o período e o tipo de relatório que deseja visualizar.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">
-                    <h3>Como entro em contato com o suporte? <span class="arrow">▼</span></h3>
-                </div>
-                <div class="faq-answer">
-                    <p>Nessa mesma pagina, tem um formulario escrito "Converse Conosco" preencha o formulario com sua duvida.</p>
-                </div>
+    <footer class="rodape">
+        <div class="logotipo">
+            <img src="img/imgs-bernardo/logomelhorada.png" alt="Logo Grana Footer" /> 
+        </div>
+        <div class="containerborder">
+            <p>A +Grana te ajuda a cuidar melhor do seu patrimônio, vem aprender com a gente!</p>
+            <div class="redes-sociais">
+                <a href="#"><i class="fab fa-instagram"></i> +Grana</a>
+                <a href="#"><i class="fab fa-linkedin"></i> +Grana</a>
             </div>
         </div>
-    </section>
-    </body>
-</html>
-    <script src="js/converse.js"></script>
+    </footer>
+
+    <script>
+        // Funcionalidade do FAQ (expandir/colapsar)
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const faqItem = item.closest('.faq-item');
+                faqItem.classList.toggle('active');
+            });
+        });
+
+        // Funcionalidade de envio de mensagem (feedback visual)
+        const sendMessageBtn = document.getElementById('send-message-btn');
+        const messageInput = document.getElementById('message-input');
+        const successMessageDiv = document.getElementById('success-message');
+
+        if (sendMessageBtn && messageInput && successMessageDiv) {
+            sendMessageBtn.addEventListener('click', () => {
+                if (messageInput.value.trim() !== '') {
+                    console.log("Mensagem enviada:", messageInput.value.trim());
+                    messageInput.value = '';
+                    successMessageDiv.style.display = 'block';
+
+                    setTimeout(() => {
+                        successMessageDiv.style.display = 'none';
+                    }, 3000);
+                } else {
+                    alert("Por favor, digite sua mensagem antes de enviar.");
+                }
+            });
+        }
+        
+        // Função para o menu hambúrguer (se for necessário aqui)
+        function toggleMenu() {
+            const links = document.getElementById("links");
+            if (links) {
+                links.classList.toggle("show");
+            }
+        }
+    </script>
 </body>
 </html>
