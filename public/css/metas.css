@@ -13,66 +13,169 @@ a {
 /* ==================== HEADER ==================== */
 /* ==================== HEADER PADRÃO FINAL ==================== */
 .navbar {
-     background-color: #e7f5e9;
-     width: 100%;
-     padding: 10px 15px;
-     box-sizing: border-box;
-     display: flex;
-     align-items: center;
-     justify-content: space-between;
-     border-bottom: 8px solid #42e619;
-     position: fixed;
-     top: 0;
-     z-index: 998;
- }
+  background-color: #e7f5e9;
+  width: 100%;
+  padding: 10px 15px;
+  border-bottom: 8px solid #42e619;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
 
- .logo img {
-     width: 250px;
-     height: 100px;
-     object-fit: cover;
- }
+.logo img {
+  width: 250px;
+  height: 100px;
+  object-fit: cover;
+}
 
- .pages {
-     list-style: none;
-     display: flex;
-     gap: 20px;
-     justify-content: center;
-     flex: 1;
-     margin: 0;
-     padding: 0;
- }
+.pages {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex: 1;
+}
 
- .pages li a {
-     display: block;
-     text-decoration: none;
-     color: black;
-     font-weight: bold;
-     font-size: 1.8rem;
-     padding: 10px 10px;
-     transition: all 0.3s ease;
-     border: none;
- }
+.pages li a {
+  display: block;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 1.8rem;
+  padding: 10px 10px;
+  transition: all 0.3s ease;
+}
 
- .pages li a:hover {
-     background-color: #42e619;
-     border-radius: 5px;
- }
+.pages li a:hover {
+  background-color: #42e619;
+  border-radius: 5px;
+}
 
- .icone-Adicionar {
-     width: 80px;
-     position: fixed;
-     top: 35px;
-     right: 50px;
-     z-index: 999;
- }
+/* Menu de usuário e ícone de menu alinhados à direita */
+.right-icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
 
- .icone-hamburguer {
-     width: 70px;
-     position: fixed;
-     top: 35px;
-     right: 150px;
-     z-index: 999;
- }
+/* Ícone de menu (hambúrguer) */
+.fas.fa-bars {
+  font-size: 2.3rem;
+  color: black;
+  cursor: pointer;
+  display: block;
+  margin-right: 10px;
+  font-size: 30px;
+  height: 25px;
+}
+
+/*Dropdown do Menu*/
+.menu-dropdown {
+  display: none;
+  position: absolute;
+  right: 50px;
+  top: 100px;
+  background-color: #fff;
+  list-style: none;
+  box-shadow: #42e619;
+  border-radius: 6px;
+  padding: 10px 10px;
+  width: 150px;
+  z-index: 1000;
+}
+
+.menu-dropdown li {
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.menu-dropdown li a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  align-items: center;
+  width: 100%;
+  padding: 10px 0;
+  background-color: transparent;
+}
+
+.menu-dropdown li a:hover {
+  background-color: #42e619;
+  border-radius: 5px;
+  width: 100px;
+}
+
+.menu-dropdown.show {
+  display: block;
+}
+
+/* Menu de usuário */
+.usuario-menu {
+  position: relative;
+  cursor: pointer;
+}
+
+.usuario-menu .fa-user {
+  font-size: 1.5rem;
+  color: #4fe42a;
+  padding: 20px;
+  font-size: 30px;
+}
+
+/* Dropdown do usuário */
+.user-dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 70px;
+  background-color: #fff;
+  list-style: none;
+  box-shadow: #42e619;
+  border-radius: 6px;
+  padding: 10px 0;
+  width: 150px;
+  z-index: 1000;
+}
+
+.user-dropdown li {
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.user-dropdown li a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  align-items: center;
+  width: 100%;
+  padding: 10px 0;
+  background-color: transparent;
+}
+
+.user-dropdown li a:hover {
+  background-color: #42e619;
+  border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+  .pages {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #e7f5e9;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    z-index: 999;
+  }
+
+  .pages.show {
+    display: flex;
+  }
+}
 
 /* ==================== CONTEÚDO ==================== */
 main {
@@ -83,7 +186,8 @@ main {
 }
 
 /* ==================== TÍTULOS ==================== */
-h1, h2 {
+h1,
+h2 {
   text-align: center;
   font-size: 2.5rem;
   color: #034C1C;
@@ -113,7 +217,7 @@ button:hover,
   padding: 20px;
   border-radius: 8px;
   margin-top: 30px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 label {
@@ -138,10 +242,11 @@ table {
   background-color: white;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-th, td {
+th,
+td {
   padding: 12px 10px;
   text-align: left;
   border-bottom: 1px solid #ddd;
@@ -192,7 +297,7 @@ progress {
   padding: 20px;
   border-radius: 12px;
   margin: 30px auto;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 /* ==================== AÇÕES / BOTÕES DE TABELA ==================== */
@@ -231,7 +336,7 @@ progress {
   color: white;
   padding: 12px 20px;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   opacity: 0;
   transition: opacity 0.4s ease, transform 0.3s ease;
   z-index: 1000;
@@ -252,6 +357,7 @@ progress {
 .sera {
   background-color: #42e619 !important;
 }
+
 .dropdown-menu-custom {
   position: absolute;
   top: 120px;
@@ -259,7 +365,7 @@ progress {
   background-color: #e7f5e9;
   border: 2px solid #42e619;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 10px;
   z-index: 999;
   width: 180px;
@@ -295,6 +401,7 @@ progress {
 .esconder {
   display: none !important;
 }
+
 @media (max-width: 768px) {
 
   /* Oculta menu de navegação tradicional */
@@ -329,13 +436,17 @@ progress {
   }
 
   /* Fonte dos títulos */
-  h1, h2, h3 {
+  h1,
+  h2,
+  h3 {
     font-size: 1.5rem;
     text-align: center;
   }
 
   /* Texto geral */
-  p, label, .faltam-texto {
+  p,
+  label,
+  .faltam-texto {
     font-size: 1rem;
   }
 
@@ -361,7 +472,12 @@ progress {
   }
 
   /* Tabela responsiva por blocos */
-  table, thead, tbody, th, td, tr {
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
     display: block;
     width: 100%;
   }

@@ -124,10 +124,24 @@
         </div>
     </footer>
 
+    <script>
+        const menuBtn = document.getElementById("hamburguerMenu");
+        const dropdown = document.getElementById("dropdownMenu");
 
+        menuBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            dropdown.classList.toggle("esconder");
+        });
 
+        // Fecha o dropdown ao clicar fora dele
+        window.addEventListener("click", function (e) {
+            if (!menuBtn.contains(e.target) && !dropdown.contains(e.target)) {
+                dropdown.classList.add("esconder");
+            }
+        });
+    </script>
 
-
+    <script src="js/user.js"></script>
     <script src="/js/investimentos.js"></script>
 </body>
 

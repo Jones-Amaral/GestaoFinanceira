@@ -146,25 +146,24 @@
                 }).catch(err => console.error(err));
         }
 
-
-
-        /* Hamburguer */
-        const menuLateral = document.getElementById('menuLateral');
-        const hamburguerMenu = document.getElementById('hamburguerMenu');
-        const fecharMenu = document.getElementById('fecharMenu');
-
-        hamburguerMenu.addEventListener('click', function (e) {
-            e.preventDefault();
-            menuLateral.classList.add('show');
-        });
-
-        fecharMenu.addEventListener('click', function () {
-            menuLateral.classList.remove('show');
-        });
-
-
-
     </script>
+    <script>
+        const menuBtn = document.getElementById("hamburguerMenu");
+        const dropdown = document.getElementById("dropdownMenu");
+
+        menuBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            dropdown.classList.toggle("esconder");
+        });
+
+        // Fecha o dropdown ao clicar fora dele
+        window.addEventListener("click", function (e) {
+            if (!menuBtn.contains(e.target) && !dropdown.contains(e.target)) {
+                dropdown.classList.add("esconder");
+            }
+        });
+    </script>
+    <script src="js/user.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
         crossorigin="anonymous"></script>

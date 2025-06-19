@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,32 +9,35 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <header>
         <div class="navbar" id="navbar">
             <div class="logo">
                 <a href="index.html">
                     <img src="img/imgs-bernardo/logomelhorada.png" alt="Logo Grana" id="logo" />
-                    </a>
+                </a>
             </div>
             <div class="links" id="links">
                 <ul class="pages">
-                    <li class="home"><a href="index.html">Home</a></li> 
+                    <li class="home"><a href="index.html">Home</a></li>
                     <li><a href="public/categorias.html">Notícias</a></li>
                     <li><a href="public/categorias.html" data-categoria="educacao">Educação</a></li>
                     <li><a href="public/categorias.html" data-categoria="investimento">Investimentos</a></li>
                 </ul>
             </div>
-            <i class="fas fa-bars" onclick="toggleMenu()"></i> 
+            <i class="fas fa-bars" onclick="toggleMenu()"></i>
         </div>
     </header>
 
-    <div class="header-line"></div> <main> <div class="container">
+    <div class="header-line"></div>
+    <main>
+        <div class="container">
             <div class="card">
                 <h2 class="card-title">Tutorial de utilização do site</h2>
                 <div class="video-placeholder">
                     <img src="img/img-danton/camera-icon.png" alt="Ícone de câmera">
-                    </div>
+                </div>
                 <div class="text-placeholder"></div>
             </div>
 
@@ -46,7 +50,8 @@
             </div>
         </div>
 
-        <div id="success-message" style="display: none; background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; padding: 15px; border-radius: 8px; margin-top: 20px; text-align: center; font-weight: bold; width: fit-content; margin-left: auto; margin-right: auto;">
+        <div id="success-message"
+            style="display: none; background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; padding: 15px; border-radius: 8px; margin-top: 20px; text-align: center; font-weight: bold; width: fit-content; margin-left: auto; margin-right: auto;">
             Mensagem enviada com sucesso!
         </div>
 
@@ -58,7 +63,8 @@
                         <h3>Como faço para me cadastrar no site? <span class="arrow">▼</span></h3>
                     </div>
                     <div class="faq-answer">
-                        <p>Para se cadastrar, clique no botão "Cadastrar" no canto superior direito da página inicial. Preencha o formulário com seus dados e siga as instruções.</p>
+                        <p>Para se cadastrar, clique no botão "Cadastrar" no canto superior direito da página inicial.
+                            Preencha o formulário com seus dados e siga as instruções.</p>
                     </div>
                 </div>
 
@@ -67,7 +73,8 @@
                         <h3>Esqueci minha senha, como recupero? <span class="arrow">▼</span></h3>
                     </div>
                     <div class="faq-answer">
-                        <p>Na página de login, clique em "Esqueci minha senha". Digite seu email e siga as instruções que enviaremos para você.</p>
+                        <p>Na página de login, clique em "Esqueci minha senha". Digite seu email e siga as instruções
+                            que enviaremos para você.</p>
                     </div>
                 </div>
 
@@ -76,7 +83,8 @@
                         <h3>Como faço para adicionar uma nova despesa? <span class="arrow">▼</span></h3>
                     </div>
                     <div class="faq-answer">
-                        <p>Na sua página inicial, clique no botão "+ Adicionar Despesa". Preencha os campos com os detalhes da despesa e salve.</p>
+                        <p>Na sua página inicial, clique no botão "+ Adicionar Despesa". Preencha os campos com os
+                            detalhes da despesa e salve.</p>
                     </div>
                 </div>
 
@@ -85,7 +93,8 @@
                         <h3>Como posso visualizar meus relatórios financeiros? <span class="arrow">▼</span></h3>
                     </div>
                     <div class="faq-answer">
-                        <p>No menu principal, clique em "Relatórios". Você poderá escolher o período e o tipo de relatório que deseja visualizar.</p>
+                        <p>No menu principal, clique em "Relatórios". Você poderá escolher o período e o tipo de
+                            relatório que deseja visualizar.</p>
                     </div>
                 </div>
 
@@ -94,7 +103,8 @@
                         <h3>Como entro em contato com o suporte? <span class="arrow">▼</span></h3>
                     </div>
                     <div class="faq-answer">
-                        <p>Nessa mesma pagina, tem um formulario escrito "Converse Conosco" preencha o formulario com sua duvida.</p>
+                        <p>Nessa mesma pagina, tem um formulario escrito "Converse Conosco" preencha o formulario com
+                            sua duvida.</p>
                     </div>
                 </div>
             </div>
@@ -103,7 +113,7 @@
 
     <footer class="rodape">
         <div class="logotipo">
-            <img src="img/imgs-bernardo/logomelhorada.png" alt="Logo Grana Footer" /> 
+            <img src="img/imgs-bernardo/logomelhorada.png" alt="Logo Grana Footer" />
         </div>
         <div class="containerborder">
             <p>A +Grana te ajuda a cuidar melhor do seu patrimônio, vem aprender com a gente!</p>
@@ -114,6 +124,7 @@
         </div>
     </footer>
 
+    <script src="js/user.js"></script>
     <script>
         // Funcionalidade do FAQ (expandir/colapsar)
         document.querySelectorAll('.faq-question').forEach(item => {
@@ -143,14 +154,22 @@
                 }
             });
         }
-        
-        // Função para o menu hambúrguer (se for necessário aqui)
-        function toggleMenu() {
-            const links = document.getElementById("links");
-            if (links) {
-                links.classList.toggle("show");
+
+        const menuBtn = document.getElementById("hamburguerMenu");
+        const dropdown = document.getElementById("dropdownMenu");
+
+        menuBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            dropdown.classList.toggle("esconder");
+        });
+
+        // Fecha o dropdown ao clicar fora dele
+        window.addEventListener("click", function (e) {
+            if (!menuBtn.contains(e.target) && !dropdown.contains(e.target)) {
+                dropdown.classList.add("esconder");
             }
-        }
+        });
     </script>
 </body>
+
 </html>
