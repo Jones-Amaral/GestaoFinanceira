@@ -13,20 +13,39 @@
     <header>
         <div class="navbar" id="navbar">
             <div class="logo">
-                <a href="index.html">
-                    <img src="img/imgs-bernardo/logomelhorada.png" alt="Logo Grana" id="logo" />
+                <a href="homepage.html">
+                    <img src="img/imgs-bernardo/logomelhorada.png" alt="logo" id="logo">
                 </a>
             </div>
-            <div class="links" id="links">
-                <ul class="pages">
-                    <li class="home"><a href="../index.html">Home</a></li>
-                    <li class="noticias"><a href="categorias.html" data-categoria="noticias">Notícias</a></li>
-                    <li class="educacao"><a href="categorias.html" data-categoria="educacao">Educação</a></li>
-                    <li class="investimentos"><a href="categorias.html" data-categoria="investimento">Investimentos</a>
-                    </li>
+
+            <ul class="pages" id="navLinks">
+                <li><a href="homepage.html">Home</a></li>
+                <li><a href="notícias.html">Notícias</a></li>
+                <li><a href="paginaEducacao.html">Educação</a></li>
+                <li><a href="investimentos.html">Investimentos</a></li>
+            </ul>
+
+            <div class="right-icons">
+                <i class="fas fa-bars" onclick="toggleMenu()"></i>
+                <ul class="menu-dropdown" id="menuDropdown">
+                    <li><a href="adicao-dados.html">Adicionar notícia</a></li>
+                    <li><a href="curtidas.html">Favoritos</a></li>
+                    <li><a href="gastostabela.html">Gastos</a></li>
+                    <li><a href="metas.html">Metas</a></li>
+                    <li><a href="tutorial.conosco.html">Tutoriais</a></li>
+                    <li><a href="categorias.html">Pesquise Aqui</a></li>
+                    <li><a href="gastostabela.html">Tabela</a></li>
                 </ul>
             </div>
-            <i class="fas fa-bars" onclick="toggleMenu()"></i>
+
+            <div class="usuario-menu" onclick="toggleUserMenu()">
+                <i class="fas fa-user"></i>
+                <ul class="user-dropdown" id="userDropdown">
+                    <li><a href="usuarios.html">Login</a></li>
+                    <li><a href="usuarios.html">Logout</a></li>
+                    <li><a href="#">Privacidade</a></li>
+                </ul>
+            </div>
         </div>
     </header>
 
@@ -49,15 +68,23 @@
         </div>
     </div>
 
-    <footer class="rodape">
-        <div class="logotipo">
-            <img src="img/imgs-bernardo/logomelhorada.png" alt="Logo Grana Footer" />
-        </div>
-        <div class="containerborder">
-            <p>A +Grana te ajuda a cuidar melhor do seu patrimônio, vem aprender com a gente!</p>
-            <div class="redes-sociais">
-                <a href="#"><i class="fab fa-instagram"></i> +Grana</a>
-                <a href="#"><i class="fab fa-linkedin"></i> +Grana</a>
+    <footer>
+        <div class="rodape" id="rodape">
+            <div class="logotipo">
+                <a href="homepage.html">
+                    <img src="/img/imgs-bernardo/logomelhorada.png" alt="Logotipo">
+                </a>
+            </div>
+
+            <div class="containerborder">
+                <p><strong>A +Grana te ajuda a cuidar melhor do seu patrimônio, vem aprender com a gente!</strong>
+                </p>
+                <div class="redes-sociais">
+                    <a href="https://instagram.com" target="_blank" aria-label="Instagram da +Grana"><i
+                            class="fab fa-instagram"></i>+Grana</a>
+                    <a href="https://linkedin.com" target="_blank" aria-label="linkedin da +Grana"><i
+                            class="fab fa-linkedin-in"></i>+Grana</a>
+                </div>
             </div>
         </div>
     </footer>

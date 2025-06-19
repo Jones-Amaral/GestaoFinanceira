@@ -182,8 +182,6 @@ body {
     }
 }
 
-
-
 /* --- Conteúdo Principal (Mantido do CSS anterior com ajustes leves) --- */
 .app-container {
     display: flex;
@@ -479,62 +477,56 @@ body {
 
 
 /* --- Footer (Baseado no seu último CSS enviado) --- */
-.rodape {
-    background-color: #e7f5e9;
-    /* Fundo claro */
-    margin-top: 40px;
-    border-top: 8px solid #42e619;
-    /* Barra verde no topo do footer */
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-}
+ .rodape {
+     background-color: #e7f5e9;
+     margin-top: 40px;
+     border-top: 8px solid #42e619;
+     padding: 20px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     flex-wrap: wrap;
+ }
 
-.logotipo img {
-    width: 300px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 15px;
-}
+ .logotipo img {
+     width: 300px;
+     height: 200px;
+     object-fit: cover;
+     border-radius: 15px;
+ }
 
-.containerborder {
-    max-width: 900px;
-    width: 100%;
-    text-align: center;
-}
+ .containerborder {
+     max-width: 900px;
+     width: 100%;
+     text-align: center;
+ }
 
-.containerborder p {
-    font-size: 1.1em;
-    margin-bottom: 15px;
-    color: #333;
-    /* Texto escuro */
-}
+ .containerborder p {
+     font-size: 1.1em;
+     margin-bottom: 15px;
+     color: #333;
+ }
 
-.redes-sociais {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-}
+ .redes-sociais {
+     display: flex;
+     justify-content: center;
+     gap: 30px;
+     flex-wrap: wrap;
+ }
 
-.redes-sociais a {
-    color: #333;
-    /* Texto escuro para links sociais */
-    font-size: 1.5em;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: color 0.3s ease;
-    text-decoration: none;
-}
+ .redes-sociais a {
+     color: #333;
+     font-size: 1.5em;
+     display: flex;
+     align-items: center;
+     gap: 8px;
+     transition: color 0.3s ease;
+     text-decoration: none;
+ }
 
-.redes-sociais a:hover {
-    color: #42e619;
-    /* Hover verde */
-}
-
+ .redes-sociais a:hover {
+     color: #42e619;
+ }
 /* --- Outras seções do seu CSS (containers, info-investimento) --- */
 /* Note: As classes .pagina, .containerleft, .containerright não foram encontradas no seu HTML de categorias.html enviado anteriormente.
    Se estas classes forem para uma *outra* página (ex: index.html), elas deveriam estar em um CSS separado para essa página,

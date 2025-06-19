@@ -3,7 +3,7 @@ body {
     width: 100%;
     margin: 0;
     padding: 0;
-background-color: #e7f5e9;
+    background-color: #e7f5e9;
 }
 
 /* Header Inicio */
@@ -30,6 +30,7 @@ background-color: #e7f5e9;
     gap: 20px;
     justify-content: center;
     flex: 1;
+    border: none;
 }
 
 .pages li a {
@@ -175,69 +176,6 @@ background-color: #e7f5e9;
 /* Header Fim */
 
 /* Main */
-main {
-    padding-top: 130px;
-}
-
-
-/* Menu Hamburguer */
-.menu-lateral ul li a {
-    text-decoration: none;
-    color: white;
-    font-size: 30px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.menu-lateral ul {
-    padding-left: 0;
-    margin: 0;
-    border: none;
-}
-
-.menu-lateral ul li {
-    list-style-type: none;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    border: none;
-}
-
-.imgHamburguer {
-    width: 50px;
-}
-
-.menu-lateral {
-    display: none;
-    position: fixed;
-    top: 130px;
-    right: 60px;
-    bottom: 50px;
-    width: 300px;
-    height: 700px;
-    background-color: #0a1a37;
-    color: #e7f5e9;
-    padding-top: 60px;
-    z-index: 999;
-    padding: 20px;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.menu-lateral.show {
-    display: block;
-}
-
-/* Botão de fechar */
-.fechar-menu {
-    position: absolute;
-    font-size: 30px;
-    color: #e7f5e9;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
 .corpoAdicao {
     background-color: #e7f5e9;
     width: 100%;

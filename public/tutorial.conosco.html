@@ -6,28 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Suporte - Grana</title>
     <link rel="stylesheet" href="css/tutorial.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    
 </head>
 
 <body>
     <header>
-        <div class="navbar" id="navbar">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="img/imgs-bernardo/logomelhorada.png" alt="Logo Grana" id="logo" />
-                </a>
-            </div>
-            <div class="links" id="links">
-                <ul class="pages">
-                    <li class="home"><a href="index.html">Home</a></li>
-                    <li><a href="public/categorias.html">Notícias</a></li>
-                    <li><a href="public/categorias.html" data-categoria="educacao">Educação</a></li>
-                    <li><a href="public/categorias.html" data-categoria="investimento">Investimentos</a></li>
-                </ul>
-            </div>
-            <i class="fas fa-bars" onclick="toggleMenu()"></i>
+      <div class="navbar" id="navbar">
+        <div class="logo">
+          <a href="homepage.html">
+            <img src="img/imgs-bernardo/logomelhorada.png" alt="logo" id="logo">
+          </a>
         </div>
+
+        <ul class="pages" id="navLinks">
+          <li><a href="homepage.html">Home</a></li>
+          <li><a href="notícias.html">Notícias</a></li>
+          <li><a href="paginaEducacao.html">Educação</a></li>
+          <li><a href="investimentos.html">Investimentos</a></li>
+        </ul>
+
+        <div class="right-icons">
+          <i class="fas fa-bars" onclick="toggleMenu()"></i>
+          <ul class="menu-dropdown" id="menuDropdown">
+            <li><a href="adicao-dados.html">Adicionar notícia</a></li>
+            <li><a href="curtidas.html">Favoritos</a></li>
+            <li><a href="gastostabela.html">Gastos</a></li>
+            <li><a href="metas.html">Metas</a></li>
+            <li><a href="tutorial.conosco.html">Tutoriais</a></li>
+            <li><a href="categorias.html">Pesquise Aqui</a></li>
+            <li><a href="gastostabela.html">Tabela</a></li>
+          </ul>
+        </div>
+
+        <div class="usuario-menu" onclick="toggleUserMenu()">
+          <i class="fas fa-user"></i>
+          <ul class="user-dropdown" id="userDropdown">
+            <li><a href="usuarios.html">Login</a></li>
+            <li><a href="usuarios.html">Logout</a></li>
+            <li><a href="#">Privacidade</a></li>
+          </ul>
+        </div>
+      </div>
     </header>
 
     <div class="header-line"></div>

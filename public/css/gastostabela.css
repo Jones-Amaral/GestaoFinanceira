@@ -507,11 +507,6 @@ td .acoes button:hover {
   display: none !important;
 }
 
-/* Garante espaço suficiente abaixo do menu fixo e do dropdown */
-.conteudo {
-  padding-top: 130px;
-}
-
 /* ================= RESPONSIVO ================= */
 @media (max-width: 768px) {
 
@@ -588,3 +583,54 @@ td .acoes button:hover {
     height: auto;
   }
 }
+/* Footer */
+ .rodape {
+     background-color: #e7f5e9;
+     margin-top: 40px;
+     border-top: 8px solid #42e619;
+     padding: 20px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     flex-wrap: wrap;
+ }
+
+ .logotipo img {
+     width: 300px;
+     height: 200px;
+     object-fit: cover;
+     border-radius: 15px;
+ }
+
+ .containerborder {
+     max-width: 900px;
+     width: 100%;
+     text-align: center;
+ }
+
+ .containerborder p {
+     font-size: 1.1em;
+     margin-bottom: 15px;
+     color: #333;
+ }
+
+ .redes-sociais {
+     display: flex;
+     justify-content: center;
+     gap: 30px;
+     flex-wrap: wrap;
+ }
+
+ .redes-sociais a {
+     color: #333;
+     font-size: 1.5em;
+     display: flex;
+     align-items: center;
+     gap: 8px;
+     transition: color 0.3s ease;
+     text-decoration: none;
+ }
+
+ .redes-sociais a:hover {
+     color: #42e619;
+ }

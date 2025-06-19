@@ -13,61 +13,45 @@
 
 <body>
     <header>
-        <div class="navbar" id="navbar">
-            <div class="logo">
-                <a href="homepage.html">
-                    <img src="img/imgs-bernardo/logomelhorada.png" alt="logo" id="logo">
-                </a>
-            </div>
-
-            <ul class="pages" id="navLinks">
-                <li><a href="homepage.html">Home</a></li>
-                <li><a href="notícias.html">Notícias</a></li>
-                <li><a href="paginaEducacao.html">Educação</a></li>
-                <li><a href="investimentos.html">Investimentos</a></li>
-            </ul>
-
-            <div class="right-icons">
-                <i class="fas fa-bars" onclick="toggleMenu()"></i>
-                <ul class="menu-dropdown" id="menuDropdown">
-                    <li><a href="adicao-dados.html">Adicionar notícia</a></li>
-                    <li><a href="curtidas.html">Favoritos</a></li>
-                    <li><a href="gastostabela.html">Gastos</a></li>
-                    <li><a href="metas.html">Metas</a></li>
-                    <li><a href="tutorial.conosco.html">Tutoriais</a></li>
-                </ul>
-            </div>
-
-            <div class="usuario-menu" onclick="toggleUserMenu()">
-                <i class="fas fa-user"></i>
-                <ul class="user-dropdown" id="userDropdown">
-                    <li><a href="usuarios.html">Login</a></li>
-                    <li><a href="usuarios.html">Logout</a></li>
-                    <li><a href="#">Privacidade</a></li>
-                </ul>
-            </div>
+      <div class="navbar" id="navbar">
+        <div class="logo">
+          <a href="homepage.html">
+            <img src="img/imgs-bernardo/logomelhorada.png" alt="logo" id="logo">
+          </a>
         </div>
+
+        <ul class="pages" id="navLinks">
+          <li><a href="homepage.html">Home</a></li>
+          <li><a href="notícias.html">Notícias</a></li>
+          <li><a href="paginaEducacao.html">Educação</a></li>
+          <li><a href="investimentos.html">Investimentos</a></li>
+        </ul>
+
+        <div class="right-icons">
+          <i class="fas fa-bars" onclick="toggleMenu()"></i>
+          <ul class="menu-dropdown" id="menuDropdown">
+            <li><a href="adicao-dados.html">Adicionar notícia</a></li>
+            <li><a href="curtidas.html">Favoritos</a></li>
+            <li><a href="gastostabela.html">Gastos</a></li>
+            <li><a href="metas.html">Metas</a></li>
+            <li><a href="tutorial.conosco.html">Tutoriais</a></li>
+            <li><a href="categorias.html">Pesquise Aqui</a></li>
+            <li><a href="gastostabela.html">Tabela</a></li>
+          </ul>
+        </div>
+
+        <div class="usuario-menu" onclick="toggleUserMenu()">
+          <i class="fas fa-user"></i>
+          <ul class="user-dropdown" id="userDropdown">
+            <li><a href="usuarios.html">Login</a></li>
+            <li><a href="usuarios.html">Logout</a></li>
+            <li><a href="#">Privacidade</a></li>
+          </ul>
+        </div>
+      </div>
     </header>
 
     <main>
-        <div class="menu-lateral" id="menuLateral">
-            <button class="fechar-menu" id="fecharMenu">X</button>
-            <ul>
-                <li class="borda"><a href="#"><img class="imgHamburguer" src="/img/hamburguer/usuario.png"
-                            alt="Usuário">Minha Conta</a></li>
-                <li class="borda"><a href="#"><img class="imgHamburguer" src="/img/hamburguer/lupa.png"
-                            alt="Lupa">Pesquise Aqui</a></li>
-                <li class="borda"><a href="#"><img class="imgHamburguer" src="/img/hamburguer/interrogacao.png"
-                            alt="Tutorial">Tutoriais</a></li>
-                <li class="borda"><a href="#"><img class="imgHamburguer" src="/img/hamburguer/planilha.png"
-                            alt="Planilha">Planilha</a></li>
-                <li class="borda"><a href="#"><img class="imgHamburguer" src="/img/hamburguer/chat.png"
-                            alt="Converse Conosco">Converse Conosco</a></li>
-                <li><a href="#"><img class="imgHamburguer" src="/img/hamburguer/like.png" alt="Favoritos">Favoritos</a>
-                </li>
-            </ul>
-        </div>
-
         <div class="container">
             <div class="row">
                 <div class="col-lg-2 d-none d-lg-block" id="esquerda"></div>
