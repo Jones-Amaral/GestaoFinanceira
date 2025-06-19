@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <title>Grana - Conteúdos Financeiros</title>
@@ -7,22 +8,44 @@
     <link rel="stylesheet" href="css/categorias.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
+
 <body>
     <header>
         <div class="navbar" id="navbar">
             <div class="logo">
-                <a href="index.html">
-                    <img src="img/imgs-bernardo/logomelhorada.png" alt="Logo Grana" id="logo" />
+                <a href="homepage.html">
+                    <img src="img/imgs-bernardo/logomelhorada.png" alt="logo" id="logo">
                 </a>
             </div>
-            <div class="links" id="links">
-                <ul class="pages">
-                    <li class="home"><a href="../index.html">Home</a></li> <li class="noticias"><a href="categorias.html" data-categoria="noticias">Notícias</a></li>
-                    <li class="educacao"><a href="categorias.html" data-categoria="educacao">Educação</a></li>
-                    <li class="investimentos"><a href="categorias.html" data-categoria="investimento">Investimentos</a></li>
+
+            <ul class="pages" id="navLinks">
+                <li><a href="homepage.html">Home</a></li>
+                <li><a href="notícias.html">Notícias</a></li>
+                <li><a href="paginaEducacao.html">Educação</a></li>
+                <li><a href="investimentos.html">Investimentos</a></li>
+            </ul>
+
+            <div class="right-icons">
+                <i class="fas fa-bars" onclick="toggleMenu()"></i>
+                <ul class="menu-dropdown" id="menuDropdown">
+                    <li><a href="adicao-dados.html">Adicionar notícia</a></li>
+                    <li><a href="curtidas.html">Favoritos</a></li>
+                    <li><a href="gastostabela.html">Gastos</a></li>
+                    <li><a href="metas.html">Metas</a></li>
+                    <li><a href="tutorial.conosco.html">Tutoriais</a></li>
+                    <li><a href="categorias.html">Pesquise Aqui</a></li>
+                    <li><a href="gastostabela.html">Tabela</a></li>
                 </ul>
             </div>
-            <i class="fas fa-bars" onclick="toggleMenu()"></i> 
+
+            <div class="usuario-menu" onclick="toggleUserMenu()">
+                <i class="fas fa-user"></i>
+                <ul class="user-dropdown" id="userDropdown">
+                    <li><a href="usuarios.html">Login</a></li>
+                    <li><a href="usuarios.html">Logout</a></li>
+                    <li><a href="#">Privacidade</a></li>
+                </ul>
+            </div>
         </div>
     </header>
 
@@ -30,7 +53,7 @@
         <div class="categorias-coluna">
             <h2>Categorias</h2>
             <ul class="lista-categorias" id="listaCategorias">
-                </ul>
+            </ul>
         </div>
         <div class="conteudos-coluna">
             <h1>Pesquisar</h1>
@@ -38,29 +61,37 @@
                 <input type="text" id="searchInput" placeholder="Digite o nome do conteúdo">
                 <button id="searchBtn">🔍</button>
             </div>
-            
+
             <h2 id="titulo-categoria-selecionada">Todos os Conteúdos</h2>
             <div id="resultados-conteudo">
             </div>
         </div>
     </div>
 
-    <footer class="rodape">
-        <div class="logotipo">
-            <img src="img/imgs-bernardo/logomelhorada.png" alt="Logo Grana Footer" /> 
-        </div>
-        <div class="containerborder">
-            <p>A +Grana te ajuda a cuidar melhor do seu patrimônio, vem aprender com a gente!</p>
-            <div class="redes-sociais">
-                <a href="#"><i class="fab fa-instagram"></i> +Grana</a>
-                <a href="#"><i class="fab fa-linkedin"></i> +Grana</a>
+    <footer>
+        <div class="rodape" id="rodape">
+            <div class="logotipo">
+                <a href="homepage.html">
+                    <img src="/img/imgs-bernardo/logomelhorada.png" alt="Logotipo">
+                </a>
+            </div>
+
+            <div class="containerborder">
+                <p><strong>A +Grana te ajuda a cuidar melhor do seu patrimônio, vem aprender com a gente!</strong>
+                </p>
+                <div class="redes-sociais">
+                    <a href="https://instagram.com" target="_blank" aria-label="Instagram da +Grana"><i
+                            class="fab fa-instagram"></i>+Grana</a>
+                    <a href="https://linkedin.com" target="_blank" aria-label="linkedin da +Grana"><i
+                            class="fab fa-linkedin-in"></i>+Grana</a>
+                </div>
             </div>
         </div>
     </footer>
 
     <script>
-        let dadosExternos; 
-        let conteudos = []; 
+        let dadosExternos;
+        let conteudos = [];
 
         // --- Funções JavaScript ---
 
@@ -68,15 +99,15 @@
             if (categoria === 'noticias') {
                 return 'Notícias';
             }
-            return categoria.charAt(0).toUpperCase() + categoria.slice(1); 
+            return categoria.charAt(0).toUpperCase() + categoria.slice(1);
         }
 
         function carregarConteudos(categoria = null) {
             const resultadosDiv = document.getElementById("resultados-conteudo");
             const tituloCategoria = document.getElementById("titulo-categoria-selecionada");
-            
+
             let conteudosFiltrados = conteudos;
-            if (categoria && categoria !== "todos") { 
+            if (categoria && categoria !== "todos") {
                 conteudosFiltrados = conteudos.filter(item => item.categoria === categoria);
             }
 
@@ -85,7 +116,7 @@
                 : "Todos os Conteúdos";
 
             resultadosDiv.innerHTML = "";
-            
+
             if (conteudosFiltrados.length === 0) {
                 resultadosDiv.innerHTML = "<p>Nenhum conteúdo encontrado nesta categoria.</p>";
                 return;
@@ -108,7 +139,7 @@
         function mostrarDetalhes(id, categoriaOriginal) {
             const conteudo = conteudos.find(c => c.id == id && c.categoria == categoriaOriginal);
             const resultadosDiv = document.getElementById("resultados-conteudo");
-            
+
             if (!conteudo) {
                 resultadosDiv.innerHTML = "<p>Conteúdo não encontrado.</p>";
                 return;
@@ -153,7 +184,7 @@
                 link.className = "categoria-link";
                 link.textContent = formatarNomeCategoria(categoriaChave);
                 link.dataset.categoria = categoriaChave;
-                
+
                 li.appendChild(link);
                 listaCategoriasUl.appendChild(li);
             });
@@ -173,7 +204,7 @@
         }
 
         // Event Listeners para a busca
-        document.getElementById("searchBtn").addEventListener("click", function() {
+        document.getElementById("searchBtn").addEventListener("click", function () {
             const termo = document.getElementById("searchInput").value.toLowerCase();
             const tituloCategoria = document.getElementById("titulo-categoria-selecionada");
 
@@ -181,24 +212,24 @@
                 carregarConteudos();
                 return;
             }
-            
+
             const resultados = conteudos.filter(item =>
                 item.titulo.toLowerCase().includes(termo) ||
                 item.descricao.toLowerCase().includes(termo) ||
                 item.conteudoCompleto.toLowerCase().includes(termo)
             );
-            
+
             const resultadosDiv = document.getElementById("resultados-conteudo");
             resultadosDiv.innerHTML = "";
-            
+
             if (resultados.length === 0) {
                 resultadosDiv.innerHTML = "<p>Nenhum resultado encontrado para '" + termo + "'.</p>";
                 tituloCategoria.textContent = `Resultados da Busca por: "${termo}"`;
                 return;
             }
-            
+
             tituloCategoria.textContent = `Resultados da Busca por: "${termo}"`;
-            
+
             resultados.forEach(item => {
                 const card = document.createElement("div");
                 card.className = "card-conteudo";
@@ -213,50 +244,44 @@
             });
         });
 
-        document.getElementById("searchInput").addEventListener("keyup", function(event) {
+        document.getElementById("searchInput").addEventListener("keyup", function (event) {
             if (event.key === "Enter") {
                 document.getElementById("searchBtn").click();
             }
         });
 
-        function toggleMenu() {
-            const links = document.getElementById("links");
-            if (links) {
-                links.classList.toggle("show");
-            }
-        }
 
         // --- FUNÇÃO CRÍTICA: Buscar TODOS os dados do JSON Server por Coleção ---
         async function fetchAllDataFromJSONServer() {
-            const categoriasDoJSON = ['educacao', 'noticias', 'investimento']; 
-            const allFetchedData = {}; 
+            const categoriasDoJSON = ['educacao', 'noticias', 'investimento'];
+            const allFetchedData = {};
 
             for (const categoria of categoriasDoJSON) {
                 try {
                     // Esta é a URL que DEVE apontar para o JSON Server!
-                    const response = await fetch(`http://localhost:3000/${categoria}`); 
+                    const response = await fetch(`http://localhost:3000/${categoria}`);
                     if (!response.ok) {
                         console.warn(`Aviso: Não foi possível carregar a categoria ${categoria} do JSON Server. Status: ${response.status} ${response.statusText}`);
-                        continue; 
+                        continue;
                     }
-                    allFetchedData[categoria] = await response.json(); 
+                    allFetchedData[categoria] = await response.json();
                 } catch (error) {
                     console.error(`Erro ao carregar a categoria ${categoria} do JSON Server:`, error);
                 }
             }
-            return allFetchedData; 
+            return allFetchedData;
         }
 
         // --- Função de Inicialização Principal ---
         async function init() {
             try {
-                dadosExternos = await fetchAllDataFromJSONServer(); 
-                
+                dadosExternos = await fetchAllDataFromJSONServer();
+
                 if (!dadosExternos || Object.keys(dadosExternos).length === 0) {
                     throw new Error("Nenhum dado foi carregado do JSON Server. Verifique o servidor JSON.");
                 }
 
-                conteudos = []; 
+                conteudos = [];
                 for (const categoria in dadosExternos) {
                     if (dadosExternos.hasOwnProperty(categoria)) {
                         dadosExternos[categoria].forEach(item => {
@@ -286,5 +311,23 @@
         // --- Inicia o processo de carregamento dos dados e a renderização da página ---
         init();
     </script>
+    <script>
+        const menuBtn = document.getElementById("hamburguerMenu");
+        const dropdown = document.getElementById("dropdownMenu");
+
+        menuBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            dropdown.classList.toggle("esconder");
+        });
+
+        // Fecha o dropdown ao clicar fora dele
+        window.addEventListener("click", function (e) {
+            if (!menuBtn.contains(e.target) && !dropdown.contains(e.target)) {
+                dropdown.classList.add("esconder");
+            }
+        });
+    </script>
+    <script src="js/user.js"></script>
 </body>
+
 </html>

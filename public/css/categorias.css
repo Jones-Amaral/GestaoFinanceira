@@ -8,122 +8,205 @@
 }
 
 body {
-    font-family: 'Montserrat', sans-serif; /* Usando Montserrat como você indicou */
+    font-family: 'Montserrat', sans-serif;
+    /* Usando Montserrat como você indicou */
     background-color: #e7f5e9;
-    color: #333; /* Cor padrão para textos */
+    color: #333;
+    /* Cor padrão para textos */
     line-height: 1.6;
 }
 
 /* --- NavBar (Baseado no seu último CSS enviado) --- */
 .navbar {
-    background-color: #e7f5e9; /* Fundo claro */
+    background-color: #e7f5e9;
     width: 100%;
     padding: 10px 15px;
+    border-bottom: 8px solid #42e619;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 8px solid #42e619; /* Barra verde na parte inferior da navbar */
     position: relative;
 }
 
-.navbar .logo img {
-    width: 250px; /* Tamanho da logo conforme seu CSS */
+.logo img {
+    width: 250px;
     height: 100px;
     object-fit: cover;
 }
 
-.navbar .links { /* Ajustado para centralizar no desktop */
-    flex-grow: 1; 
-    display: flex;
-    justify-content: center; 
-}
-
-.navbar .pages {
+.pages {
     list-style: none;
     display: flex;
     gap: 20px;
-    margin: 0;
-    padding: 0;
+    justify-content: center;
+    flex: 1;
 }
 
-.navbar .pages li a {
+.pages li a {
     display: block;
     text-decoration: none;
-    color: black; /* Texto preto para os links da navbar */
+    color: black;
     font-weight: bold;
     font-size: 1.8rem;
     padding: 10px 10px;
     transition: all 0.3s ease;
 }
 
-.navbar .pages li a:hover {
+.pages li a:hover {
     background-color: #42e619;
     border-radius: 5px;
-    color: white; /* Cor do texto no hover para a barra verde */
 }
 
-/* Icone de menu aparecendo em versão mobile (Font Awesome) */
+/* Menu de usuário e ícone de menu alinhados à direita */
+.right-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Ícone de menu (hambúrguer) */
 .fas.fa-bars {
-    display: none;
     font-size: 2.3rem;
     color: black;
     cursor: pointer;
+    display: block;
+    margin-right: 10px;
+    font-size: 30px;
+    height: 25px;
+}
+
+/*Dropdown do Menu*/
+.menu-dropdown {
+    display: none;
+    position: absolute;
+    right: 50px;
+    top: 100px;
+    background-color: #fff;
+    list-style: none;
+    box-shadow: #42e619;
+    border-radius: 6px;
+    padding: 10px 10px;
+    width: 150px;
+    z-index: 1000;
+}
+
+.menu-dropdown li {
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.menu-dropdown li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+    background-color: transparent;
+}
+
+.menu-dropdown li a:hover {
+    background-color: #42e619;
+    border-radius: 5px;
+    width: 100px;
+}
+
+.menu-dropdown.show {
+    display: block;
+}
+
+/* Menu de usuário */
+.usuario-menu {
+    position: relative;
+    cursor: pointer;
+}
+
+.usuario-menu .fa-user {
+    font-size: 1.5rem;
+    color: #4fe42a;
+    padding: 20px;
+    font-size: 30px;
+}
+
+/* Dropdown do usuário */
+.user-dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 70px;
+    background-color: #fff;
+    list-style: none;
+    box-shadow: #42e619;
+    border-radius: 6px;
+    padding: 10px 0;
+    width: 150px;
+    z-index: 1000;
+}
+
+.user-dropdown li {
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.user-dropdown li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+    background-color: transparent;
+}
+
+.user-dropdown li a:hover {
+    background-color: #42e619;
+    border-radius: 5px;
 }
 
 @media (max-width: 768px) {
-    .navbar {
-        flex-wrap: wrap; /* Permite que os itens quebrem linha */
-    }
-    .navbar .links {
-        display: none; /* Esconde o menu por padrão */
+    .pages {
+        display: none;
         position: absolute;
         top: 100%;
-        width: 100%;
         left: 0;
         background-color: #e7f5e9;
         flex-direction: column;
         text-align: center;
         padding: 20px 0;
+        width: 100%;
         z-index: 999;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    .navbar .pages.show {
-        display: flex; /* Mostra o menu quando a classe 'show' está presente */
-    }
-    .fas.fa-bars {
-        display: block; /* Mostra o ícone de hambúrguer */
-    }
-    .navbar .pages li a { /* Ajuste para itens de menu mobile */
-        font-size: 1.5rem;
-        border-bottom: 1px solid #eee;
-        padding: 15px 0;
-    }
-    .navbar .pages li:last-child a {
-        border-bottom: none;
-    }
-    /* .espaco foi removido do HTML, então não precisamos do CSS para ele */
-}
 
+    .pages.show {
+        display: flex;
+    }
+}
 
 /* --- Conteúdo Principal (Mantido do CSS anterior com ajustes leves) --- */
 .app-container {
     display: flex;
-    max-width: 1200px; /* Mantém a largura máxima do container central */
-    margin: 25px auto 0; /* Ajustei a margem superior para se alinhar com o .pagina */
+    max-width: 1200px;
+    /* Mantém a largura máxima do container central */
+    margin: 25px auto 0;
+    /* Ajustei a margem superior para se alinhar com o .pagina */
     gap: 30px;
-    padding: 0 20px; /* Padding nas laterais */
+    padding: 0 20px;
+    /* Padding nas laterais */
 }
+
 /* Adaptação das classes para o nome que você usou no seu HTML */
 /* Se você ainda estiver usando .pagina, .containerleft, .containerright */
 /* Assegure-se de que essas classes estão onde deveriam estar */
 /* Se não, o .app-container será o container principal */
 
 .categorias-coluna {
-    width: 280px; /* Mantido como no meu CSS anterior para boa largura */
-    background: #ffffff; /* Fundo branco para os cards/colunas */
+    width: 280px;
+    /* Mantido como no meu CSS anterior para boa largura */
+    background: #ffffff;
+    /* Fundo branco para os cards/colunas */
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .categorias-coluna h2 {
@@ -131,7 +214,8 @@ body {
     border-bottom: 1px solid #eee;
     padding-bottom: 10px;
     margin-top: 0;
-    color: black; /* Texto preto */
+    color: black;
+    /* Texto preto */
 }
 
 .lista-categorias {
@@ -152,15 +236,17 @@ body {
 
 .categoria-link:hover {
     background-color: #42e619;
-    color: white; /* Hover verde com texto branco */
+    color: white;
+    /* Hover verde com texto branco */
 }
 
 .conteudos-coluna {
     flex: 1;
-    background: #ffffff; /* Fundo branco */
+    background: #ffffff;
+    /* Fundo branco */
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .conteudos-coluna h1 {
@@ -186,7 +272,8 @@ body {
 
 #searchBtn {
     width: 60px;
-    background: black; /* Botão de busca preto */
+    background: black;
+    /* Botão de busca preto */
     color: white;
     border: none;
     border-radius: 0 6px 6px 0;
@@ -196,7 +283,8 @@ body {
 }
 
 #searchBtn:hover {
-    background: #42e619; /* Hover verde */
+    background: #42e619;
+    /* Hover verde */
 }
 
 #titulo-categoria-selecionada {
@@ -213,7 +301,7 @@ body {
     border-radius: 8px;
     padding: 15px;
     margin-bottom: 15px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
 }
@@ -245,7 +333,8 @@ body {
 }
 
 .card-conteudo button {
-    background: black; /* Botão de ler mais preto */
+    background: black;
+    /* Botão de ler mais preto */
     color: white;
     border: none;
     padding: 10px 18px;
@@ -258,7 +347,8 @@ body {
 }
 
 .card-conteudo button:hover {
-    background: #42e619; /* Hover verde */
+    background: #42e619;
+    /* Hover verde */
 }
 
 /* --- Detalhes do Conteúdo --- */
@@ -267,7 +357,7 @@ body {
     padding: 25px;
     border-radius: 8px;
     border: 1px solid #ddd;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .detalhes-conteudo button {
@@ -308,6 +398,7 @@ body {
 .detalhes-conteudo .conteudo-texto p {
     margin-bottom: 1em;
 }
+
 .detalhes-conteudo .conteudo-texto h1,
 .detalhes-conteudo .conteudo-texto h2 {
     color: black;
@@ -381,62 +472,61 @@ body {
 }
 
 .favorito-btn i.fa-solid {
-    color: #2db10f; 
+    color: #2db10f;
 }
 
 
 /* --- Footer (Baseado no seu último CSS enviado) --- */
-.rodape {
-    background-color: #e7f5e9; /* Fundo claro */
-    margin-top: 40px;
-    border-top: 8px solid #42e619; /* Barra verde no topo do footer */
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-}
+ .rodape {
+     background-color: #e7f5e9;
+     margin-top: 40px;
+     border-top: 8px solid #42e619;
+     padding: 20px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     flex-wrap: wrap;
+ }
 
-.logotipo img {
-    width: 300px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 15px;
-}
+ .logotipo img {
+     width: 300px;
+     height: 200px;
+     object-fit: cover;
+     border-radius: 15px;
+ }
 
-.containerborder {
-    max-width: 900px;
-    width: 100%;
-    text-align: center;
-}
+ .containerborder {
+     max-width: 900px;
+     width: 100%;
+     text-align: center;
+ }
 
-.containerborder p {
-    font-size: 1.1em;
-    margin-bottom: 15px;
-    color: #333; /* Texto escuro */
-}
+ .containerborder p {
+     font-size: 1.1em;
+     margin-bottom: 15px;
+     color: #333;
+ }
 
-.redes-sociais {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-}
+ .redes-sociais {
+     display: flex;
+     justify-content: center;
+     gap: 30px;
+     flex-wrap: wrap;
+ }
 
-.redes-sociais a {
-    color: #333; /* Texto escuro para links sociais */
-    font-size: 1.5em;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: color 0.3s ease;
-    text-decoration: none;
-}
+ .redes-sociais a {
+     color: #333;
+     font-size: 1.5em;
+     display: flex;
+     align-items: center;
+     gap: 8px;
+     transition: color 0.3s ease;
+     text-decoration: none;
+ }
 
-.redes-sociais a:hover {
-    color: #42e619; /* Hover verde */
-}
-
+ .redes-sociais a:hover {
+     color: #42e619;
+ }
 /* --- Outras seções do seu CSS (containers, info-investimento) --- */
 /* Note: As classes .pagina, .containerleft, .containerright não foram encontradas no seu HTML de categorias.html enviado anteriormente.
    Se estas classes forem para uma *outra* página (ex: index.html), elas deveriam estar em um CSS separado para essa página,
@@ -529,11 +619,13 @@ body {
 
 /* --- Responsividade Geral --- */
 @media (max-width: 1024px) {
-    .app-container { /* Esta classe é para a página de categorias */
+    .app-container {
+        /* Esta classe é para a página de categorias */
         flex-direction: column;
         gap: 20px;
         padding: 0 15px;
     }
+
     .categorias-coluna,
     .conteudos-coluna {
         width: 100%;
@@ -546,6 +638,7 @@ body {
         margin: 20px;
         gap: 20px;
     }
+
     .containerleft,
     .containerright {
         width: 100%;
@@ -555,23 +648,29 @@ body {
         width: 100%;
         height: auto;
     }
+
     .slide {
         height: auto;
     }
+
     .slide img {
         width: 100%;
         height: auto;
     }
+
     .prev,
     .next {
         display: none;
     }
+
     .info-investimento {
         padding: 15px;
     }
+
     .info-investimento h3 {
         font-size: 1.4rem;
     }
+
     .info-investimento p {
         font-size: 0.95rem;
     }
@@ -582,28 +681,36 @@ body {
         width: 180px;
         height: auto;
     }
+
     .pages li a {
         font-size: 1.5rem;
     }
-    .rodape { /* Ajuste do footer para mobile */
+
+    .rodape {
+        /* Ajuste do footer para mobile */
         flex-direction: column;
         align-items: center;
         text-align: center;
     }
+
     .logotipo img {
         width: 220px;
         height: auto;
         margin-bottom: 15px;
     }
+
     .redes-sociais {
         gap: 15px;
     }
+
     .containerborder p {
         font-size: 1rem;
     }
+
     .info-investimento {
         margin-top: 20px;
     }
+
     /* Estilos do app-container já foram definidos acima */
 }
 
@@ -612,19 +719,23 @@ body {
         font-size: 1.2rem;
         padding: 8px 5px;
     }
+
     .containerleft h3,
     .containerright h3,
     .containerright h4 {
         font-size: 1rem;
     }
+
     .containerleft p,
     .containerright p {
         font-size: 0.95rem;
     }
+
     .carrossel-container {
         box-shadow: none;
         border-radius: 0;
     }
+
     .redes-sociais a {
         font-size: 1.3em;
     }

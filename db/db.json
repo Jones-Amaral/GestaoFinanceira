@@ -194,12 +194,12 @@
   ],
   "gastos": [
     {
-      "id": "1750273733654",
-      "descricao": "aaaa",
-      "categoria": "aaaa",
-      "tipo": "Fixo",
-      "valor": "300.00",
-      "data": "2001-02-01"
+      "id": "3ccf",
+      "descricao": "Pizza",
+      "categoria": "Lazer",
+      "tipo": "Variável",
+      "valor": "100.00",
+      "data": "2025-06-19"
     }
   ],
   "usuarios": [
