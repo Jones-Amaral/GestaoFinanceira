@@ -13,51 +13,45 @@
 
 <body>
     <header>
-        <a href="adicao-dados.html"><img src="/img/header/adicionar.png" class="icone-Adicionar"
-                alt="Icone Adicionar Noticia"></a>
-        <a href="#" id="hamburguerMenu"><img src="/img/header/hamburguer.png" alt="Icone Menu"
-                class="icone-hamburguer"></a>
-        <div class="navbar" id="navbar">
-            <div class="logo">
-                <a href="homepage.html">
-                    <img src="/img/imgs-bernardo/logomelhorada.png" alt="logo" id="logo">
-                </a>
-            </div>
-
-            <div class="links" id="links">
-                <ul class="pages">
-                    <li class="home"><a href="homepage.html">Home</a></li>
-                    <li class="noticias"><a href="notícias.html">Notícias</a></li>
-                    <li class="educacao"><a href="paginaEducacao.html">Educação</a></li>
-                    <li class="investimentos"><a href="investimentos.html">Investimentos</a></li>
-                </ul>
-            </div>
-
-            <!--             <i class="fas fa-bars" onclick="toggleMenu()"></i> -->
-
-            <div class="espaco"></div>
+      <div class="navbar" id="navbar">
+        <div class="logo">
+          <a href="homepage.html">
+            <img src="img/imgs-bernardo/logomelhorada.png" alt="logo" id="logo">
+          </a>
         </div>
+
+        <ul class="pages" id="navLinks">
+          <li><a href="homepage.html">Home</a></li>
+          <li><a href="notícias.html">Notícias</a></li>
+          <li><a href="paginaEducacao.html">Educação</a></li>
+          <li><a href="investimentos.html">Investimentos</a></li>
+        </ul>
+
+        <div class="right-icons">
+          <i class="fas fa-bars" onclick="toggleMenu()"></i>
+          <ul class="menu-dropdown" id="menuDropdown">
+            <li><a href="adicao-dados.html">Adicionar notícia</a></li>
+            <li><a href="curtidas.html">Favoritos</a></li>
+            <li><a href="gastostabela.html">Gastos</a></li>
+            <li><a href="metas.html">Metas</a></li>
+            <li><a href="tutorial.conosco.html">Tutoriais</a></li>
+            <li><a href="categorias.html">Pesquise Aqui</a></li>
+            <li><a href="gastostabela.html">Tabela</a></li>
+          </ul>
+        </div>
+
+        <div class="usuario-menu" onclick="toggleUserMenu()">
+          <i class="fas fa-user"></i>
+          <ul class="user-dropdown" id="userDropdown">
+            <li><a href="usuarios.html">Login</a></li>
+            <li><a href="usuarios.html">Logout</a></li>
+            <li><a href="#">Privacidade</a></li>
+          </ul>
+        </div>
+      </div>
     </header>
 
     <main>
-        <div class="menu-lateral" id="menuLateral">
-            <button class="fechar-menu" id="fecharMenu">X</button>
-            <ul>
-                <li class="borda"><a href="#"><img class="imgHamburguer" src="/img/hamburguer/usuario.png"
-                            alt="Usuário">Minha Conta</a></li>
-                <li class="borda"><a href="#"><img class="imgHamburguer" src="/img/hamburguer/lupa.png"
-                            alt="Lupa">Pesquise Aqui</a></li>
-                <li class="borda"><a href="#"><img class="imgHamburguer" src="/img/hamburguer/interrogacao.png"
-                            alt="Tutorial">Tutoriais</a></li>
-                <li class="borda"><a href="#"><img class="imgHamburguer" src="/img/hamburguer/planilha.png"
-                            alt="Planilha">Planilha</a></li>
-                <li class="borda"><a href="#"><img class="imgHamburguer" src="/img/hamburguer/chat.png"
-                            alt="Converse Conosco">Converse Conosco</a></li>
-                <li><a href="#"><img class="imgHamburguer" src="/img/hamburguer/like.png" alt="Favoritos">Favoritos</a>
-                </li>
-            </ul>
-        </div>
-
         <div class="container">
             <div class="row">
                 <div class="col-lg-2 d-none d-lg-block" id="esquerda"></div>
@@ -118,42 +112,45 @@
             </div>
         </div>
 
-        <footer>
-            <div class="rodape" id="rodape">
-                <div class="logotipo">
-                    <a href="homepage.html">
-                        <img src="/img/imgs-bernardo/logomelhorada.png" alt="Logotipo">
-                    </a>
-                </div>
+    </main>
+    <footer>
+        <div class="rodape" id="rodape">
+            <div class="logotipo">
+                <a href="homepage.html">
+                    <img src="/img/imgs-bernardo/logomelhorada.png" alt="Logotipo">
+                </a>
+            </div>
 
-                <div class="containerborder">
-                    <p><strong>A +Grana te ajuda a cuidar melhor do seu patrimônio, vem aprender com a gente!</strong>
-                    </p>
-                    <div class="redes-sociais">
-                        <a href="https://instagram.com" target="_blank" aria-label="Instagram da +Grana"><i
-                                class="fab fa-instagram"></i>+Grana</a>
-                        <a href="https://linkedin.com" target="_blank" aria-label="linkedin da +Grana"><i
-                                class="fab fa-linkedin-in"></i>+Grana</a>
-                    </div>
+            <div class="containerborder">
+                <p><strong>A +Grana te ajuda a cuidar melhor do seu patrimônio, vem aprender com a gente!</strong>
+                </p>
+                <div class="redes-sociais">
+                    <a href="https://instagram.com" target="_blank" aria-label="Instagram da +Grana"><i
+                            class="fab fa-instagram"></i>+Grana</a>
+                    <a href="https://linkedin.com" target="_blank" aria-label="linkedin da +Grana"><i
+                            class="fab fa-linkedin-in"></i>+Grana</a>
                 </div>
             </div>
-        </footer>
-    </main>
+        </div>
+    </footer>
+    <script src="js/user.js"></script>
+
     <script>
         window.onload = () => {
-            const menuLateral = document.getElementById('menuLateral');
-            const hamburguerMenu = document.getElementById('hamburguerMenu');
-            const fecharMenu = document.getElementById('fecharMenu');
+            const menuBtn = document.getElementById("hamburguerMenu");
+            const dropdown = document.getElementById("dropdownMenu");
 
-            hamburguerMenu.addEventListener('click', function (e) {
+            menuBtn.addEventListener("click", function (e) {
                 e.preventDefault();
-                menuLateral.classList.add('show');
+                dropdown.classList.toggle("esconder");
             });
 
-            fecharMenu.addEventListener('click', function () {
-                menuLateral.classList.remove('show');
-            })
-
+            // Fecha o dropdown ao clicar fora dele
+            window.addEventListener("click", function (e) {
+                if (!menuBtn.contains(e.target) && !dropdown.contains(e.target)) {
+                    dropdown.classList.add("esconder");
+                }
+            });
             criarNoticia();
 
         }

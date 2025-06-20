@@ -1,3 +1,4 @@
+// Pega o ID da URL
 function getIdFromURL() {
   const params = new URLSearchParams(window.location.search);
   const id = params.get('id');
@@ -5,6 +6,7 @@ function getIdFromURL() {
   return id;
 }
 
+// Carrega os detalhes do investimento
 async function carregarDetalhes() {
   const id = getIdFromURL();
   if (!id) {
@@ -39,46 +41,80 @@ async function carregarDetalhes() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', carregarDetalhes);
-
-function salvarComentario(id, texto) {
-  const comentarios = JSON.parse(localStorage.getItem('comentarios')) || {};
-  if (!comentarios[id]) {
-    comentarios[id] = [];
-  }
-  comentarios[id].push(texto);
-  localStorage.setItem('comentarios', JSON.stringify(comentarios));
-}
-
-function carregarComentarios(id) {
-  const comentarios = JSON.parse(localStorage.getItem('comentarios')) || {};
+// Carrega os comentários do investimento
+async function carregarComentarios(id) {
   const lista = document.getElementById('listaComentarios');
   lista.innerHTML = '';
 
-  if (comentarios[id]) {
-    comentarios[id].forEach(comentario => {
+  try {
+    const resposta = await fetch(`http://localhost:3000/investimento/${id}`);
+    if (!resposta.ok) throw new Error("Investimento não encontrado para carregar comentários");
+
+    const investimento = await resposta.json();
+
+    investimento.comentario?.forEach(c => {
       const li = document.createElement('li');
-      li.textContent = comentario;
+      li.innerHTML = `<strong>${c.usuario || "Anônimo"}:</strong> ${c.comentario}`;
       lista.appendChild(li);
     });
+
+  } catch (erro) {
+    console.error("Erro ao carregar comentários:", erro);
+    lista.innerHTML = `<li style="color:red;">Erro ao carregar comentários.</li>`;
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  carregarDetalhes(); // sua função original
+// Salva novo comentário no investimento (faz PUT no investimento inteiro)
+async function salvarComentario(id, texto) {
+  try {
+    // Busca investimento atual
+    const res = await fetch(`http://localhost:3000/investimento/${id}`);
+    if (!res.ok) throw new Error("Investimento não encontrado para salvar comentário");
 
-  const id = new URLSearchParams(window.location.search).get('id');
+    const investimento = await res.json();
+
+    const novoComentario = {
+      id: Date.now(),
+      usuario: "Bernardo", // Pode pegar de um campo input se quiser
+      comentario: texto
+    };
+
+    if (!investimento.comentario) investimento.comentario = [];
+    investimento.comentario.push(novoComentario);
+
+    // Atualiza investimento inteiro via PUT
+    const putRes = await fetch(`http://localhost:3000/investimento/${id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(investimento)
+    });
+
+    if (!putRes.ok) throw new Error("Falha ao salvar comentário");
+
+    carregarComentarios(id);
+
+  } catch (erro) {
+    console.error("Erro ao salvar comentário:", erro);
+    alert("Erro ao salvar comentário. Tente novamente.");
+  }
+}
+
+// Inicializa tudo quando o DOM carregar
+document.addEventListener('DOMContentLoaded', () => {
+  carregarDetalhes();
+
+  const id = getIdFromURL();
+
   carregarComentarios(id);
 
   const form = document.getElementById('formComentario');
   form.addEventListener('submit', function (e) {
     e.preventDefault();
+
     const texto = document.getElementById('comentarioTexto').value.trim();
     if (texto) {
       salvarComentario(id, texto);
       document.getElementById('comentarioTexto').value = '';
-      carregarComentarios(id);
     }
   });
 });
-

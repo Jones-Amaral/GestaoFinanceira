@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8" />
   <title>Minhas Metas Financeiras</title>
   <link rel="stylesheet" href="css/metas.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 <body>
 <!-- Cabeçalho padrão -->
 <header>
 
-            <a href="#" id="hamburguerMenu"><img src="img/header/hamburguer.png" alt="Icone Menu"
+            <a href="#" id="hamburguerMenu"><img src="/img/header/hamburguer.png" alt="Icone Menu"
                     class="icone-hamburguer"></a>
                     <!-- Botão do menu hambúrguer -->
 
@@ -29,24 +32,40 @@
             <div class="navbar" id="navbar">
                 <div class="logo">
                     <a href="homepage.html">
-                        <img src="img/imgs-bernardo/logomelhorada.png" alt="logo" id="logo">
+                        <img src="/img/imgs-bernardo/logomelhorada.png" alt="logo" id="logo">
                     </a>
                 </div>
 
-                <div class="links" id="links">
-                    <ul class="pages">
-                        <li class="home"><a href="homepage.html">Home</a></li>
-                        <li class="noticias"><a href="notícias.html">Notícias</a></li>
-                        <li class="educacao"><a href="paginaEducacao.html">Educação</a></li>
-                        <li class="investimentos"><a href="investimentos.html">Investimentos</a></li>
-                    </ul>
-                </div>
+      <ul class="pages" id="navLinks">
+        <li><a href="homepage.html">Home</a></li>
+        <li><a href="notícias.html">Notícias</a></li>
+        <li><a href="paginaEducacao.html">Educação</a></li>
+        <li><a href="investimentos.html">Investimentos</a></li>
+      </ul>
 
-                <!--             <i class="fas fa-bars" onclick="toggleMenu()"></i> -->
+      <div class="right-icons">
+        <i class="fas fa-bars" onclick="toggleMenu()"></i>
+        <ul class="menu-dropdown" id="menuDropdown">
+          <li><a href="adicao-dados.html">Adicionar notícia</a></li>
+          <li><a href="curtidas.html">Favoritos</a></li>
+          <li><a href="gastostabela.html">Gastos</a></li>
+          <li><a href="metas.html">Metas</a></li>
+          <li><a href="tutorial.conosco.html">Tutoriais</a></li>
+          <li><a href="categorias.html">Pesquise Aqui</a></li>
+          <li><a href="gastostabela.html">Tabela</a></li>
+        </ul>
+      </div>
 
-                <div class="espaco"></div>
-            </div>
-        </header>
+      <div class="usuario-menu" onclick="toggleUserMenu()">
+        <i class="fas fa-user"></i>
+        <ul class="user-dropdown" id="userDropdown">
+          <li><a href="usuarios.html">Login</a></li>
+          <li><a href="usuarios.html">Logout</a></li>
+          <li><a href="#">Privacidade</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
 
 
   <main>
@@ -96,49 +115,72 @@
     <section class="bloco-conteudo" id="formularioMeta" style="display: none;">
       <h3>Cadastrar Nova Meta</h3>
       <form id="formMeta">
-      <input type="hidden" id="idMeta">
-      
-        <label>Qual o nome da sua Meta?
-          <input type="text" id="nomeMeta" required>
-        </label>
+        <input type="hidden" id="idMeta">
 
-        <label>Quanto você quer guardar? (R$)
-          <input type="number" id="valorObjetivo" min="0" step="any" required>
-        </label>
+                <label>Qual o nome da sua Meta?
+                    <input type="text" id="nomeMeta" required>
+                  </label>
 
-        <label>Quanto você já tem? (R$)
-          <input type="number" id="valorAtual" min="0" step="any" required>
-        </label>
+                <label>Quanto você quer guardar? (R$)
+                    <input type="number" id="valorObjetivo" min="0" step="any" required>
+                  </label>
 
-        <label>Em quanto tempo deseja alcançar o objetivo?
-          <input type="date" id="dataLimite" required>
-        </label>
+                <label>Quanto você já tem? (R$)
+                    <input type="number" id="valorAtual" min="0" step="any" required>
+                  </label>
 
-        <button type="submit">Salvar Meta</button>
-        <button type="button" id="cancelarMeta">Cancelar</button>
-      </form>
+                <label>Em quanto tempo deseja alcançar o objetivo?
+                    <input type="date" id="dataLimite" required>
+                  </label>
+
+                <button type="submit">Salvar Meta</button>
+                <button type="button" id="cancelarMeta">Cancelar</button>
+             
+      </form>
     </section>
   </main>
+  <footer>
+    <div class="rodape" id="rodape">
+      <div class="logotipo">
+        <a href="homepage.html">
+          <img src="/img/imgs-bernardo/logomelhorada.png" alt="Logotipo">
+        </a>
+      </div>
 
+      <div class="containerborder">
+        <p><strong>A +Grana te ajuda a cuidar melhor do seu patrimônio, vem aprender com a gente!</strong>
+        </p>
+        <div class="redes-sociais">
+          <a href="https://instagram.com" target="_blank" aria-label="Instagram da +Grana"><i
+              class="fab fa-instagram"></i>+Grana</a>
+          <a href="https://linkedin.com" target="_blank" aria-label="linkedin da +Grana"><i
+              class="fab fa-linkedin-in"></i>+Grana</a>
+        </div>
+      </div>
+    </div>
+  </footer>
   <div id="notificacao" class="toast"></div>
 
+  <script src="js/user.js"></script>
+
   <script src="js/metas.js"></script>
+
   <script>
-  const menuBtn = document.getElementById("hamburguerMenu");
-  const dropdown = document.getElementById("dropdownMenu");
+    const menuBtn = document.getElementById("hamburguerMenu");
+    const dropdown = document.getElementById("dropdownMenu");
 
-  menuBtn.addEventListener("click", function (e) {
-    e.preventDefault();
-    dropdown.classList.toggle("esconder");
-  });
+    menuBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      dropdown.classList.toggle("esconder");
+    });
 
-  // Fecha o dropdown ao clicar fora dele
-  window.addEventListener("click", function (e) {
-    if (!menuBtn.contains(e.target) && !dropdown.contains(e.target)) {
-      dropdown.classList.add("esconder");
-    }
-  });
-</script>
+    // Fecha o dropdown ao clicar fora dele
+    window.addEventListener("click", function (e) {
+      if (!menuBtn.contains(e.target) && !dropdown.contains(e.target)) {
+        dropdown.classList.add("esconder");
+      }
+    });
+  </script>
 
 </body>
 
