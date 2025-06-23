@@ -28,7 +28,7 @@
         </ul>
 
         <div class="right-icons">
-          <i class="fas fa-bars" onclick="toggleMenu()"></i>
+          <i class="fas fa-bars" id="hamburguerMenu" onclick="toggleMenu()"></i>
           <ul class="menu-dropdown" id="menuDropdown">
             <li><a href="adicao-dados.html">Adicionar notícia</a></li>
             <li><a href="curtidas.html">Favoritos</a></li>
@@ -36,7 +36,6 @@
             <li><a href="metas.html">Metas</a></li>
             <li><a href="tutorial.conosco.html">Tutoriais</a></li>
             <li><a href="categorias.html">Pesquise Aqui</a></li>
-            <li><a href="gastostabela.html">Tabela</a></li>
           </ul>
         </div>
 
@@ -151,6 +150,7 @@
                     dropdown.classList.add("esconder");
                 }
             });
+            
             criarNoticia();
 
         }

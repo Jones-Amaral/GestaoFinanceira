@@ -8,64 +8,46 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </head>
+
 <body>
-<!-- Cabeçalho padrão -->
-<header>
+  <!-- Cabeçalho padrão -->
+    <header>
+      <div class="navbar" id="navbar">
+        <div class="logo">
+          <a href="homepage.html">
+            <img src="img/imgs-bernardo/logomelhorada.png" alt="logo" id="logo">
+          </a>
+        </div>
 
-            <a href="#" id="hamburguerMenu"><img src="/img/header/hamburguer.png" alt="Icone Menu"
-                    class="icone-hamburguer"></a>
-                    <!-- Botão do menu hambúrguer -->
-
-<!-- Menu suspenso que será exibido ao clicar -->
-<div id="dropdownMenu" class="dropdown-menu-custom esconder">
-  <ul>
-    <li><a href="usuarios.html">Minha Conta</a></li>
-    <li><a href="#">Pesquise aqui</a></li>
-    <li><a href="#">Converse Conosco</a></li>
-    <li><a href="gastostabela.html">Meus Gastos</a></li>
-    <li><a href="adicao-dados.html">Adicionar Notícia</a></li>
-    <li><a href="curtidas.html">Favoritos</a></li>
-    <li><a href="tutorial.conosco.html"></a>Tutoriais</li>
-  </ul>
-</div>
-
-            <div class="navbar" id="navbar">
-                <div class="logo">
-                    <a href="homepage.html">
-                        <img src="/img/imgs-bernardo/logomelhorada.png" alt="logo" id="logo">
-                    </a>
-                </div>
-
-      <ul class="pages" id="navLinks">
-        <li><a href="homepage.html">Home</a></li>
-        <li><a href="notícias.html">Notícias</a></li>
-        <li><a href="paginaEducacao.html">Educação</a></li>
-        <li><a href="investimentos.html">Investimentos</a></li>
-      </ul>
-
-      <div class="right-icons">
-        <i class="fas fa-bars" onclick="toggleMenu()"></i>
-        <ul class="menu-dropdown" id="menuDropdown">
-          <li><a href="adicao-dados.html">Adicionar notícia</a></li>
-          <li><a href="curtidas.html">Favoritos</a></li>
-          <li><a href="gastostabela.html">Gastos</a></li>
-          <li><a href="metas.html">Metas</a></li>
-          <li><a href="tutorial.conosco.html">Tutoriais</a></li>
-          <li><a href="categorias.html">Pesquise Aqui</a></li>
-          <li><a href="gastostabela.html">Tabela</a></li>
+        <ul class="pages" id="navLinks">
+          <li><a href="homepage.html">Home</a></li>
+          <li><a href="notícias.html">Notícias</a></li>
+          <li><a href="paginaEducacao.html">Educação</a></li>
+          <li><a href="investimentos.html">Investimentos</a></li>
         </ul>
-      </div>
 
-      <div class="usuario-menu" onclick="toggleUserMenu()">
-        <i class="fas fa-user"></i>
-        <ul class="user-dropdown" id="userDropdown">
-          <li><a href="usuarios.html">Login</a></li>
-          <li><a href="usuarios.html">Logout</a></li>
-          <li><a href="#">Privacidade</a></li>
-        </ul>
+        <div class="right-icons">
+          <i class="fas fa-bars" id="hamburguerMenu" onclick="toggleMenu()"></i>
+          <ul class="menu-dropdown" id="menuDropdown">
+            <li><a href="adicao-dados.html">Adicionar notícia</a></li>
+            <li><a href="curtidas.html">Favoritos</a></li>
+            <li><a href="gastostabela.html">Gastos</a></li>
+            <li><a href="metas.html">Metas</a></li>
+            <li><a href="tutorial.conosco.html">Tutoriais</a></li>
+            <li><a href="categorias.html">Pesquise Aqui</a></li>
+          </ul>
+        </div>
+
+        <div class="usuario-menu" onclick="toggleUserMenu()">
+          <i class="fas fa-user"></i>
+          <ul class="user-dropdown" id="userDropdown">
+            <li><a href="usuarios.html">Login</a></li>
+            <li><a href="usuarios.html">Logout</a></li>
+            <li><a href="#">Privacidade</a></li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </header>
+    </header>
 
 
   <main>
