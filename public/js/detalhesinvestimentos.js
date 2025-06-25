@@ -35,6 +35,18 @@ async function carregarDetalhes() {
     document.getElementById('resumo').textContent = investimento.resumo;
     document.getElementById('conteudo').textContent = investimento.conteudo;
 
+    if (investimento.extras && investimento.extras.length > 0) {
+      let extrasHTML = "";
+      investimento.extras.forEach(extra => {
+        extrasHTML += `
+          <div class="extraNoticia">
+            ${extra.corpo || ""}
+            ${extra.imagem ? `<img src="${extra.imagem}" alt="${extra.subtitulo}" class="imagemComplementar">` : ""}
+          </div>
+        `;
+      });
+      document.getElementById('extras').innerHTML = extrasHTML;
+    }
   } catch (erro) {
     console.error("Erro ao carregar os dados:", erro.message);
     document.querySelector('.container').innerHTML = `<p style="color:red;">Erro ao carregar os dados: ${erro.message}</p>`;

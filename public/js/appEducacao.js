@@ -156,7 +156,7 @@ function criarNoticia() {
       autor,
       data,
       categoria,
-      banner: bannerBase64,
+      imagem: bannerBase64,
       descricao: titulo,
       extras: blocosExtras,
       comentario: []
