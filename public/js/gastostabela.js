@@ -1,208 +1,238 @@
-let chartInstance = null;
+'use strict';
 
+// --- CONFIGURAÇÃO E ESTADO GLOBAL ---
 const API_URL = 'http://localhost:3000/gastos';
+let chartInstance = null; // Guarda a instância do gráfico para poder destruí-la
+let editId = null; // Controla o ID do item em edição para o formulário
 
-// Função utilitária para buscar todos os gastos
+// --- FUNÇÕES DE INTERAÇÃO COM A API (BACKEND) ---
+
+// Busca todos os gastos do servidor
 async function buscarGastos() {
-  const resp = await fetch(API_URL);
-  if (!resp.ok) throw new Error('Erro ao buscar gastos');
-  return await resp.json();
+  const response = await fetch(API_URL);
+  if (!response.ok) throw new Error('Erro ao buscar gastos do servidor.');
+  return await response.json();
 }
 
-// Função utilitária para adicionar um gasto
+// Adiciona um novo gasto no servidor
 async function adicionarGasto(gasto) {
-  const resp = await fetch(API_URL, {
+  const response = await fetch(API_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(gasto)
+    body: JSON.stringify(gasto),
   });
-  if (!resp.ok) throw new Error('Erro ao adicionar gasto');
-  return await resp.json();
+  if (!response.ok) throw new Error('Erro ao adicionar gasto.');
+  return await response.json();
 }
 
-// Função utilitária para editar um gasto
+// Edita um gasto existente no servidor
 async function editarGastoBackend(id, gasto) {
-  const resp = await fetch(`${API_URL}/${id}`, {
+  const response = await fetch(`${API_URL}/${id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(gasto)
+    body: JSON.stringify(gasto),
   });
-  if (!resp.ok) throw new Error('Erro ao editar gasto');
-  return await resp.json();
+  if (!response.ok) throw new Error('Erro ao editar gasto.');
+  return await response.json();
 }
 
-// Função utilitária para excluir um gasto
+// Exclui um gasto do servidor
 async function excluirGastoBackend(id) {
-  const resp = await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
-  if (!resp.ok && resp.status !== 204) throw new Error('Erro ao excluir gasto');
+  const response = await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
+  if (!response.ok) throw new Error('Erro ao excluir gasto.');
 }
 
-// Estado local para edição
-let editId = null;
+// --- FUNÇÕES DE MANIPULAÇÃO DA INTERFACE (UI) ---
 
-// DOM
-const form        = document.getElementById('form-gasto');
-const tabelaBody  = document.querySelector('#tabela-gastos tbody');
-const feedbackBox = document.getElementById('mensagem-feedback');
-
-// Carrega e renderiza a tabela ao iniciar
+// Renderiza a tabela de gastos na página
 async function renderTabela() {
+  const tabelaBody = document.querySelector('#tabela-gastos tbody');
+  if (!tabelaBody) {
+      console.error("Elemento 'tbody' da tabela de gastos não foi encontrado!");
+      return;
+  }
+
   tabelaBody.innerHTML = '<tr><td colspan="6">Carregando...</td></tr>';
   try {
     const gastos = await buscarGastos();
+    tabelaBody.innerHTML = ''; // Limpa a tabela antes de preencher
+
     if (!gastos.length) {
-      tabelaBody.innerHTML = `<tr><td colspan="6">Nenhum gasto cadastrado.</td></tr>`;
+      tabelaBody.innerHTML = `<tr><td colspan="6" style="text-align: center; padding: 1rem;">Nenhum gasto cadastrado.</td></tr>`;
       return;
     }
-    tabelaBody.innerHTML = '';
-    gastos.forEach((g, i) => {
-      tabelaBody.insertAdjacentHTML(
-        'beforeend',
-        `
+
+    gastos.forEach(gasto => {
+      // Formata o valor para o padrão BRL (R$ 1.234,56)
+      const valorFormatado = Number(gasto.valor).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+      // Formata a data para dd/mm/aaaa
+      const [ano, mes, dia] = gasto.data.split('-');
+      const dataFormatada = `${dia}/${mes}/${ano}`;
+
+      const tr = `
         <tr>
-          <td data-label="Descrição">${g.descricao}</td>
-          <td data-label="Categoria">${g.categoria}</td>
-          <td data-label="Tipo">${g.tipo}</td>
-          <td data-label="Valor">R$ ${Number(g.valor).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</td>
-          <td data-label="Data">${g.data}</td>
+          <td data-label="Descrição">${gasto.descricao}</td>
+          <td data-label="Categoria">${gasto.categoria}</td>
+          <td data-label="Tipo">${gasto.tipo}</td>
+          <td data-label="Valor">${valorFormatado}</td>
+          <td data-label="Data">${dataFormatada}</td>
           <td data-label="Ações" class="acoes">
-            <button data-editar="${g.id}">Editar</button>
-            <button data-excluir="${g.id}">Excluir</button>
+            <button data-editar="${gasto.id}">Editar</button>
+            <button data-excluir="${gasto.id}">Excluir</button>
           </td>
         </tr>
-        `
-      );
+      `;
+      tabelaBody.insertAdjacentHTML('beforeend', tr);
     });
-  } catch (err) {
-    tabelaBody.innerHTML = `<tr><td colspan="6">Erro ao carregar gastos.</td></tr>`;
+  } catch (error) {
+    console.error("Falha ao renderizar tabela:", error);
+    tabelaBody.innerHTML = `<tr><td colspan="6" style="text-align: center; padding: 1rem; color: red;">Erro ao carregar os dados.</td></tr>`;
   }
 }
 
-// Submissão do formulário
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const descricao = form.descricao.value.trim();
-  const categoria = form.categoria.value.trim();
-  const tipo      = form.tipo.value;
-  const valor     = Number(form.valor.value).toFixed(2);
-  const data      = form.data.value;
-  if (!descricao || !categoria || !tipo || !valor || !data) return;
-  const novoGasto = { descricao, categoria, tipo, valor, data };
-  try {
-    if (editId === null) {
-      await adicionarGasto(novoGasto);
-      mostrarMensagem('Gasto adicionado com sucesso!');
-    } else {
-      await editarGastoBackend(editId, novoGasto);
-      mostrarMensagem('Gasto atualizado com sucesso!');
-      editId = null;
-    }
-    form.reset();
-    await renderTabela();
-  } catch (err) {
-    mostrarMensagem('Erro ao salvar gasto.');
-  }
-});
+// Mostra uma mensagem de feedback temporária
+function mostrarMensagem(texto) {
+    const feedbackBox = document.getElementById('mensagem-feedback');
+    if (!feedbackBox) return;
 
-// Ações de editar/excluir
-// Usa event delegation
-// (Obs: agora usa id do backend)
-tabelaBody.addEventListener('click', async (e) => {
-  const idEditar  = e.target.dataset.editar;
-  const idExcluir = e.target.dataset.excluir;
-  if (idEditar) {
-    try {
-      const gastos = await buscarGastos();
-      const g = gastos.find(g => g.id === idEditar);
-      if (!g) return mostrarMensagem('Gasto não encontrado.');
-      form.descricao.value = g.descricao;
-      form.categoria.value = g.categoria;
-      form.tipo.value      = g.tipo;
-      form.valor.value     = Number(g.valor);
-      form.data.value      = g.data;
-      editId = g.id;
-    } catch {
-      mostrarMensagem('Erro ao buscar gasto para edição.');
-    }
-  }
-  if (idExcluir) {
-    if (confirm('Deseja realmente excluir este gasto?')) {
-      try {
-        await excluirGastoBackend(idExcluir);
-        mostrarMensagem('Gasto removido com sucesso.');
-        await renderTabela();
-      } catch {
-        mostrarMensagem('Erro ao excluir gasto.');
-      }
-    }
-  }
-});
-
-function mostrarMensagem(txt) {
-  feedbackBox.textContent = txt;
-  feedbackBox.style.opacity = 1;
-  setTimeout(() => (feedbackBox.style.opacity = 0), 3000);
+    feedbackBox.textContent = texto;
+    feedbackBox.style.opacity = 1;
+    setTimeout(() => {
+        feedbackBox.style.opacity = 0;
+    }, 3000);
 }
 
-// Gráfico
+// Gera o gráfico de pizza
 async function gerarGrafico() {
-  let dados;
+  let gastos;
   try {
-    dados = await buscarGastos();
-  } catch {
-    return alert('Erro ao buscar gastos para o gráfico.');
+    gastos = await buscarGastos();
+  } catch (error) {
+    return alert('Erro ao buscar dados para o gráfico.');
   }
-  if (!dados.length) return alert('Nenhum gasto cadastrado para mostrar.');
-  const totalCat = {};
-  dados.forEach(({ categoria, valor }) => {
-    totalCat[categoria] = (totalCat[categoria] || 0) + Number(valor);
-  });
-  if (chartInstance) chartInstance.destroy();
+
+  if (!gastos.length) {
+    return alert('Nenhum gasto cadastrado para exibir no gráfico.');
+  }
+
+  const totalPorCategoria = gastos.reduce((acc, { categoria, valor }) => {
+    acc[categoria] = (acc[categoria] || 0) + Number(valor);
+    return acc;
+  }, {});
+
+  if (chartInstance) {
+    chartInstance.destroy();
+  }
+
   chartInstance = new Chart(document.getElementById('grafico-gastos'), {
-    type: 'bar',
+    type: 'pie',
     data: {
-      labels: Object.keys(totalCat),
+      labels: Object.keys(totalPorCategoria),
       datasets: [{
-        label: 'Total por categoria (R$)',
-        data: Object.values(totalCat),
-      }],
+        label: 'Total Gasto por Categoria (R$)',
+        data: Object.values(totalPorCategoria),
+        backgroundColor: [
+            '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40', '#8AC926'
+        ],
+        hoverOffset: 4
+      }]
     },
     options: {
       responsive: true,
       plugins: {
-        legend: { display: false },
-        title:  { display: true, text: 'Distribuição de Gastos' },
-      },
-      scales: { y: { beginAtZero: true } },
-    },
+        legend: { position: 'top' },
+        title: { display: true, text: 'Distribuição de Gastos por Categoria', font: {size: 16} }
+      }
+    }
   });
 }
 
-// Limita datas futuras
-window.addEventListener('load', () => {
-  const inputData = document.getElementById('data');
-  const hoje = new Date();
-  const yyyy = hoje.getFullYear();
-  const mm   = String(hoje.getMonth() + 1).padStart(2, '0');
-  const dd   = String(hoje.getDate()).padStart(2, '0');
-  const hojeISO = `${yyyy}-${mm}-${dd}`;
-  const hojeBR  = `${dd}/${mm}/${yyyy}`;
-  inputData.max = hojeISO;
-  inputData.addEventListener('invalid', function () {
-    if (this.validity.rangeOverflow) {
-      const [ano, mes, dia] = this.value.split('-');
-      const dataDigitadaBR = `${dia}/${mes}/${ano}`;
-      this.setCustomValidity(`Uau! temos um viajante do tempo aqui😮. Mas infelizmente só aceitamos datas até hoje: ${hojeBR}.`);
-    } else {
-      this.setCustomValidity('');
+// --- INICIALIZAÇÃO E EVENT LISTENERS ---
+
+// Roda quando o HTML da página está completamente carregado
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('form-gasto');
+    const tabelaBody = document.querySelector('#tabela-gastos tbody');
+    const inputData = document.getElementById('data');
+
+    // Verifica se os elementos essenciais existem antes de continuar
+    if (!form || !tabelaBody || !inputData) {
+        console.error("Um ou mais elementos essenciais do HTML (formulário, corpo da tabela ou input de data) não foram encontrados. Verifique os IDs.");
+        return;
     }
-  });
-  inputData.addEventListener('input', function () {
-    this.setCustomValidity('');
-  });
-  renderTabela(); // Renderiza a tabela ao carregar a página
+
+    // 1. Configura o formulário para Adicionar/Editar
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const gastoData = {
+            descricao: form.descricao.value.trim(),
+            categoria: form.categoria.value.trim(),
+            tipo: form.tipo.value,
+            valor: Number(form.valor.value).toFixed(2),
+            data: form.data.value,
+        };
+
+        try {
+            if (editId) {
+                await editarGastoBackend(editId, gastoData);
+                mostrarMensagem('Gasto atualizado com sucesso!');
+                editId = null; // Sai do modo de edição
+            } else {
+                await adicionarGasto(gastoData);
+                mostrarMensagem('Gasto adicionado com sucesso!');
+            }
+            form.reset();
+            await renderTabela(); // Atualiza a tabela
+        } catch (error) {
+            console.error("Falha ao salvar:", error);
+            mostrarMensagem('Erro ao salvar o gasto.');
+        }
+    });
+
+    // 2. Configura a tabela para cliques em Editar/Excluir
+    tabelaBody.addEventListener('click', async (e) => {
+        const idParaEditar = e.target.dataset.editar;
+        const idParaExcluir = e.target.dataset.excluir;
+
+        if (idParaEditar) {
+            try {
+                const gastos = await buscarGastos();
+                const gasto = gastos.find(g => g.id === idParaEditar);
+                if (!gasto) return mostrarMensagem('Gasto não encontrado.');
+
+                // Preenche o formulário com os dados do gasto
+                form.descricao.value = gasto.descricao;
+                form.categoria.value = gasto.categoria;
+                form.tipo.value = gasto.tipo;
+                form.valor.value = Number(gasto.valor);
+                form.data.value = gasto.data;
+                editId = g.id; // Entra no modo de edição
+
+                form.scrollIntoView({ behavior: 'smooth' });
+            } catch (error) {
+                mostrarMensagem('Erro ao buscar gasto para edição.');
+            }
+        }
+
+        if (idParaExcluir) {
+            if (confirm('Deseja realmente excluir este gasto?')) {
+                try {
+                    await excluirGastoBackend(idParaExcluir);
+                    mostrarMensagem('Gasto removido com sucesso.');
+                    await renderTabela();
+                } catch (error) {
+                    mostrarMensagem('Erro ao excluir gasto.');
+                }
+            }
+        }
+    });
+
+    // 3. Limita o campo de data para não aceitar datas futuras
+    inputData.max = new Date().toISOString().split("T")[0];
+
+    // 4. FINALMENTE, RENDERIZA A TABELA AO CARREGAR A PÁGINA
+    renderTabela();
 });
 
-// Deixa gerarGrafico disponível globalmente
+// Disponibiliza a função gerarGrafico globalmente para o `onclick` do HTML
 window.gerarGrafico = gerarGrafico;
-
