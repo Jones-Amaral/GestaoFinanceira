@@ -54,9 +54,6 @@ body {
   border-radius: 5px;
 }
 
-/*Fim da navbar*/
-
-/*Icone de menu aparecendo em versão mobile*/
 .fas.fa-bars {
     display: none;
     font-size: 2.3rem;
@@ -92,7 +89,6 @@ body {
     }
 }
 
-/*Espaço na direita pra deixar os links no centro, não sei fazer isso sem bootstrap ou gambiarra*/
 .espaco {
     width: 250px;
 }
@@ -208,7 +204,6 @@ body {
   margin-left: 5px;
 }
 
-/*Footer*/
 .rodape {
   background-color: #e7f5e9;
   margin-top: 40px;
@@ -471,4 +466,96 @@ h1 {
   text-align: center;
   margin-top: 170px; /* Ajustado para o header de 150px + espaçamento extra */
   margin-bottom: 30px;
+}
+/* Ícone de menu (hambúrguer) */
+.fas.fa-bars {
+    font-size: 2.3rem;
+    color: black;
+    cursor: pointer;
+    margin-right: 10px;
+    font-size: 30px;
+    height: 25px;
+}
+
+/* Menu dropdown (hambúrguer) */
+.menu-dropdown {
+    display: none;
+    position: absolute;
+    right: 50px;
+    top: 100px;
+    background-color: #fff;
+    list-style: none;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    border-radius: 6px;
+    padding: 10px 10px;
+    width: 150px;
+    z-index: 1000;
+}
+
+.menu-dropdown li {
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.menu-dropdown li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.menu-dropdown li a:hover {
+    background-color: #42e619;
+    border-radius: 5px;
+}
+
+/* Classe para exibir o menu dropdown */
+.menu-dropdown.show {
+    display: block;
+}
+
+/* Usuário */
+.usuario-menu {
+    position: relative;
+    cursor: pointer;
+}
+
+.usuario-menu .fa-user {
+    font-size: 1.5rem;
+    color: #4fe42a;
+    padding: 20px;
+    font-size: 30px;
+}
+
+/* Dropdown do usuário */
+.user-dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 70px;
+    background-color: #fff;
+    list-style: none;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    border-radius: 6px;
+    padding: 10px 0;
+    width: 150px;
+    z-index: 1000;
+}
+
+.user-dropdown li {
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.user-dropdown li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 10px 0;
+}
+
+.user-dropdown li a:hover {
+    background-color: #42e619;
+    border-radius: 5px;
 }

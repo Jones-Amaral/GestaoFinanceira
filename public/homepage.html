@@ -14,45 +14,45 @@
 <body>
 
   <body>
-
-    <header>
-      <div class="navbar" id="navbar">
-        <div class="logo">
-          <a href="homepage.html">
-            <img src="img/imgs-bernardo/logomelhorada.png" alt="logo" id="logo">
-          </a>
-        </div>
-
-        <ul class="pages" id="navLinks">
-          <li><a href="homepage.html">Home</a></li>
-          <li><a href="notícias.html">Notícias</a></li>
-          <li><a href="paginaEducacao.html">Educação</a></li>
-          <li><a href="investimentos.html">Investimentos</a></li>
-        </ul>
-
-        <div class="right-icons">
-          <i class="fas fa-bars" onclick="toggleMenu()"></i>
-          <ul class="menu-dropdown" id="menuDropdown">
-            <li><a href="adicao-dados.html">Adicionar notícia</a></li>
-            <li><a href="curtidas.html">Favoritos</a></li>
-            <li><a href="gastostabela.html">Gastos</a></li>
-            <li><a href="metas.html">Metas</a></li>
-            <li><a href="tutorial.conosco.html">Tutoriais</a></li>
-            <li><a href="categorias.html">Pesquise Aqui</a></li>
-          </ul>
-        </div>
-
-        <div class="usuario-menu" onclick="toggleUserMenu()">
-          <i class="fas fa-user"></i>
-          <ul class="user-dropdown" id="userDropdown">
-            <li><a href="usuarios.html">Login</a></li>
-            <li><a href="usuarios.html">Logout</a></li>
-            <li><a href="#">Privacidade</a></li>
-          </ul>
-        </div>
+    <!--Navbar-->
+  <header>
+    <div class="navbar" id="navbar">
+      <div class="logo">
+        <a href="homepage.html">
+          <img src="img/imgs-bernardo/logomelhorada.png" alt="logo" id="logo">
+        </a>
       </div>
-    </header>
 
+      <ul class="pages" id="navLinks">
+        <li><a href="homepage.html">Home</a></li>
+        <li><a href="notícias.html">Notícias</a></li>
+        <li><a href="paginaEducacao.html">Educação</a></li>
+        <li><a href="investimentos.html">Investimentos</a></li>
+      </ul>
+
+      <div class="right-icons">
+        <i class="fas fa-bars" onclick="toggleMenu()"></i>
+        <ul class="menu-dropdown" id="menuDropdown">
+          <li><a href="metas.html">Metas</a></li>
+          <li><a href="adicao-dados.html">Adicionar notícia</a></li>
+          <li><a href="curtidas.html">Favoritos</a></li>
+          <li><a href="gastostabela.html">Gastos</a></li>
+          <li><a href="tutorial.conosco.html">Tutoriais</a></li>
+          <li><a href="categorias.html">Pesquise Aqui</a></li>
+        </ul>
+      </div>
+
+      <div class="usuario-menu" onclick="toggleUserMenu()">
+        <i class="fas fa-user"></i>
+        <ul class="user-dropdown" id="userDropdown">
+          <li id="userMenu"></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="privacidade.html">Privacidade</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+    <!--Navbar-->
     <main>
       <br>
       <h1>Últimas Notícias</h1>
@@ -196,6 +196,7 @@
       }
 
     </script>
+    <script src="js/user.js"></script>
     <script>
       const menuBtn = document.getElementById("hamburguerMenu");
       const dropdown = document.getElementById("dropdownMenu");
@@ -212,7 +213,6 @@
         }
       });
     </script>
-    <script src="js/user.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
       crossorigin="anonymous"></script>

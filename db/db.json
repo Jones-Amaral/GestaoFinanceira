@@ -205,12 +205,21 @@
   "usuarios": [
     {
       "id": "1",
-      "nome": "Kleberson Jacinto Pinto",
-      "data": "25/01/2000",
+      "nome": "admin",
+      "data": "01/01/2000",
       "endereco": "Avenida Brasil, 2000, Barra da Tijuca, Rio de Janeiro",
-      "usuario": "Kleberson",
-      "senha": "12345678",
+      "usuario": "admin",
+      "senha": "admin123",
       "salario": "R$3000,00"
+    },
+    {
+      "id": "2",
+      "nome": "Bernardo",
+      "data": "0001-01-01",
+      "endereco": "Rua 1",
+      "usuario": "Bernardo",
+      "senha": "123",
+      "salario": "1"
     }
   ]
 }
