@@ -1,5 +1,3 @@
-
-
 let currentIndex = 0;
 let slides = [];
 
@@ -15,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const slide = document.createElement('div');
         slide.classList.add('slide');
         slide.setAttribute('data-id', investimento.id);
+        slide.style.position = 'relative';
 
         slide.innerHTML = `
           <a href="detalhesinvestimentos.html?id=${investimento.id}">
@@ -22,20 +21,47 @@ document.addEventListener("DOMContentLoaded", () => {
           </a>
         `;
 
+        // Botão de favorito
         const btn = document.createElement('button');
         btn.classList.add('favorito-btn');
         btn.setAttribute('data-id', investimento.id);
-        btn.innerHTML = '<i class="fa-regular fa-heart"></i>';
 
-        btn.addEventListener('click', (e) => {
+        // Ícone de coração - já marcado se estiver favoritado
+        btn.innerHTML = `
+          <i class="${investimento.favoritado ? 'fa-solid' : 'fa-regular'} fa-heart"
+             style="color: ${investimento.favoritado ? 'red' : '#333'};"></i>
+        `;
+
+        // Evento de clique no coração
+        btn.addEventListener('click', async (e) => {
           e.stopPropagation();
           const icon = btn.querySelector('i');
-          icon.classList.toggle('fa-regular');
-          icon.classList.toggle('fa-solid');
+          const id = btn.getAttribute('data-id');
+
+          try {
+            const res = await fetch(`http://localhost:3000/investimento/${id}`);
+            const investimento = await res.json();
+            const novoStatus = !investimento.favoritado;
+
+            await fetch(`http://localhost:3000/investimento/${id}`, {
+              method: 'PATCH',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ favoritado: novoStatus })
+            });
+
+            // Atualiza visual do ícone
+            icon.classList.toggle('fa-regular', !novoStatus);
+            icon.classList.toggle('fa-solid', novoStatus);
+            icon.style.color = novoStatus ? 'red' : '#333';
+
+          } catch (error) {
+            console.error("Erro ao favoritar:", error);
+          }
         });
 
         slide.appendChild(btn);
-        slide.style.position = 'relative';
         carrossel.appendChild(slide);
       });
 
@@ -59,9 +85,3 @@ function updateCarrossel() {
   const offset = -currentIndex * 100;
   carrossel.style.transform = `translateX(${offset}%)`;
 }
-
-
-
-
-
-

@@ -33,7 +33,7 @@
         <ul class="menu-dropdown" id="menuDropdown">
           <li><a href="metas.html">Metas</a></li>
           <li><a href="adicao-dados.html">Adicionar notícia</a></li>
-          <li><a href="curtidas.html">Favoritos</a></li>
+          <li><a href="favoritos.html">Favoritos</a></li>
           <li><a href="gastostabela.html">Gastos</a></li>
           <li><a href="tutorial.conosco.html">Tutoriais</a></li>
           <li><a href="categorias.html">Pesquise Aqui</a></li>
@@ -141,6 +141,11 @@
                         <p class="resumo">${noticia.resumo}</p>
                         <p class="autor">${noticia.autor}</p>
                         <p class="data">${noticia.data}</p>
+<i class="fa-heart favorite-icon ${noticia.favoritado ? 'fas favorito' : 'far'}"
+   onclick="favorito(this, ${noticia.id})"></i>
+
+
+                        
                     </div>
                      </div >
                  `;
@@ -188,6 +193,28 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
         crossorigin="anonymous"></script>
+<script>
+  async function favorito(iconElement, id) {
+    try {
+      const res = await fetch(`http://localhost:3000/educacao/${id}`);
+      const data = await res.json();
+      const novoStatus = !data.favoritado;
+
+      await fetch(`http://localhost:3000/educacao/${id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ favoritado: novoStatus })
+      });
+
+      iconElement.classList.toggle('favorito', novoStatus);
+      iconElement.classList.toggle('far', !novoStatus);
+      iconElement.classList.toggle('fas', novoStatus);
+    } catch (error) {
+      console.error("Erro ao favoritar:", error);
+      alert("Não foi possível atualizar o favorito.");
+    }
+  }
+</script>
 
 </body>
 

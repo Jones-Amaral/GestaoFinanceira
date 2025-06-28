@@ -1,49 +1,60 @@
 document.addEventListener('DOMContentLoaded', async () => {
+  const container = document.getElementById('favoritos-container');
+  const categorias = ['noticias', 'educacao', 'investimento'];
+
+  if (!container) return;
+
   try {
-    const response = await fetch('http://localhost:3000/noticias'); // Confirme se está usando "noticias"
-    const noticias = await response.json();
+    let favoritosTotais = [];
 
-    const container = document.getElementById('favoritos-container');
-    if (!container) return;
+    for (const categoria of categorias) {
+      const response = await fetch(`http://localhost:3000/${categoria}`);
+      if (!response.ok) throw new Error(`Erro ao buscar ${categoria}`);
+      const dados = await response.json();
 
-    const favoritas = noticias.filter(n => n.favoritado);
+      const favoritos = dados
+        .filter(item => item.favoritado)
+        .map(item => ({ ...item, categoria }));
 
-    if (favoritas.length === 0) {
-      container.innerHTML = '<p>Nenhuma notícia favoritada.</p>';
+      favoritosTotais = favoritosTotais.concat(favoritos);
+    }
+
+    if (favoritosTotais.length === 0) {
+      container.innerHTML = '<p>Você ainda não favoritou nenhum conteúdo.</p>';
+
       return;
     }
 
-    favoritas.forEach(noticia => {
-      const caminhoImagem = noticia.banner || noticia.imagem; // Usa o que estiver presente
+    favoritosTotais.forEach(item => {
+      const caminhoImagem = item.banner || item.imagem;
 
       const card = document.createElement('div');
       card.className = 'card-noticia favorito-card';
 
       card.innerHTML = `
-        <img src="${caminhoImagem}" alt="${noticia.titulo}">
-        <h3>${noticia.titulo}</h3>
-        <p>${noticia.resumo}</p>
-        <i class="fas fa-heart favorite-icon favorito" data-id="${noticia.id}"></i>
+        <img src="${caminhoImagem}" alt="${item.titulo}">
+        <h3>${item.titulo}</h3>
+        <p>${item.resumo}</p>
+        <p class="categoria-label">Categoria: ${item.categoria}</p>
+        <i class="fas fa-heart favorite-icon favorito" data-id="${item.id}" data-categoria="${item.categoria}"></i>
       `;
 
-      // Abre modal ao clicar em qualquer parte do card (menos o coração)
-      card.querySelector('img').addEventListener('click', () => abrirModal(noticia));
-      card.querySelector('h3').addEventListener('click', () => abrirModal(noticia));
-      card.querySelector('p').addEventListener('click', () => abrirModal(noticia));
+      card.querySelector('img').addEventListener('click', () => abrirModal(item));
+      card.querySelector('h3').addEventListener('click', () => abrirModal(item));
+      card.querySelector('p').addEventListener('click', () => abrirModal(item));
 
-      // Alternar favorito
       card.querySelector('.favorite-icon').addEventListener('click', (e) => {
         e.stopPropagation();
-        toggleFavorito(noticia.id, e.target, card);
+        toggleFavorito(item.id, item.categoria, e.target, card);
       });
 
       container.appendChild(card);
     });
 
-    function abrirModal(noticia) {
-      document.getElementById('modal-titulo').textContent = noticia.titulo;
-      document.getElementById('modal-imagem').src = noticia.banner || noticia.imagem;
-      document.getElementById('modal-conteudo').innerHTML = noticia.texto || noticia.conteudo;
+    function abrirModal(item) {
+      document.getElementById('modal-titulo').textContent = item.titulo;
+      document.getElementById('modal-imagem').src = item.banner || item.imagem;
+      document.getElementById('modal-conteudo').innerHTML = item.texto || item.conteudo;
       document.getElementById('modal').style.display = 'block';
     }
 
@@ -54,11 +65,11 @@ document.addEventListener('DOMContentLoaded', async () => {
       });
     }
 
-    async function toggleFavorito(id, icon, card) {
-      const url = `http://localhost:3000/noticias/${id}`;
+    async function toggleFavorito(id, categoria, icon, card) {
+      const url = `http://localhost:3000/${categoria}/${id}`;
       const res = await fetch(url);
-      const noticia = await res.json();
-      const novoStatus = !noticia.favoritado;
+      const item = await res.json();
+      const novoStatus = !item.favoritado;
 
       await fetch(url, {
         method: "PATCH",
@@ -69,7 +80,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       });
 
       if (!novoStatus) {
-        card.remove(); // Remove o card da lista se desfavoritado
+        card.remove(); // Remove visualmente
       }
 
       icon.classList.toggle("favorito", novoStatus);

@@ -158,7 +158,7 @@
       "titulo": "Bitcoin",
       "imagem": "img/imgs-bernardo/bitcoin.jpg",
       "resumo": "A criptomoeda mais conhecida do mundo, volátil e descentralizada.",
-      "favoritado":false,
+      "favoritado": false,
       "conteudo": "As criptomoedas, como o Bitcoin e o Ethereum, representam uma revolução no sistema financeiro. Elas são moedas digitais descentralizadas, operando por meio da tecnologia blockchain — uma estrutura segura e transparente que dispensa intermediários, como bancos. Investir em criptoativos pode trazer grandes retornos em curto espaço de tempo, mas também apresenta alta volatilidade e riscos consideráveis. É ideal para investidores com perfil mais arrojado, dispostos a acompanhar tendências tecnológicas e econômicas. A chave é estudar o mercado, acompanhar notícias e investir com cautela e estratégia.",
       "comentario": [
         {
@@ -173,14 +173,14 @@
       "titulo": "Bolsa de Valores",
       "imagem": "img/imgs-bernardo/bolsa.jpg",
       "resumo": "Investimento em ações de empresas. Alta rentabilidade com riscos.",
-      "favoritado":false,
+      "favoritado": false,
       "conteudo": "A bolsa de valores é o ambiente onde se negociam ações de empresas de capital aberto, títulos de dívida e outros ativos financeiros. Investir em ações significa tornar-se sócio de empresas, participando de seus lucros (via dividendos) e crescimento (via valorização das ações).Esse tipo de investimento é excelente para quem pensa no longo prazo, já que a oscilação diária do mercado pode assustar os iniciantes. Porém, com estudo, disciplina e diversificação, a bolsa oferece grandes oportunidades de construção de patrimônio. É uma ferramenta essencial para quem busca independência financeira."
     },
     {
       "id": "3",
       "titulo": "Ouro",
       "imagem": "img/imgs-bernardo/ouro3.jpg",
-      "favoritado":false,
+      "favoritado": true,
       "resumo": "Ativo físico considerado proteção em tempos de crise econômica.",
       "conteudo": "O ouro é um dos ativos mais antigos e valorizados da história da humanidade. Ele é visto como um \"porto seguro\" nos investimentos, pois tende a se valorizar em momentos de crise econômica, instabilidade política ou alta inflação. Embora não gere renda como dividendos ou juros, o ouro preserva valor ao longo do tempo, sendo uma excelente opção para diversificação de portfólio. Também é utilizado como proteção contra a desvalorização de moedas locais. É indicado tanto para investidores conservadores quanto para aqueles que buscam equilíbrio em tempos incertos."
     }
@@ -220,6 +220,15 @@
       "usuario": "Kleberson",
       "senha": "12345678",
       "salario": "R$3000,00"
+    },
+    {
+      "id": "f06a",
+      "nome": "Beco",
+      "data": "2005-11-08",
+      "endereco": "Rua Olinda Silva",
+      "usuario": "jjoaobeco",
+      "senha": "beco123",
+      "salario": "1500"
     }
   ]
 }

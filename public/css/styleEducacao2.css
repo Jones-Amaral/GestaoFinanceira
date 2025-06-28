@@ -513,4 +513,15 @@ li button:hover {
     #direita {
         display: none !important;
     }
+    .favorite-icon {
+  font-size: 1.8em;       /* aumenta o tamanho */
+  color: gray;            /* padrão (não favorito) */
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.favorite-icon.favorito {
+  color: red;             /* coração vermelho quando favoritado */
+}
+
 }

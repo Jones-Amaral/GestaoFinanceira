@@ -603,3 +603,21 @@ p {
     }
 
 }
+.favorite-icon {
+  font-size: 24px; /* aumenta o tamanho */
+  cursor: pointer;
+  transition: color 0.3s ease;
+  color: #333; /* cor padrão (não favoritado) */
+}
+
+.favorite-icon.favorito {
+  color: red; /* coração vermelho quando favoritado */
+}
+.favorite-icon.favorito {
+  color: red;
+  transform: scale(1.1);
+}
+
+
+
+

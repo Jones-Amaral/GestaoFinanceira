@@ -52,7 +52,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   async function toggleFavorito(id, icon) {
     try {
-      const url = 'http://localhost:3000/noticias/${id}';
+      const url = `http://localhost:3000/noticias/${id}`;
+
       const res = await fetch(url);
       if (!res.ok) throw new Error('Erro ao buscar notícia para favoritar');
 
