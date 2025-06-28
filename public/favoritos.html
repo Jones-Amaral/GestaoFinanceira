@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Favoritos</title>
+  <link rel="stylesheet" href="css/styleHome.css" />
+  <link rel="stylesheet" href="css/stylenotícias.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <!-- Header padrão com menu hambúrguer -->
+  <header class="navbar">
+    <div class="logo">
+      <a href="homepage.html">
+        <img src="img/imgs-bernardo/logomelhorada.png" alt="logo" />
+      </a>
+    </div>
+    
+    <ul class="pages" id="navLinks">
+      <li><a href="homepage.html">Home</a></li>
+      <li><a href="pagina-noticias.html">Notícias</a></li>
+    </ul>
+
+    <div class="espaco"></div>
+    <i class="fas fa-bars" onclick="toggleMenu()"></i>
+    <ul class="menu-dropdown" id="menuDropdown">
+      <li><a href="favoritos.html">Favoritos</a></li>
+    </ul>
+
+    <div class="usuario-menu" onclick="toggleUserMenu()">
+      <i class="fas fa-user"></i>
+      <ul class="user-dropdown" id="userDropdown">
+        <li><a href="#">Perfil</a></li>
+        <li><a href="#" onclick="logout()">Sair</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <h1>Notícias Favoritadas</h1>
+  <div id="favoritos-container"></div>
+
+  <!-- Modal de detalhe -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span id="close-modal" class="close">&times;</span>
+      <h2 id="modal-titulo"></h2>
+      <img id="modal-imagem" src="" alt="" />
+      <p id="modal-conteudo"></p>
+    </div>
+  </div>
+
+  <script src="js/favoritos.js"></script>
+  <script src="js/menuHamburguer.js"></script>
+</body>
+</html>
