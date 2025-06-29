@@ -105,55 +105,96 @@
   "noticias": [
     {
       "titulo": "Economia cresce no primeiro trimestre",
+<<<<<<< HEAD
       "imagem": "img/img-noticia/economia.png",
       "resumo": "PIB sobe 2,5% no 1º trimestre, impulsionado pelos serviços. Setores de transporte e turismo se destacam.",
       "texto": "O Produto Interno Bruto (PIB) brasileiro registrou crescimento de 2,5% no primeiro trimestre de 2025, impulsionado principalmente pelo forte desempenho do setor de serviços. Esse setor, que representa mais de 70% da economia nacional, teve expansão significativa, especialmente nas áreas de transporte, comércio e atividades turísticas, refletindo a recuperação do consumo interno e o aumento da confiança dos consumidores.\n\nSegundo dados divulgados pelo IBGE, o crescimento também foi apoiado pelo avanço da indústria de transformação e da construção civil, que demonstraram melhora após períodos de estagnação. A indústria teve aumento na produção de bens de capital e de consumo durável, o que sinaliza uma retomada dos investimentos e maior expectativa de crescimento futuro por parte das empresas.\n\nEmbora o setor agropecuário tenha apresentado desempenho mais tímido devido a fatores climáticos desfavoráveis e à sazonalidade, ele ainda contribuiu positivamente para o resultado geral. Os economistas destacam que a recuperação do mercado de trabalho e o aumento da renda média do brasileiro também influenciaram o bom desempenho do trimestre.\n\nA especialista em finanças pessoais, Renata Lins. A disciplina será interdisciplinar e aplicada com apoio de jogos, simulações e atividades práticas.\n\nA expectativa é que, em uma geração, o país veja uma queda significativa nos níveis de inadimplência e maior cultura de investimento e poupança entre jovens e adultos.",
       "autor": "InfoReal",
+=======
+      "imagem": "img/img-noticia/Pib.png",
+      "resumo": "PIB sobe 2,5% puxado por serviços.",
+      "conteudo": "O Produto Interno Bruto (PIB) brasileiro registrou crescimento de 2,5% no primeiro trimestre de 2025, impulsionado principalmente pelo forte desempenho do setor de serviços. Esse setor, que representa mais de 70% da economia nacional, teve expansão significativa, especialmente nas áreas de transporte, comércio e atividades turísticas, refletindo a recuperação do consumo interno e o aumento da confiança dos consumidores.\n\nSegundo dados divulgados pelo IBGE, o crescimento também foi apoiado pelo avanço da indústria de transformação e da construção civil, que demonstraram melhora após períodos de estagnação. A indústria teve aumento na produção de bens de capital e de consumo durável, o que sinaliza uma retomada dos investimentos e maior expectativa de crescimento futuro por parte das empresas.\n\nEmbora o setor agropecuário tenha apresentado desempenho mais tímido devido a fatores climáticos desfavoráveis e à sazonalidade, ele ainda contribuiu positivamente para o resultado geral. Os economistas destacam que a recuperação do mercado de trabalho e o aumento da renda média do brasileiro também influenciaram o bom desempenho do trimestre.\n\nEspecialistas apontam que, se o ritmo de crescimento for mantido, o Brasil pode ultrapassar a marca de 3% de crescimento anual em 2025. No entanto, ainda há desafios pela frente: inflação persistente, juros elevados e incertezas no cenário econômico global. Apesar disso, o resultado do primeiro trimestre é considerado um sinal promissor para a economia brasileira neste ano.",
+>>>>>>> ccdb77d31b80970ab2770b73c7263be5d4b593a4
       "id": "1",
       "favoritado": false
     },
     {
+<<<<<<< HEAD
       "titulo": "Educação financeira será obrigatória no ensino fundamental a partir de 2026",
       "imagem": "/img/img-noticia/ensinoEducacao.jpeg",
       "resumo": "Nova lei inclui finanças pessoais no currículo do ensino fundamental, com foco em poupança, consumo consciente e planejamento.",
       "texto": "A partir do ano letivo de 2026, todas as escolas públicas e privadas do Brasil deverão incluir a disciplina de educação financeira no currículo do ensino fundamental. A nova lei sancionada pelo Governo Federal busca formar cidadãos mais preparados para lidar com o dinheiro desde cedo.\n\nA proposta envolve temas como poupança, consumo consciente, noções de juros, orçamento familiar e até investimentos simples. Professores passarão por formações específicas ainda em 2025, com apoio de plataformas digitais e materiais didáticos desenvolvidos em parceria com universidades.\n\nDe acordo com o Ministério da Educação, o objetivo é combater o analfabetismo financeiro que afeta grande parte da população brasileira. Uma pesquisa do SPC Brasil aponta que mais de 60% dos adultos não sabem calcular juros ou montar um orçamento básico.\n\nEducadores e economistas comemoraram a medida. “Quanto mais cedo a criança entende o valor do dinheiro, menores são as chances de se endividar na vida adulta”, afirmou a especialista em finanças pessoais, Renata Lins. A disciplina será interdisciplinar e aplicada com apoio de jogos, simulações e atividades práticas.\n\nA expectativa é que, em uma geração, o país veja uma queda significativa nos níveis de inadimplência e maior cultura de investimento e poupança entre jovens e adultos.",
       "autor": "EducaMais",
+=======
+      "titulo": "Novo programa educacional é lançado",
+      "imagem": "img/img-noticia/programa-educacional.png",
+      "resumo": "Programa para capacitar professores em tecnologia.",
+      "conteudo": "O governo lançou oficialmente um novo programa de capacitação para professores, com foco em tecnologia e inovação educacional. A iniciativa visa preparar educadores para lidar com os desafios do ensino digital, oferecendo cursos, workshops e plataformas de aprendizagem baseadas em inteligência artificial e gamificação.\n\nO programa será implementado em todo o país, em parceria com instituições públicas e privadas, e incluirá treinamentos sobre programação, pensamento computacional, uso de plataformas digitais, metodologias ativas e recursos de acessibilidade. A proposta é democratizar o acesso à formação continuada e transformar a educação pública em uma ferramenta mais moderna e inclusiva.\n\nAlém disso, os professores participantes terão acesso a bolsas de estudo, certificados reconhecidos pelo MEC e a possibilidade de aplicar os conhecimentos adquiridos diretamente em sala de aula. A expectativa do governo é que, em até dois anos, mais de 300 mil professores sejam beneficiados pelo programa.",
+>>>>>>> ccdb77d31b80970ab2770b73c7263be5d4b593a4
       "id": "2",
       "favoritado": true
     },
     {
+<<<<<<< HEAD
       "titulo": "Número de investidores pessoa física na bolsa atinge 6 milhões",
       "imagem": "/img/img-noticia/bolsaValores.jpg",
       "resumo": "Popularização dos investimentos e apps acessíveis contribuem para crescimento dos investidores na B3.",
       "texto": "A bolsa de valores brasileira (B3) atingiu em maio de 2025 a marca histórica de 6 milhões de investidores pessoa física ativos. Esse crescimento vem sendo impulsionado por plataformas digitais, redes sociais e a queda da taxa Selic, que estimulou a busca por alternativas à poupança.\n\nSegundo levantamento da própria B3, 75% dos novos investidores têm menos de 35 anos e começaram com valores abaixo de R$ 1.000. “A educação financeira ganhou força nos últimos anos, e isso está se refletindo no comportamento das novas gerações”, explica a analista Bruna Matos, da corretora InfoInvest.\n\nAlém disso, a pandemia acelerou o interesse das pessoas em entender como cuidar melhor do dinheiro. Com o avanço dos canais de educação financeira no YouTube e TikTok, conceitos como ações, fundos imobiliários e renda passiva se tornaram parte do vocabulário do brasileiro comum.\n\nContudo, especialistas alertam que o entusiasmo precisa vir acompanhado de conhecimento. Muitos entram na bolsa com expectativas irreais e acabam se frustrando com oscilações do mercado. Por isso, a CVM vem reforçando campanhas de orientação e proteção ao investidor iniciante.\n\nAinda assim, a projeção para o fim do ano é de mais 1 milhão de cadastros ativos, fortalecendo o mercado de capitais como ferramenta de democratização da riqueza.",
       "autor": "investnews360.com",
+=======
+      "titulo": "Investimentos em startups batem recorde",
+      "imagem": "/img/img-noticia/startup.jpeg",
+      "resumo": "Startups recebem R$ 1,2 bi em abril.",
+      "conteudo": "As startups brasileiras receberam R$ 1,2 bilhão em investimentos no mês de abril de 2025, marcando o maior valor registrado desde 2022. O crescimento é atribuído ao aumento do interesse de investidores estrangeiros e à consolidação do ecossistema de inovação no país.\n\nSetores como fintechs, healthtechs e edtechs lideraram a captação de recursos, com destaque para empresas voltadas à inclusão financeira, inteligência artificial e soluções de saúde digital. A retomada da confiança no mercado e as políticas de incentivo à inovação também foram fatores decisivos para o resultado positivo.\n\nEspecialistas avaliam que o cenário é favorável para o empreendedorismo tecnológico e que a tendência é de crescimento contínuo, especialmente com a valorização de soluções sustentáveis, escaláveis e com impacto social.",
+>>>>>>> ccdb77d31b80970ab2770b73c7263be5d4b593a4
       "id": "3",
       "favoritado": false
     },
     {
+<<<<<<< HEAD
       "titulo": "Pequenas empresas lideram geração de empregos formais em 2025",
       "imagem": "/img/img-noticia/contratar.jpg",
       "resumo": "Micro e pequenas empresas foram responsáveis por mais de 60% das novas vagas formais no primeiro semestre de 2025. O crescimento reflete políticas de incentivo e expansão do consumo interno.",
       "texto": "De acordo com dados do CAGED divulgados nesta semana, micro e pequenas empresas foram responsáveis por 62% das vagas formais de emprego geradas no Brasil durante o primeiro semestre de 2025. O levantamento mostra uma recuperação robusta do setor após os anos de retração provocados pela pandemia e pela instabilidade econômica global.\n\nEntre os fatores que explicam esse crescimento estão o aumento do consumo interno, impulsionado pela elevação da renda média da população, e os programas de crédito facilitado para microempresários. O Programa Nacional de Apoio à Geração de Empregos (PRONAGE), lançado em 2024, foi citado como uma das iniciativas de maior impacto na ampliação de contratações.\n\nSetores como alimentação, varejo, logística e serviços digitais foram os que mais contrataram, com destaque para negócios que adotaram soluções tecnológicas e novas formas de relacionamento com o cliente. Especialistas apontam que a digitalização e a capacitação dos empreendedores foram cruciais para esse avanço.\n\nA economista Camila Rocha, da consultoria DataMoney, afirma que as pequenas empresas estão se tornando protagonistas do crescimento econômico brasileiro. “O ambiente de negócios ainda tem desafios, como a carga tributária e a burocracia, mas o dinamismo e a adaptabilidade dos pequenos empresários têm sido um motor importante para o país”, destacou.\n\nA expectativa do setor é positiva para o segundo semestre. Com a redução da taxa básica de juros (Selic), prevista para o final do ano, e a manutenção de programas de estímulo à formalização, espera-se uma nova rodada de investimentos e expansão.\n\nO governo também anunciou que irá lançar o Portal Simplifica, uma plataforma digital para centralizar serviços de regularização e apoio a micro e pequenos negócios. A iniciativa deve facilitar ainda mais a formalização e a gestão das empresas de menor porte, contribuindo para a sustentabilidade do crescimento do setor.",
       "autor": "finapress.com.br",
+=======
+      "titulo": "Campanha de vacinação atinge 90% do público-alvo",
+      "imagem": "/img/img-noticia/vacina.jpg",
+      "resumo": "Vacinação contra gripe supera expectativas.",
+      "conteudo": "A campanha nacional de vacinação contra a gripe superou as expectativas ao alcançar 90% de cobertura do público-alvo em menos de um mês. De acordo com o Ministério da Saúde, mais de 50 milhões de pessoas foram imunizadas em todo o Brasil, com destaque para os grupos prioritários como idosos, gestantes, crianças e profissionais de saúde.\n\nO sucesso da campanha foi atribuído à ampla mobilização das redes de saúde, à divulgação em massa por meios de comunicação e à conscientização da população sobre a importância da vacina. A ação foi fundamental para conter o avanço de doenças respiratórias em um período de maior incidência.\n\nEspecialistas em saúde pública ressaltam que a alta adesão reforça a confiança da população no sistema de imunização brasileiro, considerado um dos mais eficientes do mundo.",
+>>>>>>> ccdb77d31b80970ab2770b73c7263be5d4b593a4
       "id": "4",
       "favoritado": false
     },
     {
+<<<<<<< HEAD
       "titulo": "Tecnologia impulsiona pequenos negócios no pós-pandemia",
       "imagem": "/img/img-noticia/tecnologia.jpg",
       "resumo": "Digitalização e ferramentas financeiras alavancam faturamento de microempresas em até 40%.",
       "texto": "Pequenos empreendedores têm colhido os frutos da transformação digital no Brasil. Segundo pesquisa do Sebrae, mais de 70% das microempresas que digitalizaram seus processos em 2024 aumentaram o faturamento em pelo menos 30%.\n\nFerramentas como maquininhas inteligentes, aplicativos de gestão, plataformas de pagamento e redes sociais estão entre os principais aliados dos pequenos negócios. A pandemia acelerou essa tendência, e agora os resultados positivos começam a aparecer.\n\nA empresária Luciana Nunes, dona de uma loja de cosméticos naturais em Curitiba, viu suas vendas triplicarem após criar um e-commerce e automatizar o controle de estoque. “Antes era tudo no papel. Hoje eu controlo tudo pelo celular e ganho muito mais tempo”, afirma.\n\nAlém disso, programas de capacitação gratuitos, como o Brasil Mais Digital, têm ajudado milhares de empreendedores a usar a tecnologia a seu favor. O resultado é um ecossistema mais competitivo, moderno e sustentável.\n\nEspecialistas apontam que o investimento em tecnologia não é mais um luxo, mas uma necessidade básica para a sobrevivência dos negócios. Com isso, o microempreendedor do futuro será também um gestor digital.",
       "autor": "tecnonegocio.net",
+=======
+      "titulo": "Feira de Ciências movimenta escolas públicas",
+      "imagem": "/img/img-noticia/ciencia.jpeg",
+      "resumo": "Estudantes apresentam projetos inovadores.",
+      "conteudo": "A Feira Regional de Ciências mobilizou milhares de estudantes da rede pública, que apresentaram projetos inovadores em áreas como sustentabilidade, tecnologia e saúde. O evento, realizado em parceria com universidades e centros de pesquisa, teve como objetivo incentivar o pensamento científico e a criatividade entre os jovens.\n\nEntre os destaques estavam um filtro de água feito com materiais recicláveis, um aplicativo para controle emocional e um sistema de irrigação inteligente para hortas urbanas. Os melhores trabalhos foram premiados com bolsas de estudos, kits de robótica e convites para participar de feiras internacionais.\n\nProfessores e organizadores celebraram o sucesso da iniciativa, que reforça a importância de investir em educação científica desde os primeiros anos escolares.",
+>>>>>>> ccdb77d31b80970ab2770b73c7263be5d4b593a4
       "id": "5",
       "favoritado": false
     },
     {
+<<<<<<< HEAD
       "titulo": "Aplicativos de finanças pessoais ajudam brasileiros a sair do vermelho",
       "imagem": "/img/img-noticia/aplicativo.jpg",
       "resumo": "Ferramentas digitais de controle financeiro se popularizam e ajudam famílias a equilibrar as contas.",
       "texto": "Com a inflação ainda pressionando o orçamento de milhares de brasileiros, os aplicativos de finanças pessoais têm ganhado cada vez mais espaço como aliados no combate às dívidas e na busca por organização financeira. Em 2025, o número de downloads de apps de controle de gastos cresceu 46% em relação ao ano anterior, segundo dados da Associação Brasileira de Fintechs.\n\nApps como Organizze, Minhas Economias e Mobills permitem que o usuário registre receitas e despesas, crie metas de economia, receba alertas de vencimentos e até simule investimentos. A facilidade de uso e os gráficos intuitivos contribuem para que mesmo pessoas sem conhecimento técnico consigam acompanhar sua vida financeira.\n\n“Antes eu não sabia para onde meu dinheiro estava indo. Agora consigo controlar tudo, e no fim do mês sobra um valor que uso para investir”, conta Mariana Lopes, autônoma de 34 anos que começou a usar um desses apps há um ano. Mariana conseguiu sair do cheque especial e já planeja montar sua reserva de emergência.\n\nEconomistas destacam que o primeiro passo para conquistar saúde financeira é justamente a conscientização dos gastos. “Saber onde e como se gasta é o ponto de partida para qualquer estratégia”, afirma Carlos Medina, da PlanejaFácil.\n\nO uso de aplicativos também tem sido incentivado por instituições financeiras, que oferecem integração com contas bancárias e cartões de crédito. A tendência é que a tecnologia continue sendo uma das principais ferramentas para combater o endividamento e promover a educação financeira no Brasil.",
       "autor": "FocoFinanceiro",
+=======
+      "titulo": "Mercado financeiro reage a mudanças fiscais",
+      "imagem": "/img/img-noticia/mercado.jpg",
+      "resumo": "Volatilidade nos mercados, mas há otimismo.",
+      "conteudo": "As recentes mudanças na política fiscal do governo federal provocaram volatilidade nos mercados financeiros, com impacto direto nas taxas de juros e no valor do real frente ao dólar. Apesar da instabilidade inicial, analistas mantêm uma perspectiva otimista para o médio prazo.\n\nAs reformas anunciadas visam reduzir o déficit público e aumentar a arrecadação por meio da modernização tributária. Investidores têm monitorado de perto as propostas que envolvem o novo arcabouço fiscal, que deve substituir o teto de gastos.\n\nEspecialistas apontam que a reação positiva dos mercados dependerá da capacidade do governo de implementar as mudanças com responsabilidade e diálogo com o setor produtivo. Enquanto isso, ativos considerados mais seguros, como ouro e dólar, registraram leve valorização, enquanto ações de empresas ligadas à infraestrutura tiveram maior volatilidade.",
+>>>>>>> ccdb77d31b80970ab2770b73c7263be5d4b593a4
       "id": "6",
       "favoritado": false
     }
@@ -204,6 +245,7 @@
       "salario": "R$3000,00"
     },
     {
+<<<<<<< HEAD
       "id": "2",
       "nome": "Bernardo",
       "data": "0001-01-01",
@@ -212,6 +254,24 @@
       "senha": "123",
       "salario": "1",
       "admin": false
+=======
+      "id": "f06a",
+      "nome": "Beco",
+      "data": "2005-11-08",
+      "endereco": "Rua Olinda Silva",
+      "usuario": "jjoaobeco",
+      "senha": "beco123",
+      "salario": "1500"
+    },
+    {
+      "id": "c344",
+      "nome": "cavaloputao",
+      "data": "2007-02-01",
+      "endereco": "avenida edmeia lazzaroti",
+      "usuario": "danton.diniz@gmail.com",
+      "senha": "MfK6Qck6R66N65d",
+      "salario": "500"
+>>>>>>> ccdb77d31b80970ab2770b73c7263be5d4b593a4
     }
   ],
   "messages": []
