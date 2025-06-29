@@ -1,11 +1,16 @@
 /* ==================== GLOBAL ==================== */
-body {
+body,
+html {
   font-family: Arial, sans-serif;
-  background-color: #e7f5e9;
   margin: 0;
   padding: 0;
+  height: 100%;
+  
 }
-
+body{
+  display: flex;
+  flex-direction: column;
+}
 a {
   text-decoration: none;
 }
@@ -13,9 +18,8 @@ a {
 /* ==================== HEADER ==================== */
 /* ==================== HEADER PADRÃO FINAL ==================== */
  .navbar {
-     background-color: #e7f5e9;
+     background-color: #0a1a37;
      width: 100%;
-     padding: 10px 15px;
      border-bottom: 8px solid #42e619;
      display: flex;
      align-items: center;
@@ -37,10 +41,14 @@ a {
      flex: 1;
  }
 
+ .menuHide {
+     display: none;
+ }
+
  .pages li a {
      display: block;
      text-decoration: none;
-     color: black;
+     color: #e7f5e9;
      font-weight: bold;
      font-size: 1.8rem;
      padding: 10px 10px;
@@ -49,6 +57,7 @@ a {
 
  .pages li a:hover {
      background-color: #42e619;
+     color: #0a1a37;
      border-radius: 5px;
  }
 
@@ -62,12 +71,16 @@ a {
  /* Ícone de menu (hambúrguer) */
  .fas.fa-bars {
      font-size: 2.3rem;
-     color: black;
+     color: #e7f5e9;
      cursor: pointer;
      display: block;
      margin-right: 10px;
      font-size: 30px;
      height: 25px;
+ }
+
+ .fas.fa-bars:hover {
+     color: #42e619;
  }
 
  /*Dropdown do Menu*/
@@ -175,13 +188,17 @@ a {
      .pages.show {
          display: flex;
      }
+     .menuHide{
+        display: flex;
+     }
  }
+
 
 /* ==================== CONTEÚDO ==================== */
 main {
   padding: 10px;
-  max-width: 1000px;
   margin-inline: auto;
+  flex: 1;
 }
 
 /* ==================== TÍTULOS ==================== */
@@ -189,16 +206,16 @@ h1,
 h2 {
   text-align: center;
   font-size: 2.5rem;
-  color: #034C1C;
+  color: #0a1a37;
 }
 
 /* ==================== BOTÕES GERAIS ==================== */
 button,
 .acoes button {
-  background-color: #42e619;
-  color: white;
+  color: #0a1a36;
+  border: #0a1a36 2px solid;
+  background-color: #fff;
   padding: 8px 12px;
-  border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 0.9rem;
@@ -207,7 +224,8 @@ button,
 
 button:hover,
 .acoes button:hover {
-  background-color: #34b515;
+  color: #e6f4e8;
+  background-color: #0a1a36;
 }
 
 /* ==================== FORMULÁRIO ==================== */
@@ -323,7 +341,7 @@ progress {
 
 .exemplo-meta h3 {
   margin-top: 0;
-  color: #034C1C;
+  color: #0a1a37;
 }
 
 /* ==================== TOAST ==================== */
@@ -354,7 +372,8 @@ progress {
 
 /* ==================== CLASSE ESPECIAL OPCIONAL ==================== */
 .sera {
-  background-color: #42e619 !important;
+  background-color: #0a1a37 !important;
+  color: #e7f5e9;
 }
 
 .dropdown-menu-custom {
@@ -403,166 +422,89 @@ progress {
 
 /* Footer */
 
- .rodape {
-     background-color: #e7f5e9;
-     margin-top: 40px;
-     border-top: 8px solid #42e619;
-     padding: 20px;
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     flex-wrap: wrap;
- }
+/* Footer */
+.rodape {
+  background-color: #0a1a37;
+  margin-top: 40px;
+  border-top: 8px solid #42e619;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
 
- .logotipo img {
-     width: 300px;
-     height: 200px;
-     object-fit: cover;
-     border-radius: 15px;
- }
+.logotipo img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px;
+}
 
- .containerborder {
-     max-width: 900px;
-     width: 100%;
-     text-align: center;
- }
+.containerborder {
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+}
 
- .containerborder p {
-     font-size: 1.1em;
-     margin-bottom: 15px;
-     color: #333;
- }
+.containerborder p {
+  font-size: 1.1em;
+  margin-bottom: 15px;
+  color: #e7f5e9;
+}
 
- .redes-sociais {
-     display: flex;
-     justify-content: center;
-     gap: 30px;
-     flex-wrap: wrap;
- }
+.redes-sociais {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
 
- .redes-sociais a {
-     color: #333;
-     font-size: 1.5em;
-     display: flex;
-     align-items: center;
-     gap: 8px;
-     transition: color 0.3s ease;
-     text-decoration: none;
- }
+.redes-sociais a {
+  color: #e7f5e9;
+  font-size: 1.5em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
 
- .redes-sociais a:hover {
-     color: #42e619;
- }
+.redes-sociais a:hover {
+  color: #42e619;
+}
 
-@media (max-width: 768px) {
+@media (max-width: 500px) {
+    .navbar .pages { display: none; }
+    .navbar .fas.fa-bars { display: block; }
+    .logo img { width: 180px; }
+    .menuHide { display: list-item; }
+    .menu-dropdown { width: 120px; right:150px; top: 85px;}
+    .rodape { flex-direction: column; text-align: center; }
 
-  /* Oculta menu de navegação tradicional */
-  .links {
-    display: none;
-  }
-
-  /* Reposiciona logo e ícones */
-  .logo img {
-    width: 180px;
-    height: auto;
-  }
-
-  .icone-Adicionar,
-  .icone-hamburguer {
-    width: 50px;
-    top: 20px;
-  }
-
-  /* Corrige layout do dropdown */
-  .dropdown-menu-custom {
-    top: 90px;
-    right: 10px;
-    width: 85%;
-    font-size: 1rem;
-  }
-
-  /* Reduz tamanho e padding dos blocos */
-  .bloco-conteudo {
-    margin: 15px 10px;
-    padding: 15px;
-  }
-
-  /* Fonte dos títulos */
-  h1,
-  h2,
-  h3 {
-    font-size: 1.5rem;
-    text-align: center;
-  }
-
-  /* Texto geral */
-  p,
-  label,
-  .faltam-texto {
-    font-size: 1rem;
-  }
-
-  /* Formulário empilhado */
-  #formularioMeta form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  input[type="text"],
-  input[type="number"],
-  input[type="date"],
-  button {
-    font-size: 1rem;
-    padding: 10px;
-    width: 100%;
-  }
-
-  .acoes {
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  /* Tabela responsiva por blocos */
-  table,
-  thead,
-  tbody,
-  th,
-  td,
-  tr {
-    display: block;
-    width: 100%;
-  }
-
-  thead {
-    display: none;
-  }
-
-  tr {
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    padding: 1rem;
-    border-radius: 8px;
-    background-color: white;
-  }
-
-  td {
-    display: flex;
-    justify-content: space-between;
-    padding: 0.6rem 0;
-    border: none;
-    border-bottom: 1px solid #eee;
-    font-size: 1rem;
-  }
-
-  td::before {
-    content: attr(data-label);
-    font-weight: bold;
-    color: #034C1C;
-  }
-
-  td:last-child {
-    border-bottom: none;
-  }
-
+    /* A Transformação da Tabela */
+    #listaMetas {
+        overflow-x: hidden; /* Previne scroll horizontal no container da tabela */
+    }
+    table, thead, tbody, th, tr, td {
+        display: block; /* Transforma tudo em "divs" */
+    }
+    thead {
+        display: none; /* Oculta cabeçalho desktop */
+    }
+    tr {
+        padding: 15px; margin-bottom: 1rem; border: 1px solid #ddd; border-radius: 8px;
+    }
+    td {
+        padding: 10px 5px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #f0f0f0; gap: 0px;
+    }
+    td:last-child {
+        border-bottom: none;
+    }
+    td::before {
+        content: attr(data-label); font-weight: bold; color: #034C1C; flex-shrink: 0; text-align: left;
+    }
+    td .acoes {
+        display: flex; flex-direction: column; gap: 8px; width: 100%;
+    }
 }

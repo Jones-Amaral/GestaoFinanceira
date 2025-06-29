@@ -4,15 +4,27 @@
   box-sizing: border-box;
 }
 
+html,
 body {
-  font-family: 'Montserrat', sans-serif;
-  background-color: #e7f5e9;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
 }
 
+body {
+  font-family: 'Montserrat', sans-serif;
+  flex: 1;
+}
+main, section{
+  flex:1;
+}
+
+/* Header */
 .navbar {
-  background-color: #e7f5e9;
+  background-color: #0a1a37;
   width: 100%;
-  padding: 10px 15px;
   border-bottom: 8px solid #42e619;
   display: flex;
   align-items: center;
@@ -34,10 +46,14 @@ body {
   flex: 1;
 }
 
+.menuHide {
+  display: none;
+}
+
 .pages li a {
   display: block;
   text-decoration: none;
-  color: black;
+  color: #e7f5e9;
   font-weight: bold;
   font-size: 1.8rem;
   padding: 10px 10px;
@@ -46,6 +62,7 @@ body {
 
 .pages li a:hover {
   background-color: #42e619;
+  color: #0a1a37;
   border-radius: 5px;
 }
 
@@ -59,7 +76,7 @@ body {
 /* Ícone de menu (hambúrguer) */
 .fas.fa-bars {
   font-size: 2.3rem;
-  color: black;
+  color: #e7f5e9;
   cursor: pointer;
   display: block;
   margin-right: 10px;
@@ -67,8 +84,12 @@ body {
   height: 25px;
 }
 
+.fas.fa-bars:hover {
+  color: #42e619;
+}
+
 /*Dropdown do Menu*/
-.menu-dropdown { 
+.menu-dropdown {
   display: none;
   position: absolute;
   right: 50px;
@@ -87,15 +108,14 @@ body {
   text-align: center;
 }
 
-.menu-dropdown li a
-{
+.menu-dropdown li a {
   text-decoration: none;
   color: #333;
   display: block;
   align-items: center;
-  width: 100%;               
-  padding: 10px 0;           
-  background-color: transparent; 
+  width: 100%;
+  padding: 10px 0;
+  background-color: transparent;
 }
 
 .menu-dropdown li a:hover {
@@ -112,7 +132,6 @@ body {
 .usuario-menu {
   position: relative;
   cursor: pointer;
-  z-index: 9999;
 }
 
 .usuario-menu .fa-user {
@@ -130,11 +149,11 @@ body {
   top: 70px;
   background-color: #fff;
   list-style: none;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: #42e619;
   border-radius: 6px;
   padding: 10px 0;
   width: 150px;
-  z-index: 9999; 
+  z-index: 1000;
 }
 
 .user-dropdown li {
@@ -147,9 +166,9 @@ body {
   color: #333;
   display: block;
   align-items: center;
-  width: 100%;               
-  padding: 10px 0;          
-  background-color: transparent; 
+  width: 100%;
+  padding: 10px 0;
+  background-color: transparent;
 }
 
 .user-dropdown li a:hover {
@@ -174,31 +193,34 @@ body {
   .pages.show {
     display: flex;
   }
+
+  .menuHide {
+    display: flex;
+  }
 }
 
 /*containers*/
 .pagina {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin-top: 25px;
-  margin-right: 30px;
-  margin-left: 30px;
+  margin-right: 0px;
+  margin-left: 0px;
   gap: 5px;
 }
 
 .containerleft,
 .containerright {
-  background-color: #e7f5e9;
   padding: 20px;
 }
 
 .containerleft {
-  width: 730px;
-  border-right: 5px solid #42e619;
+  width: 950px;
+  border-right: 5px solid #0a1a37;
 }
 
 .containerright {
-  width: 530px;
+  width: 600px;
 }
 
 .containerleft h2 {
@@ -242,10 +264,10 @@ body {
 /*Start of Carousel*/
 .carrossel-container {
   position: relative;
-  width: 450px;
+  max-width: 600px;
   height: 300px;
+  margin: 0 auto;
   overflow: hidden;
-  margin: auto;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
@@ -255,21 +277,11 @@ body {
   transition: transform 0.5s ease-in-out;
 }
 
-.slide {
-  min-width: 100%;
-  height: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #f0f0f0;
-}
-
 .slide img {
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
-
 
 .slide {
   min-width: 100%;
@@ -317,14 +329,30 @@ body {
 }
 
 .favorito-btn i.fa-solid {
-  color: #2db10f; 
+  color: #2db10f;
 }
+
 /*End of Carousel*/
 
+#resumo-investimento {
+  margin: 20px auto 0 auto;
+  padding: 0 10px;
+  max-width: 600px;
+  width: 100%;
+}
 
-/*Footer*/
+.card-investimento {
+  background-color: #f8f8f8;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* Footer */
 .rodape {
-  background-color: #e7f5e9;
+  background-color: #0a1a37;
   margin-top: 40px;
   border-top: 8px solid #42e619;
   padding: 20px;
@@ -350,7 +378,7 @@ body {
 .containerborder p {
   font-size: 1.1em;
   margin-bottom: 15px;
-  color: #333;
+  color: #e7f5e9;
 }
 
 .redes-sociais {
@@ -361,7 +389,7 @@ body {
 }
 
 .redes-sociais a {
-  color: #333;
+  color: #e7f5e9;
   font-size: 1.5em;
   display: flex;
   align-items: center;
@@ -374,32 +402,10 @@ body {
   color: #42e619;
 }
 
-.info-investimento {
-  background-color: #f9f9f9;
-  border-radius: 12px;
-  padding: 20px 25px;
-  margin-top: 30px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  font-family: 'Montserrat', sans-serif;
-  animation: fadeIn 0.5s ease-in-out;
-}
-
-.info-investimento h3 {
-  font-size: 1.6rem;
-  color: #333;
-  margin-bottom: 10px;
-  font-weight: 700;
-}
-
-.info-investimento p {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #555;
-}
-
-
+/* Footer Fim */
 /* Responsividade geral */
 @media (max-width: 1024px) {
+
   .containerleft,
   .containerright {
     width: 100%;
@@ -427,7 +433,8 @@ body {
 
   .prev,
   .next {
-    display: none; /* Esconde botões laterais no mobile para evitar sobreposição */
+    display: none;
+    /* Esconde botões laterais no mobile para evitar sobreposição */
   }
 
   .info-investimento {
@@ -504,4 +511,3 @@ body {
     font-size: 1.3em;
   }
 }
-

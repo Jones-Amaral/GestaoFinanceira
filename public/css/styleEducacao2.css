@@ -3,19 +3,18 @@ body {
     width: 100%;
     margin: 0;
     padding: 0;
-    background-color: #e7f5e9;
 }
 
-/* Header Inicio */
+/* Header */
 .navbar {
-    background-color: #e7f5e9;
+    background-color: #0a1a37;
     width: 100%;
-    padding: 10px 15px;
     border-bottom: 8px solid #42e619;
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: relative;
+
 }
 
 .logo img {
@@ -33,10 +32,14 @@ body {
     border: none;
 }
 
+.menuHide {
+    display: none;
+}
+
 .pages li a {
     display: block;
     text-decoration: none;
-    color: black;
+    color: #e7f5e9;
     font-weight: bold;
     font-size: 1.8rem;
     padding: 10px 10px;
@@ -45,6 +48,7 @@ body {
 
 .pages li a:hover {
     background-color: #42e619;
+    color: #0a1a37;
     border-radius: 5px;
 }
 
@@ -58,12 +62,16 @@ body {
 /* Ícone de menu (hambúrguer) */
 .fas.fa-bars {
     font-size: 2.3rem;
-    color: black;
+    color: #e7f5e9;
     cursor: pointer;
     display: block;
     margin-right: 10px;
     font-size: 30px;
     height: 25px;
+}
+
+.fas.fa-bars:hover {
+    color: #42e619;
 }
 
 /*Dropdown do Menu*/
@@ -171,13 +179,16 @@ body {
     .pages.show {
         display: flex;
     }
+
+    .menuHide {
+        display: flex;
+    }
 }
 
 /* Header Fim */
 
 /* Main */
 .corpoAdicao {
-    background-color: #e7f5e9;
     width: 100%;
     border-radius: 10px;
     padding-bottom: 50px;
@@ -200,7 +211,7 @@ body {
     color: #0a1a36;
     background-color: #fff;
     padding-left: 10px;
-    border-color: #42e619;
+    border-color: #0a1a36;
 }
 
 #inputInfo:focus,
@@ -214,7 +225,7 @@ body {
 #inputIframe:focus,
 #inputResumo:focus {
     padding-left: 10px;
-    background-color: #42e61945;
+    background-color: #e7f5e9;
 
 }
 
@@ -228,7 +239,7 @@ body {
     width: 90%;
     color: #0a1a36;
     background-color: #fff;
-    border: #42e619 4px solid;
+    border: #0a1a37 4px solid;
     border-radius: 5px;
     font-size: 20px;
     padding: 15px;
@@ -239,10 +250,6 @@ body {
 
 }
 
-.botao-upload:hover {
-    color: #fff;
-    background-color: #42e619;
-}
 
 #inputInfo::placeholder {
     vertical-align: center;
@@ -260,7 +267,7 @@ body {
     font-size: 20px;
     color: #0a1a36;
     background-color: #fff;
-    border: 2px solid #42e619;
+    border: 2px solid #0a1a37;
 }
 
 .dropDown {
@@ -290,7 +297,7 @@ body {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     text-align: center;
-    border: 2px solid #42e619;
+    border: 2px solid #0a1a37;
 }
 
 
@@ -301,7 +308,7 @@ body {
     text-align: center;
     background-color: #fff;
     cursor: pointer;
-    border-bottom: 2px solid #42e619;
+    border-bottom: 2px solid #0a1a37;
 }
 
 .conteudoDropDown button:hover {
@@ -323,7 +330,7 @@ body {
     width: 20%;
     color: #0a1a36;
     background-color: #fff;
-    border: #42e619 2px solid;
+    border: #0a1a37 2px solid;
     border-radius: 5px;
     font-size: 20px;
     cursor: pointer;
@@ -331,10 +338,6 @@ body {
     font-weight: 500;
 }
 
-.adicionarSub:hover {
-    background-color: #42e619;
-
-}
 
 .container-flex {
     display: flex;
@@ -353,8 +356,8 @@ body {
     width: 90px;
     padding: 10px;
     color: #0a1a36;
+    border: #0a1a36 2px solid;
     background-color: #fff;
-    border: #42e619 2px solid;
     border-radius: 5px;
     font-size: 20px;
     cursor: pointer;
@@ -362,7 +365,8 @@ body {
 }
 
 .enviarNoticia:hover {
-    background-color: #42e619;
+    color: #e6f4e8;
+    background-color: #0a1a36;
 }
 
 button:hover {
@@ -416,12 +420,12 @@ li button:hover {
 
 /* Edição de texto */
 .titulo {
-    color: #035a19;
+    color: #0a1a37;
     font-size: 50px;
 }
 
 .subtitulo {
-    color: #035a19;
+    color: #0a1a37;
     font-size: 30px;
     text-align: start;
     font-weight: 400;
@@ -432,9 +436,9 @@ li button:hover {
 
 /* Fim Edição */
 
-/* Footer Inicio */
+/* Footer */
 .rodape {
-    background-color: #e7f5e9;
+    background-color: #0a1a37;
     margin-top: 40px;
     border-top: 8px solid #42e619;
     padding: 20px;
@@ -460,7 +464,7 @@ li button:hover {
 .containerborder p {
     font-size: 1.1em;
     margin-bottom: 15px;
-    color: #333;
+    color: #e7f5e9;
 }
 
 .redes-sociais {
@@ -471,7 +475,7 @@ li button:hover {
 }
 
 .redes-sociais a {
-    color: #333;
+    color: #e7f5e9;
     font-size: 1.5em;
     display: flex;
     align-items: center;
@@ -513,15 +517,4 @@ li button:hover {
     #direita {
         display: none !important;
     }
-    .favorite-icon {
-  font-size: 1.8em;       /* aumenta o tamanho */
-  color: gray;            /* padrão (não favorito) */
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-
-.favorite-icon.favorito {
-  color: red;             /* coração vermelho quando favoritado */
-}
-
 }

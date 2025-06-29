@@ -1,15 +1,16 @@
 let chartInstance = null;
 
 const API_URL = 'http://localhost:3000/gastos';
+const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado")); // ← usuário logado
 
-// Função utilitária para buscar todos os gastos
+// Função para buscar apenas os gastos do usuário logado
 async function buscarGastos() {
-  const resp = await fetch(API_URL);
+  const resp = await fetch(`${API_URL}?usuarioId=${usuarioLogado.id}`);
   if (!resp.ok) throw new Error('Erro ao buscar gastos');
   return await resp.json();
 }
 
-// Função utilitária para adicionar um gasto
+// Função para adicionar gasto
 async function adicionarGasto(gasto) {
   const resp = await fetch(API_URL, {
     method: 'POST',
@@ -20,7 +21,7 @@ async function adicionarGasto(gasto) {
   return await resp.json();
 }
 
-// Função utilitária para editar um gasto
+// Função para editar gasto
 async function editarGastoBackend(id, gasto) {
   const resp = await fetch(`${API_URL}/${id}`, {
     method: 'PUT',
@@ -31,7 +32,7 @@ async function editarGastoBackend(id, gasto) {
   return await resp.json();
 }
 
-// Função utilitária para excluir um gasto
+// Função para excluir gasto
 async function excluirGastoBackend(id) {
   const resp = await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
   if (!resp.ok && resp.status !== 204) throw new Error('Erro ao excluir gasto');
@@ -45,7 +46,7 @@ const form        = document.getElementById('form-gasto');
 const tabelaBody  = document.querySelector('#tabela-gastos tbody');
 const feedbackBox = document.getElementById('mensagem-feedback');
 
-// Carrega e renderiza a tabela ao iniciar
+// Renderizar tabela
 async function renderTabela() {
   tabelaBody.innerHTML = '<tr><td colspan="6">Carregando...</td></tr>';
   try {
@@ -55,7 +56,7 @@ async function renderTabela() {
       return;
     }
     tabelaBody.innerHTML = '';
-    gastos.forEach((g, i) => {
+    gastos.forEach((g) => {
       tabelaBody.insertAdjacentHTML(
         'beforeend',
         `
@@ -87,7 +88,16 @@ form.addEventListener('submit', async (e) => {
   const valor     = Number(form.valor.value).toFixed(2);
   const data      = form.data.value;
   if (!descricao || !categoria || !tipo || !valor || !data) return;
-  const novoGasto = { descricao, categoria, tipo, valor, data };
+
+  const novoGasto = {
+    descricao,
+    categoria,
+    tipo,
+    valor,
+    data,
+    usuarioId: usuarioLogado.id // ← associa o gasto ao usuário
+  };
+
   try {
     if (editId === null) {
       await adicionarGasto(novoGasto);
@@ -104,9 +114,7 @@ form.addEventListener('submit', async (e) => {
   }
 });
 
-// Ações de editar/excluir
-// Usa event delegation
-// (Obs: agora usa id do backend)
+// Ações editar/excluir
 tabelaBody.addEventListener('click', async (e) => {
   const idEditar  = e.target.dataset.editar;
   const idExcluir = e.target.dataset.excluir;
@@ -138,13 +146,14 @@ tabelaBody.addEventListener('click', async (e) => {
   }
 });
 
+// Feedback
 function mostrarMensagem(txt) {
   feedbackBox.textContent = txt;
   feedbackBox.style.opacity = 1;
   setTimeout(() => (feedbackBox.style.opacity = 0), 3000);
 }
 
-// Gráfico
+// Gráfico por categoria
 async function gerarGrafico() {
   let dados;
   try {
@@ -152,57 +161,52 @@ async function gerarGrafico() {
   } catch {
     return alert('Erro ao buscar gastos para o gráfico.');
   }
+
   if (!dados.length) return alert('Nenhum gasto cadastrado para mostrar.');
+
   const totalCat = {};
   dados.forEach(({ categoria, valor }) => {
     totalCat[categoria] = (totalCat[categoria] || 0) + Number(valor);
   });
+
   if (chartInstance) chartInstance.destroy();
+
   chartInstance = new Chart(document.getElementById('grafico-gastos'), {
-    type: 'bar',
+    type: 'pie',
     data: {
       labels: Object.keys(totalCat),
       datasets: [{
-        label: 'Total por categoria (R$)',
+        label: 'Distribuição de Gastos',
         data: Object.values(totalCat),
+        backgroundColor: [
+          '#4e79a7', '#f28e2b', '#e15759',
+          '#76b7b2', '#59a14f', '#edc949',
+          '#af7aa1', '#ff9da7', '#9c755f', '#bab0ab'
+        ],
+        borderWidth: 1,
       }],
     },
     options: {
       responsive: true,
       plugins: {
-        legend: { display: false },
-        title:  { display: true, text: 'Distribuição de Gastos' },
+        legend: { position: 'bottom' },
+        title: {
+          display: true,
+          text: 'Distribuição de Gastos por Categoria',
+        },
       },
-      scales: { y: { beginAtZero: true } },
     },
   });
 }
 
-// Limita datas futuras
+// Inicializar
 window.addEventListener('load', () => {
   const inputData = document.getElementById('data');
-  const hoje = new Date();
-  const yyyy = hoje.getFullYear();
-  const mm   = String(hoje.getMonth() + 1).padStart(2, '0');
-  const dd   = String(hoje.getDate()).padStart(2, '0');
-  const hojeISO = `${yyyy}-${mm}-${dd}`;
-  const hojeBR  = `${dd}/${mm}/${yyyy}`;
-  inputData.max = hojeISO;
-  inputData.addEventListener('invalid', function () {
-    if (this.validity.rangeOverflow) {
-      const [ano, mes, dia] = this.value.split('-');
-      const dataDigitadaBR = `${dia}/${mes}/${ano}`;
-      this.setCustomValidity(`Uau! temos um viajante do tempo aqui😮. Mas infelizmente só aceitamos datas até hoje: ${hojeBR}.`);
-    } else {
-      this.setCustomValidity('');
-    }
-  });
   inputData.addEventListener('input', function () {
     this.setCustomValidity('');
   });
-  renderTabela(); // Renderiza a tabela ao carregar a página
+
+  renderTabela(); // carregar tabela
 });
 
-// Deixa gerarGrafico disponível globalmente
 window.gerarGrafico = gerarGrafico;
-

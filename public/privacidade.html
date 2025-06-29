@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,13 +14,13 @@
     <header>
         <div class="navbar" id="navbar">
             <div class="logo">
-                <a href="homepage.html">
+                <a href="index.html">
                     <img src="img/imgs-bernardo/logomelhorada.png" alt="logo" id="logo">
                 </a>
             </div>
 
             <ul class="pages" id="navLinks">
-                <li><a href="homepage.html">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="pagina-noticias.html">Notícias</a></li>
                 <li><a href="paginaEducacao.html">Educação</a></li>
                 <li><a href="investimentos.html">Investimentos</a></li>
@@ -28,8 +29,12 @@
             <div class="right-icons">
                 <i class="fas fa-bars" onclick="toggleMenu()"></i>
                 <ul class="menu-dropdown" id="menuDropdown">
-                    <li><a href="metas.html">Metas</a></li>
-                    <li><a href="adicao-dados.html">Adicionar notícia</a></li>
+                    <li class="menuHide"><a href="index.html">Home</a></li>
+                    <li class="menuHide"><a href="notícias.html">Notícias</a></li>
+                    <li class="menuHide"><a href="paginaEducacao.html">Educação</a></li>
+                    <li class="menuHide"><a href="investimentos.html">Investimentos</a></li>
+                    <li><a href="meta.html">Metas</a></li>
+                    <li id="adminVisivel"><a href="adicao-dados.html">Adicionar notícia</a></li>
                     <li><a href="favoritos.html">Favoritos</a></li>
                     <li><a href="gastostabela.html">Gastos</a></li>
                     <li><a href="tutorial.conosco.html">Tutoriais</a></li>
@@ -73,7 +78,26 @@
             <button type="submit">Atualizar Dados</button>
         </form>
     </main>
+    <footer>
+        <div class="rodape" id="rodape">
+            <div class="logotipo">
+                <a href="index.html">
+                    <img src="/img/imgs-bernardo/logomelhorada.png" alt="Logotipo">
+                </a>
+            </div>
 
+            <div class="containerborder">
+                <p><strong>A +Grana te ajuda a cuidar melhor do seu patrimônio, vem aprender com a gente!</strong>
+                </p>
+                <div class="redes-sociais">
+                    <a href="https://instagram.com" target="_blank" aria-label="Instagram da +Grana"><i
+                            class="fab fa-instagram"></i>+Grana</a>
+                    <a href="https://linkedin.com" target="_blank" aria-label="linkedin da +Grana"><i
+                            class="fab fa-linkedin-in"></i>+Grana</a>
+                </div>
+            </div>
+        </div>
+    </footer>
     <script src="js/user.js"></script>
 </body>
 

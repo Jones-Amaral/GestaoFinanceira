@@ -12,16 +12,16 @@ const corpoTabela = document.getElementById("corpoTabelaMetas");
 const idMetaInput = document.getElementById("idMeta");
 const tituloFormulario = document.querySelector("#formularioMeta h3");
 
-
 // --- FUNÇÕES DE LÓGICA DA APLICAÇÃO ---
 
 // Carrega todas as metas da API e renderiza na tabela
 async function carregarMetas() {
     try {
-        const response = await fetch(API_URL);
+        const user = JSON.parse(localStorage.getItem("usuarioLogado"));
+        const response = await fetch(`${API_URL}?usuarioId=${user.id}`);
         if (!response.ok) throw new Error("Erro de rede ao buscar metas.");
         const metas = await response.json();
-        
+
         corpoTabela.innerHTML = "";
         metas.forEach(renderizarLinhaMeta);
     } catch (error) {
@@ -34,13 +34,16 @@ async function carregarMetas() {
 async function handleFormSubmit(event) {
     event.preventDefault();
     const id = idMetaInput.value;
+    const user = JSON.parse(localStorage.getItem("usuarioLogado"));
+
     const dadosMeta = {
         nome: document.getElementById("nomeMeta").value,
         valorObjetivo: parseFloat(document.getElementById("valorObjetivo").value),
         valorAtual: parseFloat(document.getElementById("valorAtual").value),
-        dataLimite: document.getElementById("dataLimite").value
+        dataLimite: document.getElementById("dataLimite").value,
+        usuarioId: user.id
     };
-    
+
     const isEditing = !!id;
     const url = isEditing ? `${API_URL}/${id}` : API_URL;
     const method = isEditing ? 'PUT' : 'POST';
@@ -70,7 +73,7 @@ async function removerMeta(id) {
     try {
         const response = await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
         if (!response.ok) throw new Error("Falha ao remover a meta.");
-        
+
         mostrarNotificacao("🗑️ Meta removida com sucesso!");
         carregarMetas();
     } catch (error) {
@@ -91,9 +94,9 @@ async function editarMeta(id) {
         document.getElementById("valorObjetivo").value = meta.valorObjetivo;
         document.getElementById("valorAtual").value = meta.valorAtual;
         document.getElementById("dataLimite").value = meta.dataLimite;
-        
+
         abrirFormulario(true);
-    } catch(error) {
+    } catch (error) {
         console.error("Erro em editarMeta:", error);
         mostrarNotificacao("❌ Erro ao carregar meta para edição.");
     }
@@ -130,15 +133,14 @@ async function modificarValor(id, tipo) {
         });
 
         if (!updateResponse.ok) throw new Error("Falha ao atualizar a meta.");
-        
+
         mostrarNotificacao(tipo === 'adicionar' ? "💰 Valor adicionado!" : "🧾 Valor removido!");
         carregarMetas();
-    } catch(error) {
+    } catch (error) {
         console.error(`Erro em ${tipo}Valor:`, error);
         mostrarNotificacao("❌ Erro ao atualizar o valor.");
     }
 }
-
 
 // --- FUNÇÕES DE UI E AUXILIARES ---
 
@@ -149,14 +151,20 @@ function renderizarLinhaMeta(meta) {
     const restante = meta.valorObjetivo - meta.valorAtual;
     const textoRestante = restante <= 0 ? "Meta alcançada!" : `Faltam ${formatarMoeda(restante)} para alcançar.`;
 
+    // Adicionamos o atributo data-label em cada <td>
+    // O texto em data-label="" corresponde ao cabeçalho da tabela
     tr.innerHTML = `
-        <td>${meta.nome}</td>
-        <td>${formatarMoeda(meta.valorObjetivo)}</td>
-        <td>${formatarMoeda(meta.valorAtual)}</td>
-        <td>${formatarData(meta.dataLimite)}</td>
-        <td><progress value="${progresso}" max="100"></progress> ${progresso}%</td>
-        <td><span class="status status-${status.toLowerCase()}">${status}</span></td>
-        <td class="acoes">
+        <td data-label="Meta">${meta.nome}</td>
+        <td data-label="Valor a alcançar (R$)">${formatarMoeda(meta.valorObjetivo)}</td>
+        <td data-label="Valor guardado (R$)">${formatarMoeda(meta.valorAtual)}</td>
+        <td data-label="Data final">${formatarData(meta.dataLimite)}</td>
+        <td data-label="Progresso">
+            <progress value="${progresso}" max="100"></progress> ${progresso}%
+        </td>
+        <td data-label="Status">
+            <span class="status status-${status.toLowerCase()}">${status}</span>
+        </td>
+        <td data-label="Ações" class="acoes">
             <button onclick="modificarValor('${meta.id}', 'adicionar')">+ Valor</button>
             <button onclick="modificarValor('${meta.id}', 'remover')">- Valor</button>
             <button onclick="editarMeta('${meta.id}')">Editar</button>
@@ -194,14 +202,13 @@ function fecharFormulario() {
 
 function mostrarNotificacao(mensagem) {
     const div = document.getElementById("notificacao");
-    if(!div) return;
+    if (!div) return;
     div.textContent = mensagem;
     div.className = "toast mostrar";
     setTimeout(() => { div.className = "toast"; }, 3000);
 }
 
 // --- INICIALIZAÇÃO E EVENTOS ---
-
 btnNovaMeta.addEventListener("click", () => abrirFormulario(false));
 btnCancelar.addEventListener("click", fecharFormulario);
 formMeta.addEventListener("submit", handleFormSubmit);

@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     if (favoritosTotais.length === 0) {
       container.innerHTML = '<p>Você ainda não favoritou nenhum conteúdo.</p>';
-
       return;
     }
 
@@ -30,22 +29,25 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       const card = document.createElement('div');
       card.className = 'card-noticia favorito-card';
+      card.style.position = 'relative';
 
       card.innerHTML = `
         <img src="${caminhoImagem}" alt="${item.titulo}">
         <h3>${item.titulo}</h3>
         <p>${item.resumo}</p>
         <p class="categoria-label">Categoria: ${item.categoria}</p>
-        <i class="fas fa-heart favorite-icon favorito" data-id="${item.id}" data-categoria="${item.categoria}"></i>
+        <i class="fa-solid fa-heart favorite-icon favorito" data-id="${item.id}" data-categoria="${item.categoria}"></i>
       `;
 
+      // Ações de clique
       card.querySelector('img').addEventListener('click', () => abrirModal(item));
       card.querySelector('h3').addEventListener('click', () => abrirModal(item));
       card.querySelector('p').addEventListener('click', () => abrirModal(item));
 
-      card.querySelector('.favorite-icon').addEventListener('click', (e) => {
+      const icon = card.querySelector('.favorite-icon');
+      icon.addEventListener('click', (e) => {
         e.stopPropagation();
-        toggleFavorito(item.id, item.categoria, e.target, card);
+        toggleFavorito(item.id, item.categoria, icon, card);
       });
 
       container.appendChild(card);
@@ -79,10 +81,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         body: JSON.stringify({ favoritado: novoStatus })
       });
 
+      // Remove se desfavoritar
       if (!novoStatus) {
-        card.remove(); // Remove visualmente
+        card.remove();
       }
 
+      // Atualiza visual
+      icon.classList.toggle("fa-solid", novoStatus);
+      icon.classList.toggle("fa-regular", !novoStatus);
       icon.classList.toggle("favorito", novoStatus);
     }
 

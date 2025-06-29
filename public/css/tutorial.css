@@ -10,7 +10,6 @@
 body {
     font-family: 'Montserrat', sans-serif;
     /* Usando Montserrat como você indicou */
-    background-color: #e7f5e9;
     color: #333;
     /* Cor padrão para textos */
     line-height: 1.6;
@@ -21,12 +20,11 @@ body {
     /* Garante que o body ocupe a altura total da viewport */
 }
 
-/* --- NAVBAR - EXTRAÍDA DIRETAMENTE DO SEU CSS "PERFEITO" --- */
+/* Header */
 .navbar {
-    background-color: #e7f5e9;
+    background-color: #0a1a37;
     width: 100%;
-    padding: 10px 15px;
-    border-bottom: 8px solid #42e619;
+    border-bottom: 4px solid #42e619;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -47,10 +45,14 @@ body {
     flex: 1;
 }
 
+.menuHide {
+    display: none;
+}
+
 .pages li a {
     display: block;
     text-decoration: none;
-    color: black;
+    color: #e7f5e9;
     font-weight: bold;
     font-size: 1.8rem;
     padding: 10px 10px;
@@ -59,6 +61,7 @@ body {
 
 .pages li a:hover {
     background-color: #42e619;
+    color: #0a1a37;
     border-radius: 5px;
 }
 
@@ -72,12 +75,16 @@ body {
 /* Ícone de menu (hambúrguer) */
 .fas.fa-bars {
     font-size: 2.3rem;
-    color: black;
+    color: #e7f5e9;
     cursor: pointer;
     display: block;
     margin-right: 10px;
     font-size: 30px;
     height: 25px;
+}
+
+.fas.fa-bars:hover {
+    color: #42e619;
 }
 
 /*Dropdown do Menu*/
@@ -185,6 +192,10 @@ body {
     .pages.show {
         display: flex;
     }
+
+    .menuHide {
+        display: flex;
+    }
 }
 
 /* --- Conteúdo Principal (Cards e FAQ) --- */
@@ -279,10 +290,10 @@ main {
 }
 
 .btn-send {
-    background-color: #007bff;
-    color: #fff;
+    color: #0a1a36;
+    border: #0a1a36 2px solid;
+    background-color: #fff;
     padding: 12px 25px;
-    border: none;
     border-radius: 8px;
     font-size: 1.1em;
     cursor: pointer;
@@ -292,7 +303,8 @@ main {
 }
 
 .btn-send:hover {
-    background-color: #0056b3;
+    color: #e6f4e8;
+    background-color: #0a1a36;
 }
 
 /* --- Seção FAQ --- */
@@ -380,27 +392,22 @@ main {
     padding: 20px;
 }
 
-/* --- FOOTER - EXTRAÍDO DIRETAMENTE DO SEU CSS "PERFEITO" --- */
+/* Footer */
 .rodape {
-    background-color: #e7f5e9;
-    /* Fundo claro */
+    background-color: #0a1a37;
     margin-top: 40px;
     border-top: 8px solid #42e619;
-    /* Barra verde no topo do footer */
     padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    width: 100%;
-    /* Ocupa a largura total */
+    align-self: stretch;
 }
 
 .logotipo img {
     width: 300px;
-    /* Largura da logo conforme seu CSS "perfeito" */
     height: 200px;
-    /* Altura da logo conforme seu CSS "perfeito" */
     object-fit: cover;
     border-radius: 15px;
 }
@@ -414,8 +421,7 @@ main {
 .containerborder p {
     font-size: 1.1em;
     margin-bottom: 15px;
-    color: #333;
-    /* Texto escuro */
+    color: #e7f5e9;
 }
 
 .redes-sociais {
@@ -426,8 +432,7 @@ main {
 }
 
 .redes-sociais a {
-    color: #333;
-    /* Texto escuro para links sociais */
+    color: #e7f5e9;
     font-size: 1.5em;
     display: flex;
     align-items: center;
@@ -438,9 +443,9 @@ main {
 
 .redes-sociais a:hover {
     color: #42e619;
-    /* Hover verde */
 }
 
+/* Footer Fim */
 /* --- Responsividade Geral --- */
 @media (max-width: 1024px) {
 

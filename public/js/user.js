@@ -69,6 +69,15 @@ document.addEventListener("DOMContentLoaded", () => {
     location.href = "login.html";
   }
 
+  const adicionar = document.getElementById("adminVisivel");
+
+  if (user.admin === true) {
+    adicionar.style.display = "block";
+  } else {
+    adicionar.style.display = "none";
+  }
+
+
   if (user) {
     const menu = document.getElementById("userMenu");
     if (menu) {
@@ -96,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function logout() {
   localStorage.removeItem("usuarioLogado");
   alert("Você saiu da conta.");
-  location.href = "login.html"; // redireciona para a tela de login
+  location.href = "login.html";
 }
 
 function toggleMenu() {

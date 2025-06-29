@@ -12,8 +12,8 @@
 <body>
   <div class="tela">
     <div class="lado-esquerdo">
-      <a href="homepage.html">
-        <img src="img/imgs-bernardousuarios/logomelhorada.png" alt="Logo +Grana" class="logo-grande" />
+      <a href="index.html">
+        <img src="img/imgs-bernardo/logomelhorada.png" alt="Logo +Grana" class="logo-grande" />
       </a>
     </div>
 
@@ -115,7 +115,7 @@
             const user = users[0];
             localStorage.setItem("usuarioLogado", JSON.stringify(user));
             alert(`Bem-vindo, ${user.nome}!`);
-            window.location.href = "homepage.html";
+            window.location.href = "index.html";
           } else {
             alert("Usuário ou senha incorretos.");
           }

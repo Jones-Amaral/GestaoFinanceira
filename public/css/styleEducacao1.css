@@ -1,17 +1,16 @@
 /* Body */
 html,
 body {
-    background-color: #e7f5e9;
     margin: 0;
-    margin-bottom: 20px;
     padding: 0;
 }
-
+a{
+    text-decoration: none;
+}
 /* Header */
 .navbar {
-    background-color: #e7f5e9;
+    background-color: #0a1a37;
     width: 100%;
-    padding: 10px 15px;
     border-bottom: 8px solid #42e619;
     display: flex;
     align-items: center;
@@ -33,10 +32,16 @@ body {
     flex: 1;
 }
 
+.menuHide {
+    display: none;
+}
+.adminVisivel{
+    display: none;
+}
 .pages li a {
     display: block;
     text-decoration: none;
-    color: black;
+    color: #e7f5e9;
     font-weight: bold;
     font-size: 1.8rem;
     padding: 10px 10px;
@@ -45,6 +50,7 @@ body {
 
 .pages li a:hover {
     background-color: #42e619;
+    color: #0a1a37;
     border-radius: 5px;
 }
 
@@ -58,12 +64,16 @@ body {
 /* Ícone de menu (hambúrguer) */
 .fas.fa-bars {
     font-size: 2.3rem;
-    color: black;
+    color: #e7f5e9;
     cursor: pointer;
     display: block;
     margin-right: 10px;
     font-size: 30px;
     height: 25px;
+}
+
+.fas.fa-bars:hover {
+    color: #42e619;
 }
 
 /*Dropdown do Menu*/
@@ -171,14 +181,19 @@ body {
     .pages.show {
         display: flex;
     }
+
+    .menuHide {
+        display: flex;
+    }
 }
 
-/* Fim - Header */
+/* Header Fim */
 
 /* Main */
 
 main {
     height: 100%;
+    padding-top: 20px;
 }
 
 #noticiaEducativa {
@@ -199,12 +214,16 @@ main {
     padding: 10px;
     display: flex;
     gap: 20px;
-    border-top: #42e619 solid 4px;
-    border-bottom: #42e619 solid 4px;
+    border-top: #0a1a37 solid 4px;
+    border-bottom: #0a1a37 solid 4px;
     border-radius: 8px;
     vertical-align: center;
     width: 100%;
     background-color: #fff;
+}
+
+.noticia h1:hover {
+    color: #034c1c;
 }
 
 #comentariosCampos {
@@ -218,28 +237,30 @@ main {
     align-items: center;
 }
 
-.vejaMais a {
-    text-decoration: none;
-    color: #034c1c;
-}
+
 
 .vejaMais {
     width: 200px;
     height: 75px;
-    border: solid 4px #42e619;
     border-radius: 5px;
-    background-color: #fff;
     font-size: 25px;
     font-weight: 500;
     margin: 40px auto;
     cursor: pointer;
+    color: #0a1a36;
+    border: #0a1a36 2px solid;
+    background-color: #fff;
 }
 
 .vejaMais:hover {
-    background-color: #42e619;
-    color: #ffffff;
+    color: #e6f4e8;
+    background-color: #0a1a36;
 }
 
+.vejaMais a{
+    color: #0a1a36;
+
+}
 .vejaMais a:hover {
     color: #ffffff;
 }
@@ -341,7 +362,7 @@ main {
 h1 {
     text-align: center;
     font-size: 40px;
-    color: #034C1C;
+    color: #0a1a37;
 }
 
 h2 {
@@ -399,7 +420,7 @@ p {
 .insiraComentario {
     height: 100px;
     margin: 0 40px;
-    border: solid 3px #42e619;
+    border: solid 3px #0a1a37;
     border-radius: 5px;
     color: #7e807f;
     font-size: 20px;
@@ -416,21 +437,21 @@ p {
 
 .btnEnviar {
     justify-content: flex-end;
-    color: #021d0b;
+    color: #fff;
     font-weight: 700;
     height: 50px;
     width: 100px;
     text-align: center;
-    background-color: #fff;
     border-radius: 10px;
-    border: solid 4px #42e619;
+    color: #0a1a36;
+    border: #0a1a36 2px solid;
+    background-color: #fff;
     font-size: 20px;
-
 }
 
 .btnEnviar:hover {
-    background-color: #42e619;
-    color: white;
+    color: #e6f4e8;
+    background-color: #0a1a36;
 }
 
 .iconeUsuario {
@@ -449,7 +470,7 @@ p {
 .comentarioUsuario {
     height: 100px;
     margin: 0 20px;
-    border: solid 3px #42e619;
+    border: solid 3px #0a1a37;
     border-radius: 5px;
     width: 80%;
     padding-left: 20px;
@@ -459,9 +480,9 @@ p {
 
 /* Fim Comentários */
 /* Fim Texto */
-/* Footer Inicio */
+/* Footer */
 .rodape {
-    background-color: #e7f5e9;
+    background-color: #0a1a37;
     margin-top: 40px;
     border-top: 8px solid #42e619;
     padding: 20px;
@@ -487,7 +508,7 @@ p {
 .containerborder p {
     font-size: 1.1em;
     margin-bottom: 15px;
-    color: #333;
+    color: #e7f5e9;
 }
 
 .redes-sociais {
@@ -498,7 +519,7 @@ p {
 }
 
 .redes-sociais a {
-    color: #333;
+    color: #e7f5e9;
     font-size: 1.5em;
     display: flex;
     align-items: center;
@@ -604,20 +625,19 @@ p {
 
 }
 .favorite-icon {
-  font-size: 24px; /* aumenta o tamanho */
+  font-size: 28px;
+  color: #888; /* cor padrão */
   cursor: pointer;
-  transition: color 0.3s ease;
-  color: #333; /* cor padrão (não favoritado) */
+  transition: transform 0.3s ease, color 0.3s ease;
+  margin-top: 10px;
+}
+
+.favorite-icon:hover {
+  transform: scale(1.2); /* efeito de zoom no hover */
+  color: #ff6b6b;         /* cor no hover */
 }
 
 .favorite-icon.favorito {
-  color: red; /* coração vermelho quando favoritado */
+  color: #e63946; /* vermelho vibrante quando favoritado */
+  transform: scale(1.3);
 }
-.favorite-icon.favorito {
-  color: red;
-  transform: scale(1.1);
-}
-
-
-
-

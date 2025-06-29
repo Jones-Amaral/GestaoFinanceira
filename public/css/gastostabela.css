@@ -1,5 +1,4 @@
 :root {
-  --fundo-claro: #E7F5E9;
   --verde-claro: #42E619;
   --verde-medio: #319B02;
   --verde-escuro: #034C1C;
@@ -16,16 +15,14 @@
 }
 
 body {
-  background-color: var(--fundo-claro);
   color: var(--azul-escuro);
   line-height: 1.6;
 }
 
-/* Cabeçalho */
+/* Header */
 .navbar {
-  background-color: #e7f5e9;
+  background-color: #0a1a37;
   width: 100%;
-  padding: 10px 15px;
   border-bottom: 8px solid #42e619;
   display: flex;
   align-items: center;
@@ -47,10 +44,14 @@ body {
   flex: 1;
 }
 
+.menuHide {
+  display: none;
+}
+
 .pages li a {
   display: block;
   text-decoration: none;
-  color: black;
+  color: #e7f5e9;
   font-weight: bold;
   font-size: 1.8rem;
   padding: 10px 10px;
@@ -59,6 +60,7 @@ body {
 
 .pages li a:hover {
   background-color: #42e619;
+  color: #0a1a37;
   border-radius: 5px;
 }
 
@@ -72,12 +74,16 @@ body {
 /* Ícone de menu (hambúrguer) */
 .fas.fa-bars {
   font-size: 2.3rem;
-  color: black;
+  color: #e7f5e9;
   cursor: pointer;
   display: block;
   margin-right: 10px;
   font-size: 30px;
   height: 25px;
+}
+
+.fas.fa-bars:hover {
+  color: #42e619;
 }
 
 /*Dropdown do Menu*/
@@ -185,6 +191,10 @@ body {
   .pages.show {
     display: flex;
   }
+
+  .menuHide {
+    display: flex;
+  }
 }
 
 /* Conteúdo principal */
@@ -266,14 +276,16 @@ body {
 
 .formulario button {
   background-color: var(--verde-medio);
-  color: white;
-  border: none;
+  color: #0a1a36;
+  border: #0a1a36 2px solid;
+  background-color: #fff;
   cursor: pointer;
   transition: background 0.3s;
 }
 
 .formulario button:hover {
-  background-color: var(--verde-escuro);
+  color: #e6f4e8;
+  background-color: #0a1a36;
 }
 
 .mensagem {
@@ -301,9 +313,10 @@ table {
 }
 
 th {
-  background-color: var(--verde-claro);
+  background-color: #0a1a37;
   padding: 0.8rem;
   text-align: left;
+  color: #e7f5e9;
 }
 
 td {
@@ -357,10 +370,10 @@ td .acoes button:hover {
 }
 
 .botao-grafico button {
-  background-color: var(--verde-claro);
-  color: #000;
+  color: #0a1a36;
+  border: #0a1a36 2px solid;
+  background-color: #fff;
   font-weight: bold;
-  border: none;
   padding: 0.8rem 1.5rem;
   font-size: 1rem;
   border-radius: 8px;
@@ -369,7 +382,8 @@ td .acoes button:hover {
 }
 
 .botao-grafico button:hover {
-  background-color: var(--verde-medio);
+  color: #e6f4e8;
+  background-color: #0a1a36;
 }
 
 @media (max-width: 768px) {
@@ -521,7 +535,6 @@ td .acoes button:hover {
 
   /* Ajusta padding do conteúdo para caber abaixo do menu fixo */
   .conteudo {
-    padding-top: 130px;
     margin-inline: 1rem;
   }
 
@@ -583,54 +596,60 @@ td .acoes button:hover {
     height: auto;
   }
 }
+
 /* Footer */
- .rodape {
-     background-color: #e7f5e9;
-     margin-top: 40px;
-     border-top: 8px solid #42e619;
-     padding: 20px;
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     flex-wrap: wrap;
- }
+.rodape {
+  background-color: #0a1a37;
+  margin-top: 40px;
+  border-top: 8px solid #42e619;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
 
- .logotipo img {
-     width: 300px;
-     height: 200px;
-     object-fit: cover;
-     border-radius: 15px;
- }
+.logotipo img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px;
+}
 
- .containerborder {
-     max-width: 900px;
-     width: 100%;
-     text-align: center;
- }
+.containerborder {
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+}
 
- .containerborder p {
-     font-size: 1.1em;
-     margin-bottom: 15px;
-     color: #333;
- }
+.containerborder p {
+  font-size: 1.1em;
+  margin-bottom: 15px;
+  color: #e7f5e9;
+}
 
- .redes-sociais {
-     display: flex;
-     justify-content: center;
-     gap: 30px;
-     flex-wrap: wrap;
- }
+.redes-sociais {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
 
- .redes-sociais a {
-     color: #333;
-     font-size: 1.5em;
-     display: flex;
-     align-items: center;
-     gap: 8px;
-     transition: color 0.3s ease;
-     text-decoration: none;
- }
+.redes-sociais a {
+  color: #e7f5e9;
+  font-size: 1.5em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
 
- .redes-sociais a:hover {
-     color: #42e619;
- }
+.redes-sociais a:hover {
+  color: #42e619;
+}
+#grafico-gastos {
+  max-width: 400px;
+  max-height: 400px;
+  margin: 0 auto;
+}

@@ -10,7 +10,6 @@
 body {
     font-family: 'Montserrat', sans-serif;
     /* Usando Montserrat como você indicou */
-    background-color: #e7f5e9;
     color: #333;
     /* Cor padrão para textos */
     line-height: 1.6;
@@ -18,9 +17,8 @@ body {
 
 /* --- NavBar (Baseado no seu último CSS enviado) --- */
 .navbar {
-    background-color: #e7f5e9;
+    background-color: #0a1a37;
     width: 100%;
-    padding: 10px 15px;
     border-bottom: 8px solid #42e619;
     display: flex;
     align-items: center;
@@ -42,10 +40,14 @@ body {
     flex: 1;
 }
 
+.menuHide {
+    display: none;
+}
+
 .pages li a {
     display: block;
     text-decoration: none;
-    color: black;
+    color: #e7f5e9;
     font-weight: bold;
     font-size: 1.8rem;
     padding: 10px 10px;
@@ -54,6 +56,7 @@ body {
 
 .pages li a:hover {
     background-color: #42e619;
+    color: #0a1a37;
     border-radius: 5px;
 }
 
@@ -67,12 +70,16 @@ body {
 /* Ícone de menu (hambúrguer) */
 .fas.fa-bars {
     font-size: 2.3rem;
-    color: black;
+    color: #e7f5e9;
     cursor: pointer;
     display: block;
     margin-right: 10px;
     font-size: 30px;
     height: 25px;
+}
+
+.fas.fa-bars:hover {
+    color: #42e619;
 }
 
 /*Dropdown do Menu*/
@@ -180,6 +187,10 @@ body {
     .pages.show {
         display: flex;
     }
+
+    .menuHide {
+        display: flex;
+    }
 }
 
 /* --- Conteúdo Principal (Mantido do CSS anterior com ajustes leves) --- */
@@ -272,10 +283,10 @@ body {
 
 #searchBtn {
     width: 60px;
-    background: black;
+    color: #0a1a36;
+    border: #0a1a36 2px solid;
+    background-color: #fff;
     /* Botão de busca preto */
-    color: white;
-    border: none;
     border-radius: 0 6px 6px 0;
     cursor: pointer;
     font-size: 1.2rem;
@@ -283,8 +294,20 @@ body {
 }
 
 #searchBtn:hover {
-    background: #42e619;
+    color: #e6f4e8;
+    background-color: #0a1a36;
     /* Hover verde */
+}
+
+.botaoLerMais {
+    color: #0a1a36 !important;
+    border: #0a1a36 2px solid !important;
+    background-color: #fff !important;
+}
+
+.botaoLerMais:hover {
+    color: #e6f4e8 !important;
+    background-color: #0a1a36 !important;
 }
 
 #titulo-categoria-selecionada {
@@ -477,56 +500,57 @@ body {
 
 
 /* --- Footer (Baseado no seu último CSS enviado) --- */
- .rodape {
-     background-color: #e7f5e9;
-     margin-top: 40px;
-     border-top: 8px solid #42e619;
-     padding: 20px;
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     flex-wrap: wrap;
- }
+.rodape {
+    background-color: #0a1a37;
+    margin-top: 40px;
+    border-top: 8px solid #42e619;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
 
- .logotipo img {
-     width: 300px;
-     height: 200px;
-     object-fit: cover;
-     border-radius: 15px;
- }
+.logotipo img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+}
 
- .containerborder {
-     max-width: 900px;
-     width: 100%;
-     text-align: center;
- }
+.containerborder {
+    max-width: 900px;
+    width: 100%;
+    text-align: center;
+}
 
- .containerborder p {
-     font-size: 1.1em;
-     margin-bottom: 15px;
-     color: #333;
- }
+.containerborder p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    color: #e7f5e9;
+}
 
- .redes-sociais {
-     display: flex;
-     justify-content: center;
-     gap: 30px;
-     flex-wrap: wrap;
- }
+.redes-sociais {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
 
- .redes-sociais a {
-     color: #333;
-     font-size: 1.5em;
-     display: flex;
-     align-items: center;
-     gap: 8px;
-     transition: color 0.3s ease;
-     text-decoration: none;
- }
+.redes-sociais a {
+    color: #e7f5e9;
+    font-size: 1.5em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
 
- .redes-sociais a:hover {
-     color: #42e619;
- }
+.redes-sociais a:hover {
+    color: #42e619;
+}
+
 /* --- Outras seções do seu CSS (containers, info-investimento) --- */
 /* Note: As classes .pagina, .containerleft, .containerright não foram encontradas no seu HTML de categorias.html enviado anteriormente.
    Se estas classes forem para uma *outra* página (ex: index.html), elas deveriam estar em um CSS separado para essa página,

@@ -1,15 +1,20 @@
 let currentIndex = 0;
 let slides = [];
+let investimentosData = [];
 
 document.addEventListener("DOMContentLoaded", () => {
   const carrossel = document.querySelector('.carrossel');
   const nextBtn = document.querySelector('.next');
   const prevBtn = document.querySelector('.prev');
+  const resumoContainer = document.getElementById("resumo-investimento");
 
   fetch('http://localhost:3000/investimento')
     .then(res => res.json())
     .then(data => {
+      investimentosData = data; // Guarda todos os investimentos
+
       data.forEach(investimento => {
+        // Slide
         const slide = document.createElement('div');
         slide.classList.add('slide');
         slide.setAttribute('data-id', investimento.id);
@@ -26,13 +31,11 @@ document.addEventListener("DOMContentLoaded", () => {
         btn.classList.add('favorito-btn');
         btn.setAttribute('data-id', investimento.id);
 
-        // Ícone de coração - já marcado se estiver favoritado
         btn.innerHTML = `
           <i class="${investimento.favoritado ? 'fa-solid' : 'fa-regular'} fa-heart"
              style="color: ${investimento.favoritado ? 'red' : '#333'};"></i>
         `;
 
-        // Evento de clique no coração
         btn.addEventListener('click', async (e) => {
           e.stopPropagation();
           const icon = btn.querySelector('i');
@@ -45,13 +48,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
             await fetch(`http://localhost:3000/investimento/${id}`, {
               method: 'PATCH',
-              headers: {
-                'Content-Type': 'application/json'
-              },
+              headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({ favoritado: novoStatus })
             });
 
-            // Atualiza visual do ícone
             icon.classList.toggle('fa-regular', !novoStatus);
             icon.classList.toggle('fa-solid', novoStatus);
             icon.style.color = novoStatus ? 'red' : '#333';
@@ -77,11 +77,23 @@ document.addEventListener("DOMContentLoaded", () => {
         currentIndex = (currentIndex - 1 + slides.length) % slides.length;
         updateCarrossel();
       });
-    });
+    })
+    .catch(err => console.error("Erro ao carregar investimentos:", err));
 });
 
 function updateCarrossel() {
   const carrossel = document.querySelector('.carrossel');
   const offset = -currentIndex * 100;
   carrossel.style.transform = `translateX(${offset}%)`;
+
+  // Atualiza o resumo com base no investimento atual
+  const resumoContainer = document.getElementById("resumo-investimento");
+  const investimento = investimentosData[currentIndex];
+
+  resumoContainer.innerHTML = `
+    <div class="card-investimento">
+      <h3>${investimento.titulo}</h3>
+      <p>${investimento.resumo}</p>
+    </div>
+  `;
 }

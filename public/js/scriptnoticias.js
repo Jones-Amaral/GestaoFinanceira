@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   function abrirModal(noticia) {
     document.getElementById('modal-titulo').textContent = noticia.titulo;
     document.getElementById('modal-imagem').src = noticia.imagem;
-    document.getElementById('modal-conteudo').textContent = noticia.conteudo;
+    document.getElementById('modal-conteudo').innerHTML = noticia.texto;
     document.getElementById('modal').style.display = 'block';
   }
 
@@ -53,7 +53,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   async function toggleFavorito(id, icon) {
     try {
       const url = `http://localhost:3000/noticias/${id}`;
-
       const res = await fetch(url);
       if (!res.ok) throw new Error('Erro ao buscar notícia para favoritar');
 
