@@ -103,56 +103,55 @@
     }
   ],
   "noticias": [
-  {
-    "titulo": "Economia cresce no primeiro trimestre",
-    "imagem": "img/img-noticia/Pib.png",
-    "resumo": "PIB sobe 2,5% puxado por serviços.",
-    "conteudo": "O Produto Interno Bruto (PIB) brasileiro registrou crescimento de 2,5% no primeiro trimestre de 2025, impulsionado principalmente pelo forte desempenho do setor de serviços. Esse setor, que representa mais de 70% da economia nacional, teve expansão significativa, especialmente nas áreas de transporte, comércio e atividades turísticas, refletindo a recuperação do consumo interno e o aumento da confiança dos consumidores.\n\nSegundo dados divulgados pelo IBGE, o crescimento também foi apoiado pelo avanço da indústria de transformação e da construção civil, que demonstraram melhora após períodos de estagnação. A indústria teve aumento na produção de bens de capital e de consumo durável, o que sinaliza uma retomada dos investimentos e maior expectativa de crescimento futuro por parte das empresas.\n\nEmbora o setor agropecuário tenha apresentado desempenho mais tímido devido a fatores climáticos desfavoráveis e à sazonalidade, ele ainda contribuiu positivamente para o resultado geral. Os economistas destacam que a recuperação do mercado de trabalho e o aumento da renda média do brasileiro também influenciaram o bom desempenho do trimestre.\n\nEspecialistas apontam que, se o ritmo de crescimento for mantido, o Brasil pode ultrapassar a marca de 3% de crescimento anual em 2025. No entanto, ainda há desafios pela frente: inflação persistente, juros elevados e incertezas no cenário econômico global. Apesar disso, o resultado do primeiro trimestre é considerado um sinal promissor para a economia brasileira neste ano.",
-    "id": "1",
-    "favoritado": false
-  },
-  {
-    "titulo": "Novo programa educacional é lançado",
-    "imagem": "img/img-noticia/programa-educacional.png",
-    "resumo": "Programa para capacitar professores em tecnologia.",
-    "conteudo": "O governo lançou oficialmente um novo programa de capacitação para professores, com foco em tecnologia e inovação educacional. A iniciativa visa preparar educadores para lidar com os desafios do ensino digital, oferecendo cursos, workshops e plataformas de aprendizagem baseadas em inteligência artificial e gamificação.\n\nO programa será implementado em todo o país, em parceria com instituições públicas e privadas, e incluirá treinamentos sobre programação, pensamento computacional, uso de plataformas digitais, metodologias ativas e recursos de acessibilidade. A proposta é democratizar o acesso à formação continuada e transformar a educação pública em uma ferramenta mais moderna e inclusiva.\n\nAlém disso, os professores participantes terão acesso a bolsas de estudo, certificados reconhecidos pelo MEC e a possibilidade de aplicar os conhecimentos adquiridos diretamente em sala de aula. A expectativa do governo é que, em até dois anos, mais de 300 mil professores sejam beneficiados pelo programa.",
-    "id": "2",
-    "favoritado": true
-  },
-  {
-    "titulo": "Investimentos em startups batem recorde",
-    "imagem": "/img/img-noticia/startup.jpeg",
-    "resumo": "Startups recebem R$ 1,2 bi em abril.",
-    "conteudo": "As startups brasileiras receberam R$ 1,2 bilhão em investimentos no mês de abril de 2025, marcando o maior valor registrado desde 2022. O crescimento é atribuído ao aumento do interesse de investidores estrangeiros e à consolidação do ecossistema de inovação no país.\n\nSetores como fintechs, healthtechs e edtechs lideraram a captação de recursos, com destaque para empresas voltadas à inclusão financeira, inteligência artificial e soluções de saúde digital. A retomada da confiança no mercado e as políticas de incentivo à inovação também foram fatores decisivos para o resultado positivo.\n\nEspecialistas avaliam que o cenário é favorável para o empreendedorismo tecnológico e que a tendência é de crescimento contínuo, especialmente com a valorização de soluções sustentáveis, escaláveis e com impacto social.",
-    "id": "3",
-    "favoritado": false
-  },
-  {
-    "titulo": "Campanha de vacinação atinge 90% do público-alvo",
-    "imagem": "/img/img-noticia/vacina.jpg",
-    "resumo": "Vacinação contra gripe supera expectativas.",
-    "conteudo": "A campanha nacional de vacinação contra a gripe superou as expectativas ao alcançar 90% de cobertura do público-alvo em menos de um mês. De acordo com o Ministério da Saúde, mais de 50 milhões de pessoas foram imunizadas em todo o Brasil, com destaque para os grupos prioritários como idosos, gestantes, crianças e profissionais de saúde.\n\nO sucesso da campanha foi atribuído à ampla mobilização das redes de saúde, à divulgação em massa por meios de comunicação e à conscientização da população sobre a importância da vacina. A ação foi fundamental para conter o avanço de doenças respiratórias em um período de maior incidência.\n\nEspecialistas em saúde pública ressaltam que a alta adesão reforça a confiança da população no sistema de imunização brasileiro, considerado um dos mais eficientes do mundo.",
-    "id": "4",
-    "favoritado": false
-  },
-  {
-    "titulo": "Feira de Ciências movimenta escolas públicas",
-    "imagem": "/img/img-noticia/ciencia.jpeg",
-    "resumo": "Estudantes apresentam projetos inovadores.",
-    "conteudo": "A Feira Regional de Ciências mobilizou milhares de estudantes da rede pública, que apresentaram projetos inovadores em áreas como sustentabilidade, tecnologia e saúde. O evento, realizado em parceria com universidades e centros de pesquisa, teve como objetivo incentivar o pensamento científico e a criatividade entre os jovens.\n\nEntre os destaques estavam um filtro de água feito com materiais recicláveis, um aplicativo para controle emocional e um sistema de irrigação inteligente para hortas urbanas. Os melhores trabalhos foram premiados com bolsas de estudos, kits de robótica e convites para participar de feiras internacionais.\n\nProfessores e organizadores celebraram o sucesso da iniciativa, que reforça a importância de investir em educação científica desde os primeiros anos escolares.",
-    "id": "5",
-    "favoritado": false
-  },
-  {
-    "titulo": "Mercado financeiro reage a mudanças fiscais",
-    "imagem": "/img/img-noticia/mercado.jpg",
-    "resumo": "Volatilidade nos mercados, mas há otimismo.",
-    "conteudo": "As recentes mudanças na política fiscal do governo federal provocaram volatilidade nos mercados financeiros, com impacto direto nas taxas de juros e no valor do real frente ao dólar. Apesar da instabilidade inicial, analistas mantêm uma perspectiva otimista para o médio prazo.\n\nAs reformas anunciadas visam reduzir o déficit público e aumentar a arrecadação por meio da modernização tributária. Investidores têm monitorado de perto as propostas que envolvem o novo arcabouço fiscal, que deve substituir o teto de gastos.\n\nEspecialistas apontam que a reação positiva dos mercados dependerá da capacidade do governo de implementar as mudanças com responsabilidade e diálogo com o setor produtivo. Enquanto isso, ativos considerados mais seguros, como ouro e dólar, registraram leve valorização, enquanto ações de empresas ligadas à infraestrutura tiveram maior volatilidade.",
-    "id": "6",
-    "favoritado": false
-  }
-],
-
+    {
+      "titulo": "Economia cresce no primeiro trimestre",
+      "imagem": "img/img-noticia/Pib.png",
+      "resumo": "PIB sobe 2,5% puxado por serviços.",
+      "conteudo": "O Produto Interno Bruto (PIB) brasileiro registrou crescimento de 2,5% no primeiro trimestre de 2025, impulsionado principalmente pelo forte desempenho do setor de serviços. Esse setor, que representa mais de 70% da economia nacional, teve expansão significativa, especialmente nas áreas de transporte, comércio e atividades turísticas, refletindo a recuperação do consumo interno e o aumento da confiança dos consumidores.\n\nSegundo dados divulgados pelo IBGE, o crescimento também foi apoiado pelo avanço da indústria de transformação e da construção civil, que demonstraram melhora após períodos de estagnação. A indústria teve aumento na produção de bens de capital e de consumo durável, o que sinaliza uma retomada dos investimentos e maior expectativa de crescimento futuro por parte das empresas.\n\nEmbora o setor agropecuário tenha apresentado desempenho mais tímido devido a fatores climáticos desfavoráveis e à sazonalidade, ele ainda contribuiu positivamente para o resultado geral. Os economistas destacam que a recuperação do mercado de trabalho e o aumento da renda média do brasileiro também influenciaram o bom desempenho do trimestre.\n\nEspecialistas apontam que, se o ritmo de crescimento for mantido, o Brasil pode ultrapassar a marca de 3% de crescimento anual em 2025. No entanto, ainda há desafios pela frente: inflação persistente, juros elevados e incertezas no cenário econômico global. Apesar disso, o resultado do primeiro trimestre é considerado um sinal promissor para a economia brasileira neste ano.",
+      "id": "1",
+      "favoritado": false
+    },
+    {
+      "titulo": "Novo programa educacional é lançado",
+      "imagem": "img/img-noticia/programa-educacional.png",
+      "resumo": "Programa para capacitar professores em tecnologia.",
+      "conteudo": "O governo lançou oficialmente um novo programa de capacitação para professores, com foco em tecnologia e inovação educacional. A iniciativa visa preparar educadores para lidar com os desafios do ensino digital, oferecendo cursos, workshops e plataformas de aprendizagem baseadas em inteligência artificial e gamificação.\n\nO programa será implementado em todo o país, em parceria com instituições públicas e privadas, e incluirá treinamentos sobre programação, pensamento computacional, uso de plataformas digitais, metodologias ativas e recursos de acessibilidade. A proposta é democratizar o acesso à formação continuada e transformar a educação pública em uma ferramenta mais moderna e inclusiva.\n\nAlém disso, os professores participantes terão acesso a bolsas de estudo, certificados reconhecidos pelo MEC e a possibilidade de aplicar os conhecimentos adquiridos diretamente em sala de aula. A expectativa do governo é que, em até dois anos, mais de 300 mil professores sejam beneficiados pelo programa.",
+      "id": "2",
+      "favoritado": true
+    },
+    {
+      "titulo": "Investimentos em startups batem recorde",
+      "imagem": "/img/img-noticia/startup.jpeg",
+      "resumo": "Startups recebem R$ 1,2 bi em abril.",
+      "conteudo": "As startups brasileiras receberam R$ 1,2 bilhão em investimentos no mês de abril de 2025, marcando o maior valor registrado desde 2022. O crescimento é atribuído ao aumento do interesse de investidores estrangeiros e à consolidação do ecossistema de inovação no país.\n\nSetores como fintechs, healthtechs e edtechs lideraram a captação de recursos, com destaque para empresas voltadas à inclusão financeira, inteligência artificial e soluções de saúde digital. A retomada da confiança no mercado e as políticas de incentivo à inovação também foram fatores decisivos para o resultado positivo.\n\nEspecialistas avaliam que o cenário é favorável para o empreendedorismo tecnológico e que a tendência é de crescimento contínuo, especialmente com a valorização de soluções sustentáveis, escaláveis e com impacto social.",
+      "id": "3",
+      "favoritado": false
+    },
+    {
+      "titulo": "Campanha de vacinação atinge 90% do público-alvo",
+      "imagem": "/img/img-noticia/vacina.jpg",
+      "resumo": "Vacinação contra gripe supera expectativas.",
+      "conteudo": "A campanha nacional de vacinação contra a gripe superou as expectativas ao alcançar 90% de cobertura do público-alvo em menos de um mês. De acordo com o Ministério da Saúde, mais de 50 milhões de pessoas foram imunizadas em todo o Brasil, com destaque para os grupos prioritários como idosos, gestantes, crianças e profissionais de saúde.\n\nO sucesso da campanha foi atribuído à ampla mobilização das redes de saúde, à divulgação em massa por meios de comunicação e à conscientização da população sobre a importância da vacina. A ação foi fundamental para conter o avanço de doenças respiratórias em um período de maior incidência.\n\nEspecialistas em saúde pública ressaltam que a alta adesão reforça a confiança da população no sistema de imunização brasileiro, considerado um dos mais eficientes do mundo.",
+      "id": "4",
+      "favoritado": false
+    },
+    {
+      "titulo": "Feira de Ciências movimenta escolas públicas",
+      "imagem": "/img/img-noticia/ciencia.jpeg",
+      "resumo": "Estudantes apresentam projetos inovadores.",
+      "conteudo": "A Feira Regional de Ciências mobilizou milhares de estudantes da rede pública, que apresentaram projetos inovadores em áreas como sustentabilidade, tecnologia e saúde. O evento, realizado em parceria com universidades e centros de pesquisa, teve como objetivo incentivar o pensamento científico e a criatividade entre os jovens.\n\nEntre os destaques estavam um filtro de água feito com materiais recicláveis, um aplicativo para controle emocional e um sistema de irrigação inteligente para hortas urbanas. Os melhores trabalhos foram premiados com bolsas de estudos, kits de robótica e convites para participar de feiras internacionais.\n\nProfessores e organizadores celebraram o sucesso da iniciativa, que reforça a importância de investir em educação científica desde os primeiros anos escolares.",
+      "id": "5",
+      "favoritado": false
+    },
+    {
+      "titulo": "Mercado financeiro reage a mudanças fiscais",
+      "imagem": "/img/img-noticia/mercado.jpg",
+      "resumo": "Volatilidade nos mercados, mas há otimismo.",
+      "conteudo": "As recentes mudanças na política fiscal do governo federal provocaram volatilidade nos mercados financeiros, com impacto direto nas taxas de juros e no valor do real frente ao dólar. Apesar da instabilidade inicial, analistas mantêm uma perspectiva otimista para o médio prazo.\n\nAs reformas anunciadas visam reduzir o déficit público e aumentar a arrecadação por meio da modernização tributária. Investidores têm monitorado de perto as propostas que envolvem o novo arcabouço fiscal, que deve substituir o teto de gastos.\n\nEspecialistas apontam que a reação positiva dos mercados dependerá da capacidade do governo de implementar as mudanças com responsabilidade e diálogo com o setor produtivo. Enquanto isso, ativos considerados mais seguros, como ouro e dólar, registraram leve valorização, enquanto ações de empresas ligadas à infraestrutura tiveram maior volatilidade.",
+      "id": "6",
+      "favoritado": false
+    }
+  ],
   "investimento": [
     {
       "id": "1",
@@ -230,6 +229,15 @@
       "usuario": "jjoaobeco",
       "senha": "beco123",
       "salario": "1500"
+    },
+    {
+      "id": "c344",
+      "nome": "cavaloputao",
+      "data": "2007-02-01",
+      "endereco": "avenida edmeia lazzaroti",
+      "usuario": "danton.diniz@gmail.com",
+      "senha": "MfK6Qck6R66N65d",
+      "salario": "500"
     }
   ]
 }
