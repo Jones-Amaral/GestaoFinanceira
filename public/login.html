@@ -108,7 +108,7 @@
       const usuario = document.getElementById("loginUsuario").value;
       const senha = document.getElementById("loginSenha").value;
 
-      fetch(`https://gestao-financeira-git-main-joao-amarals-projects.vercel.app/usuarios?usuario=${encodeURIComponent(usuario)}&senha=${encodeURIComponent(senha)}.json`)
+      fetch(`https://gestao-financeira-git-main-joao-amarals-projects.vercel.app/usuarios?usuario=${encodeURIComponent(usuario)}&senha=${encodeURIComponent(senha)}`)
         .then(res => res.json())
         .then(users => {
           if (users.length === 1) {
