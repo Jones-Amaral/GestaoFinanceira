@@ -1,7 +1,7 @@
 'use strict';
 
 // --- CONFIGURAÇÃO ---
-const API_URL = "http://localhost:3000/metas";
+const API_URL = "https://gestao-financeira-git-main-joao-amarals-projects.vercel.app/metas.json";
 
 // --- SELETORES DO DOM ---
 const btnNovaMeta = document.getElementById("btnNovaMeta");

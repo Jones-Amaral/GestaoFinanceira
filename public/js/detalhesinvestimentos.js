@@ -15,7 +15,7 @@ async function carregarDetalhes() {
   }
 
   try {
-    const url = `http://localhost:3000/investimento/${id}`;
+    const url = `https://gestao-financeira-git-main-joao-amarals-projects.vercel.app//investimento/${id}.json`;
     console.log("Buscando dados em:", url);
 
     const resposta = await fetch(url);
@@ -47,7 +47,7 @@ async function carregarComentarios(id) {
   lista.innerHTML = '';
 
   try {
-    const resposta = await fetch(`http://localhost:3000/investimento/${id}`);
+    const resposta = await fetch(`https://gestao-financeira-git-main-joao-amarals-projects.vercel.app/investimento/${id}.json`);
     if (!resposta.ok) throw new Error("Investimento não encontrado para carregar comentários");
 
     const investimento = await resposta.json();
@@ -71,7 +71,7 @@ async function salvarComentario(id, texto) {
   try {
 
     // Busca investimento atual
-    const res = await fetch(`http://localhost:3000/investimento/${id}`);
+    const res = await fetch(`https://gestao-financeira-git-main-joao-amarals-projects.vercel.app/investimento/${id}.json`);
     if (!res.ok) throw new Error("Investimento não encontrado para salvar comentário");
 
     const investimento = await res.json();
@@ -86,7 +86,7 @@ async function salvarComentario(id, texto) {
     investimento.comentario.push(novoComentario);
 
     // Atualiza investimento inteiro via PUT
-    const putRes = await fetch(`http://localhost:3000/investimento/${id}`, {
+    const putRes = await fetch(`https://gestao-financeira-git-main-joao-amarals-projects.vercel.app/investimento/${id}.json`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(investimento)

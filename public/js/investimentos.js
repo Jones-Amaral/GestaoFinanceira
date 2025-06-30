@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const prevBtn = document.querySelector('.prev');
   const resumoContainer = document.getElementById("resumo-investimento");
 
-  fetch('http://localhost:3000/investimento')
+  fetch('https://gestao-financeira-git-main-joao-amarals-projects.vercel.app/investimento.json')
     .then(res => res.json())
     .then(data => {
       investimentosData = data; // Guarda todos os investimentos
@@ -42,11 +42,11 @@ document.addEventListener("DOMContentLoaded", () => {
           const id = btn.getAttribute('data-id');
 
           try {
-            const res = await fetch(`http://localhost:3000/investimento/${id}`);
+            const res = await fetch(`https://gestao-financeira-git-main-joao-amarals-projects.vercel.app/investimento/${id}.json`);
             const investimento = await res.json();
             const novoStatus = !investimento.favoritado;
 
-            await fetch(`http://localhost:3000/investimento/${id}`, {
+            await fetch(`https://gestao-financeira-git-main-joao-amarals-projects.vercel.app/investimento/${id}.json`, {
               method: 'PATCH',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({ favoritado: novoStatus })
