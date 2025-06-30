@@ -1,6 +1,6 @@
 let chartInstance = null;
 
-const API_URL = 'https://gestao-financeira-git-main-joao-amarals-projects.vercel.app/gastos.json';
+const API_URL = 'https://dbgestao-1208c-default-rtdb.firebaseio.com/gastos.json';
 const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado")); // ← usuário logado
 
 // Função para buscar apenas os gastos do usuário logado

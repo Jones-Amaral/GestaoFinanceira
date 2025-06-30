@@ -78,7 +78,7 @@
       const novoUsuario = { nome, data, endereco, usuario, senha, salario };
 
       // Antes de cadastrar, verificar se usuário já existe
-      fetch("https://gestao-financeira-git-main-joao-amarals-projects.vercel.app/usuarios?usuario=" + encodeURIComponent(usuario))
+      fetch("https://dbgestao-1208c-default-rtdb.firebaseio.com/usuarios?usuario=" + encodeURIComponent(usuario))
         .then(res => res.json())
         .then(existingUsers => {
           if (existingUsers.length > 0) {
@@ -86,7 +86,7 @@
             return;
           }
           // Cadastrar
-          fetch("https://gestao-financeira-git-main-joao-amarals-projects.vercel.app/usuarios.json", {
+          fetch("https://dbgestao-1208c-default-rtdb.firebaseio.com/usuarios.json", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(novoUsuario),
@@ -108,7 +108,7 @@
       const usuario = document.getElementById("loginUsuario").value;
       const senha = document.getElementById("loginSenha").value;
 
-      fetch(`https://gestao-financeira-git-main-joao-amarals-projects.vercel.app/usuarios?usuario=${encodeURIComponent(usuario)}&senha=${encodeURIComponent(senha)}`)
+      fetch(`https://dbgestao-1208c-default-rtdb.firebaseio.com/usuarios?usuario=${encodeURIComponent(usuario)}&senha=${encodeURIComponent(senha)}`)
         .then(res => res.json())
         .then(users => {
           if (users.length === 1) {

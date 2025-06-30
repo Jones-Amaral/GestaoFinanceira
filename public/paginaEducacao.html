@@ -200,11 +200,11 @@
     <script>
         async function favorito(iconElement, id) {
             try {
-                const res = await fetch(`http://localhost:3000/educacao/${id}`);
+                const res = await fetch(`https://dbgestao-1208c-default-rtdb.firebaseio.com/educacao/${id}`);
                 const data = await res.json();
                 const novoStatus = !data.favoritado;
 
-                await fetch(`http://localhost:3000/educacao/${id}`, {
+                await fetch(`https://dbgestao-1208c-default-rtdb.firebaseio.com/educacao/${id}`, {
                     method: "PATCH",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ favoritado: novoStatus })
