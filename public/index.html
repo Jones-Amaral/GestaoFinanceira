@@ -139,8 +139,7 @@
 
   <script>
     window.onload = () => {
-
-      fetch("http://localhost:3000/educacao")
+      fetch(`https://dbgestao-1208c-default-rtdb.firebaseio.com/educacao.json`)
         .then(res => res.json())
         .then(data => {
           const educacao = document.getElementById("educacao")
@@ -174,8 +173,7 @@
           educacao.innerHTML = strEducacao;
         }).catch(err => console.error(err));
 
-
-      fetch("http://localhost:3000/noticias")
+      fetch(`https://dbgestao-1208c-default-rtdb.firebaseio.com/noticias.json`)
         .then(res => res.json())
         .then(data => {
           const noticia = document.getElementById("noticias");
@@ -204,8 +202,7 @@
         })
         .catch(err => console.error(err));
 
-
-      fetch("http://localhost:3000/investimento")
+      fetch(`https://dbgestao-1208c-default-rtdb.firebaseio.com/investimento.json`)
         .then(res => res.json())
         .then(data => {
           const investimento = document.getElementById("investimentos")
