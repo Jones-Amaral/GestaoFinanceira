@@ -28,7 +28,7 @@ document.getElementById('formCadastro').addEventListener('submit', function(even
   };
 
   // Envia para o JSON Server
-  fetch('https://gestao-financeira-git-main-joao-amarals-projects.vercel.app/usuarios.json', {
+  fetch('https://dbgestao-1208c-default-rtdb.firebaseio.com/usuarios.json', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
