@@ -11,13 +11,13 @@ document.getElementById("formCadastro")?.addEventListener("submit", function (e)
 
   const novoUsuario = { nome, data, endereco, usuario, senha, salario };
 
-  fetch(`http://localhost:3000/usuarios?usuario=${usuario}`)
+  fetch(`/usuarios?usuario=${usuario}`)
     .then(res => res.json())
     .then(dados => {
       if (dados.length > 0) {
         alert("Usuário já existe!");
       } else {
-        return fetch("http://localhost:3000/usuarios", {
+        return fetch("https://gestao-financeira-git-main-joao-amarals-projects.vercel.app/usuarios.json", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(novoUsuario)
@@ -43,7 +43,7 @@ function fazerLogin() {
   const usuario = document.getElementById("usuario").value;
   const senha = document.getElementById("senha").value;
 
-  fetch(`http://localhost:3000/usuarios?usuario=${usuario}&senha=${senha}`)
+  fetch(`https://gestao-financeira-git-main-joao-amarals-projects.vercel.app/usuarios?usuario=${usuario}&senha=${senha}.json`)
     .then(res => res.json())
     .then(dados => {
       if (dados.length === 1) {
@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
       salario: document.getElementById("salario").value
     };
 
-    fetch(`http://localhost:3000/usuarios/${user.id}`, {
+    fetch(`https://gestao-financeira-git-main-joao-amarals-projects.vercel.app/usuarios/${user.id}.json`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"

@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const container = document.getElementById('noticias-container');
 
   try {
-    const response = await fetch('http://localhost:3000/noticias'); // Caminho absoluto
+    const response = await fetch('https://gestao-financeira-git-main-joao-amarals-projects.vercel.app/noticias.json'); // Caminho absoluto
     if (!response.ok) throw new Error('Erro ao buscar notícias');
 
     const noticias = await response.json();
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   async function toggleFavorito(id, icon) {
     try {
-      const url = `http://localhost:3000/noticias/${id}`;
+      const url = `https://gestao-financeira-git-main-joao-amarals-projects.vercel.app/noticias/${id}.json`;
       const res = await fetch(url);
       if (!res.ok) throw new Error('Erro ao buscar notícia para favoritar');
 
