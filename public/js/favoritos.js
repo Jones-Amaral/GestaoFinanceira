@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     let favoritosTotais = [];
 
     for (const categoria of categorias) {
-      const response = await fetch(`http://localhost:3000/${categoria}`);
+      const response = await fetch(`https://gestao-financeira-git-main-joao-amarals-projects.vercel.app/${categoria}.json`);
       if (!response.ok) throw new Error(`Erro ao buscar ${categoria}`);
       const dados = await response.json();
 
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     async function toggleFavorito(id, categoria, icon, card) {
-      const url = `http://localhost:3000/${categoria}/${id}`;
+      const url = `https://gestao-financeira-git-main-joao-amarals-projects.vercel.app/${categoria}/${id}.json`;
       const res = await fetch(url);
       const item = await res.json();
       const novoStatus = !item.favoritado;

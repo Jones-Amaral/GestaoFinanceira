@@ -177,7 +177,7 @@
             const messagesListDiv = document.getElementById('messages-list');
             if (!messagesListDiv) return;
 
-            fetch('http://localhost:3000/messages')
+            fetch('https://gestao-financeira-git-main-joao-amarals-projects.vercel.app/messages')
                 .then(response => response.json())
                 .then(messages => {
                     messagesListDiv.innerHTML = '';
@@ -234,7 +234,7 @@
                         author: nomeDoAutor
                     };
 
-                    fetch('http://localhost:3000/messages', {
+                    fetch('https://gestao-financeira-git-main-joao-amarals-projects.vercel.app/messages', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(newMessage), // Envia o objeto completo

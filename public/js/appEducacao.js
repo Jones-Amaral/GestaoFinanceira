@@ -114,7 +114,7 @@ function criarNoticia() {
       return;
     }
 
-    const resposta = await fetch(`http://localhost:3000/${categoria}`);
+    const resposta = await fetch(`https://gestao-financeira-git-main-joao-amarals-projects.vercel.app/${categoria}.json`);
     const dados = await resposta.json();
 
     const novoId = dados.length > 0
@@ -162,7 +162,7 @@ function criarNoticia() {
       comentario: []
     };
 
-    fetch(`http://localhost:3000/${categoria}`, {
+    fetch(`https://gestao-financeira-git-main-joao-amarals-projects.vercel.app/${categoria}.json`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -218,12 +218,12 @@ function mostrarNoticias() {
     `;
   }
   function favorito(iconElement, id) {
-    fetch(`http://localhost:3000/educacao/${id}`)
+    fetch(`https://gestao-financeira-git-main-joao-amarals-projects.vercel.app/educacao/${id}.json`)
       .then(res => res.json())
       .then(data => {
         const novoStatus = !data.favoritado;
 
-        return fetch(`http://localhost:3000/educacao/${id}`, {
+        return fetch(`https://gestao-financeira-git-main-joao-amarals-projects.vercel.app/educacao/${id}.json`, {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json"
@@ -264,11 +264,11 @@ function EnviarComentario() {
   }
 
   /* Fetch para adicionar o comentário */
-  fetch(`http://localhost:3000/educacao/${id}`)
+  fetch(`https://gestao-financeira-git-main-joao-amarals-projects.vercel.app/educacao/${id}.json`)
     .then(res => res.json())
     .then(noticia => {
       noticia.comentario.push(novoComentario);
-      return fetch(`http://localhost:3000/educacao/${id}`, {
+      return fetch(`https://gestao-financeira-git-main-joao-amarals-projects.vercel.app/educacao/${id}.json`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json"

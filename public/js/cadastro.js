@@ -28,7 +28,7 @@ document.getElementById('formCadastro').addEventListener('submit', function(even
   };
 
   // Envia para o JSON Server
-  fetch('http://localhost:3000/usuarios', {
+  fetch('https://gestao-financeira-git-main-joao-amarals-projects.vercel.app/usuarios.json', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
