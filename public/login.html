@@ -78,7 +78,7 @@
       const novoUsuario = { nome, data, endereco, usuario, senha, salario };
 
       // Antes de cadastrar, verificar se usuário já existe
-      fetch("https://gestao-financeira-git-main-joao-amarals-projects.vercel.app/usuarios?usuario=.json" + encodeURIComponent(usuario))
+      fetch("https://gestao-financeira-git-main-joao-amarals-projects.vercel.app/usuarios?usuario=" + encodeURIComponent(usuario))
         .then(res => res.json())
         .then(existingUsers => {
           if (existingUsers.length > 0) {
