@@ -43,7 +43,7 @@ function fazerLogin() {
   const usuario = document.getElementById("usuario").value;
   const senha = document.getElementById("senha").value;
 
-  fetch(`https://gestao-financeira-git-main-joao-amarals-projects.vercel.app/usuarios?usuario=${usuario}&senha=${senha}.json`)
+  fetch(`https://gestao-financeira-git-main-joao-amarals-projects.vercel.app/login?usuario=${usuario}&senha=${senha}.json`)
     .then(res => res.json())
     .then(dados => {
       if (dados.length === 1) {
