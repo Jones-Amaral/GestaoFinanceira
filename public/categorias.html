@@ -265,7 +265,7 @@
             for (const categoria of categoriasDoJSON) {
                 try {
                     // Esta é a URL que DEVE apontar para o JSON Server!
-                    const response = await fetch(`https://gestao-financeira-git-main-joao-amarals-projects.vercel.app/${categoria}.json`);
+                    const response = await fetch(`https://dbgestao-1208c-default-rtdb.firebaseio.com/${categoria}.json`);
                     if (!response.ok) {
                         console.warn(`Aviso: Não foi possível carregar a categoria ${categoria} do JSON Server. Status: ${response.status} ${response.statusText}`);
                         continue;
